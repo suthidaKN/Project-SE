@@ -10,7 +10,6 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
     $action = 'home';
 }
 ?>
-
 <html>
 <head>
     <meta charset="UTF-8">
@@ -27,45 +26,75 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
+    
+     
+    <style>
+        body{
+                background-image: linear-gradient(#91FFE5,#CB8DF5);
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                
+            }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 15%;
+            background-color:#FFF;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+        }
 
-<style>
-  
-@keyframes shine {
-  0% {
-    background-position-x: -500%;
-  }
-  100% {
-    background-position-x: 500%;
-  }
-}
-</style>
+        li a {
+            display: block;
+            color: #7863a0;
+            padding: 8px 16px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        li a.active {
+            background-color: #FFFFFF;
+            color: white;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #7863a0;
+            color: white;
+        }
+
+        
+        h5{
+            background-color: #0fcbff;
+            font-size: 15px;
+        }
+       
+
+    </style>
 </head>
 <body>
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark" style="background-color: #fff;">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="?controller=pages&action=home">
-      <img src="./images/logo.png" style="width: 80px; height: 80px;">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div style="text-align: end;">
-            <a class="nav-link active" aria-current="page"  style="width: 100px;  background: #cc99ff; color: #3D0377; font-size: 15px; font-weight: 400; text-align: center; border-radius: 25px;" href="./login.php">เข้าสู่ระบบ</a>
-      </div>
-  </div>
-</nav>
-   
-<div style="background-color: #04FFC4; text-align: center;" class="text-light">
+    <ul>
+        <li>  <a class="active" style="text-align: center;" href="?controller=pages&action=home">
+      <img src="./images/logo.png" style="width: 100px; height: 100px;">
+    </a></li>
+        <li><a href="?controller=pages&action=index">หน้าหลัก</a></li>
+        <li><a href="?controller=pages&action=index">รายชื่อสถานประกอบการ</a></li>
+        <li><a href="?controller=pages&action=index">ยื่นคำร้องขอฝึกงาน</a></li>
+        <li><a href="?controller=pages&action=index">ตรวจสอบผลการอนุมัติ</a></li>
+        <li><a href="?controller=pages&action=index">ส่งรายงานการฝึกงาน</a></li>
+        <li><a href="?controller=pages&action=index">ตรวจสอบผลการฝึกงาน</a></li>
 
+        <li><a href="./Logout.php">ออกจากระบบ</a></li>
+    </ul>
+    <div style="margin-left:15%;">
             <?php echo "controller = ".$controller.", action = ".$action;?>
-
-            </div>
             <?php require_once("./routes.php");?>
         
+            
             <footer class="text-center text-lg-start text-light"style="background-color: #9933ff">
           <div class="container p-4">
             <div class="row" >
-            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+              <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
                 <h4 class="text-uppercase">Member</h4>
                 <h6>Pheeraya   Pechsangkoon       6220500695</h6>
                 <h6>Weerawut   Srikasem           6220502108</h6>
@@ -85,6 +114,9 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
             </div>
           </div>
         </footer>
+            
+    </div>
+        
 </body>   
 
 
