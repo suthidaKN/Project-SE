@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 if(isset($_GET['controller'])&&isset($_GET['action']))
 {
     $controller = $_GET['controller'];
@@ -54,7 +54,7 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
         }
 
         li a.active {
-            background-color: #FFFFFF;
+            background-color: #08571C;
             color: white;
         }
 
@@ -74,15 +74,41 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
 </head>
 <body>
     <ul>
-        <li>  <a class="active" style="text-align: center;" href="?controller=pages&action=home">
-      <img src="./images/logo.png" style="width: 100px; height: 100px;">
-    </a></li>
-        <li><a href="?controller=pages&action=index">หน้าหลัก</a></li>
-        <li><a href="?controller=pages&action=index">รายชื่อสถานประกอบการ</a></li>
-        <li><a href="?controller=pages&action=index">ยื่นคำร้องขอฝึกงาน</a></li>
-        <li><a href="?controller=pages&action=index">ตรวจสอบผลการอนุมัติ</a></li>
-        <li><a href="?controller=pages&action=index">ส่งรายงานการฝึกงาน</a></li>
-        <li><a href="?controller=pages&action=index">ตรวจสอบผลการฝึกงาน</a></li>
+        <a style="text-align: center;" href="?controller=pages&action=home">
+          <img src="./images/logo.png" style="width: 175px; height: 100px;">
+        </a>
+        <?php
+          require_once("./models/accountModel.php");
+          $account = Account::getID($_SESSION["user"]);
+          if(!is_null($account->stuID)){ ?>
+            <li><a class="active" ><?php echo "$account->titleName$account->stuFN $account->stuLN" ?></a> </li>
+            <li><a href="?controller=pages&action=home">หน้าหลัก</a></li>
+            <li><a href="?controller=pages&action=company">รายชื่อสถานประกอบการ</a></li>
+            <li><a href="?controller=student&action=index">ยื่นคำร้องขอฝึกงาน</a></li>
+            <li><a href="?controller=student&action=index">ตรวจสอบผลการอนุมัติ</a></li>
+            <li><a href="?controller=student&action=index">ส่งรายงานการฝึกงาน</a></li>
+            <li><a href="?controller=student&action=index">ตรวจสอบผลการฝึกงาน</a></li>
+          <?php
+          }
+          elseif(!is_null($account->pID)){ ?>
+            <li><a class="active" ><?php echo "$account->pTitle$account->pFN $account->pLN" ?></a> </li>
+            <li><a href="?controller=prof&action=home">หน้าหลัก</a></li>
+            <li><a href="?controller=prof&action=company">รายชื่อสถานประกอบการ</a></li>
+            <li><a href="?controller=prof&action=index">ตรวจสอบคำร้องของนิสิต</a></li>
+            <li><a href="?controller=prof&action=index">ตรวจสอบรายงาน</a></li>
+            <li><a href="?controller=prof&action=index">ตรวจสอบประวัตินิสิต</a></li>
+         <?php
+          }
+          elseif(!is_null($account->oID)){ ?>
+            <li><a class="active" ><?php echo "$account->oFN $account->oLN" ?></a> </li>
+            <li><a href="?controller=officer&action=home">หน้าหลัก</a></li>
+            <li><a href="?controller=officer&action=company">รายชื่อสถานประกอบการ</a></li>
+            <li><a href="?controller=officer&action=index">ตรวจสอบคำร้องของนิสิต</a></li>
+            <li><a href="?controller=officer&action=index">ตรวจสอบรายงาน</a></li>
+          <?php
+          }
+          
+        ?>
 
         <li><a href="./Logout.php">ออกจากระบบ</a></li>
     </ul>
@@ -91,7 +117,7 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
             <?php require_once("./routes.php");?>
         
             
-            <footer class="text-center text-lg-start text-light"style="background-color: #9933ff">
+        <footer class="text-center text-lg-start text-light"style="background-color: #9933ff">
           <div class="container p-4">
             <div class="row" >
               <div class="col-lg-6 col-md-12 mb-4 mb-md-0">

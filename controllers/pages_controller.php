@@ -6,6 +6,9 @@
         }
         public function error(){   
             require_once("./views/pages/error.php"); 
-        }        
+        }       
+        public function company() {
+            require_once("./views/pages/company.php");
+        }
     }
 ?>

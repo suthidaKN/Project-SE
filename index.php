@@ -1,5 +1,6 @@
 <?php
-
+session_start();
+session_destroy();
 if(isset($_GET['controller'])&&isset($_GET['action']))
 {
     $controller = $_GET['controller'];
@@ -44,7 +45,7 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark" style="background-color: #fff;">
   <div class="container-fluid">
     <a class="navbar-brand" href="?controller=pages&action=home">
-      <img src="./images/logo.png" style="width: 80px; height: 80px;">
+      <img src="./images/logo.png" style="width: 140px; height: 80px;">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
