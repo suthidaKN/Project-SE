@@ -1,6 +1,8 @@
 <?php
 
-$controllers = array('pages'=>['home', 'error' , 'company'], );
+$controllers = array('pages'=>['home', 'error' , 'company'], 
+                     'prof'=>[],
+                     'student'=>[]);
 function call($controller, $action){
     require_once("controllers/".$controller."_controller.php");
     switch($controller)
