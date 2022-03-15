@@ -9,6 +9,22 @@ function call($controller, $action){
     {
         case "pages":   $controller = new PagesController();
                         break;
+        case "student":   
+
+
+
+
+
+
+
+
+
+
+
+            
+                        break;
+        case "prof":   
+                        break;
 
     }
 
