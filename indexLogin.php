@@ -24,6 +24,7 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
 ?>
 <html>
 <head>
+    <title>OIMS</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -95,6 +96,7 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
             <li><a href="?controller=student&action=index">ตรวจสอบผลการอนุมัติ</a></li>
             <li><a href="?controller=student&action=index">ส่งรายงานการฝึกงาน</a></li>
             <li><a href="?controller=student&action=index">ตรวจสอบผลการฝึกงาน</a></li>
+            <li><a href="?controller=pages&action=logout">ออกจากระบบ</a></li>
           <?php
           }
           elseif(!is_null($account->pID)){ ?>
@@ -107,6 +109,7 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
             <li><a href="?controller=prof&action=request">ตรวจสอบคำร้องของนิสิต</a></li>
             <li><a href="?controller=prof&action=index">ตรวจสอบรายงาน</a></li>
             <li><a href="?controller=prof&action=index">ตรวจสอบประวัตินิสิต</a></li>
+            <li><a href="?controller=pages&action=logout">ออกจากระบบ</a></li>
          <?php
           }
           elseif(!is_null($account->oID)){ ?>
@@ -118,12 +121,11 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
             <li><a href="?controller=officer&action=company">รายชื่อสถานประกอบการ</a></li>
             <li><a href="?controller=officer&action=index">ตรวจสอบคำร้องของนิสิต</a></li>
             <li><a href="?controller=officer&action=index">ตรวจสอบรายงาน</a></li>
+            <li><a href="?controller=pages&action=logout">ออกจากระบบ</a></li>
           <?php
           }
           
         ?>
-
-        <li><a href="./Logout.php">ออกจากระบบ</a></li>
     </ul>
     <div style="margin-left:15%;">
             <?php echo "controller = ".$controller.", action = ".$action;?>

@@ -4,8 +4,63 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@500&family=Kanit&family=Short+Stack&family=Sriracha&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+  <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="jqueryui/style.css">
+  <script>
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+  });
+  </script>
     <style>
+.dropbtn {
+  background-color: #CE85FF; 
+  color: #fff;
+  padding: 10px;
+  font-size: 17px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
 
+.dropdown {
+  position: relative;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #F6DAFF;
+  min-width: 160px;
+  text-align: start;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #440058;
+  font-family: 'Kanit', sans-serif ;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border-radius: 10px;
+}
+
+.dropdown-content a:hover {background-color: #440058;color:#F6DAFF;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
 @keyframes shine {
   0% {
     background-position-x: -500%;
@@ -64,20 +119,21 @@ p3{
   font-size: 18px;
   font-weight: 600;
   font-family: 'Kanit', sans-serif;
-  color: #d0a200;
+  color: #FFC802;
 }
 p4{
   font-size: 18px;
   font-weight: 600;
   font-family: 'Kanit', sans-serif;
-  color: #006c68;
+  color: #00AA25;
 }
 p5{
   font-size: 18px;
   font-weight: 600;
   font-family: 'Kanit', sans-serif;
-  color: #b40202;
+  color: #FF0202;
 }
+
 
     /*.box:hover{background: #C9C9CC; color: #fff;}
     .box1:hover{background: #b0b0ff; color: #fff;}
@@ -97,11 +153,45 @@ p5{
                 <div class="box1">
                     <form method ="get" action="">
                         <input type = "text" placeholder="Search..." name = "key" style="width:78%; border-radius: 50px;  padding: 10px; font-size: 17px; border: none; background: #FEF5FF;">
-                        <input type = "hidden" name = "controller" value = "register"/>
+                        <input type = "hidden" name = "controller" value = "prof"/>
                         <button type = "submit" name = "action" value = "search" style="width:20%; border-radius: 50px;  padding: 10px; background: #8A8A8A; color: white; border: none; font-size: 17px; border-left: none; cursor: pointer;">ค้นหา...</button>
                     </form>
                 </div>
             </div> 
+        </div>
+        <div style="text-align: center;">
+        <form method ="get" action="">
+            <a class="btn btn-default" style="background-color: #9900FF; color: #fff" href=?controller=prof&action=request>คำร้องทั้งหมด</a>
+            <div class="dropdown">
+                <p6 class="dropbtn">ค้นหาตามสถานะ</p6>
+                <div class="dropdown-content">
+                    <a href=?controller=prof&action=search&<?php echo "key=อนุมัติ"?>>อนุมัติ</a>
+                    <a href=?controller=prof&action=search&<?php echo "key=ไม่อนุมัติ"?>>ไม่อนุมัติ</a>
+                    <a href=?controller=prof&action=search&<?php echo "key=รอการตรวจสอบ"?>>รอการตรวจสอบ</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <p6 class="dropbtn">ค้นหาตามปีการศึกษา</p6>
+                <div class="dropdown-content">
+                    <a href=?controller=prof&action=search&<?php echo "key=2560"?>>2560</a>
+                    <a href=?controller=prof&action=search&<?php echo "key=2561"?>>2561</a>
+                    <a href=?controller=prof&action=search&<?php echo "key=2562"?>>2562</a>
+                    <a href=?controller=prof&action=search&<?php echo "key=2563"?>>2563</a>
+                    <a href=?controller=prof&action=search&<?php echo "key=2564"?>>2564</a>
+                    
+                </div>
+            </div>
+            <div class="dropdown" >
+                <p6 class="dropbtn" >ค้นหาตามวันที่</p6>
+                <div class="dropdown-content" >
+                    <input type="text" name="key" style="border-radius: 8px;  padding: 6px; font-size: 17px; border: none;" value="" placeholder="--เลือกวันที่--" id="datepicker"/>
+                    <input type = "hidden" name = "controller" value = "prof"/>
+                    <button class="btn btn-default" type="submit" name="action" value="search" style="background-color: #9900FF; color: #fff" >ค้นหา</button>  
+                </div>
+            </div>
+            </form>        
+        </div>
+        <div class="row" >
             <div class="column">
                 <div class="box" style="background-color: #006c68;">
                     <div class="column2">
@@ -160,7 +250,7 @@ p5{
             }
             ?>
         </div>
-         <br><br><br>
+         <br><br><br><br><br><br>
 </div>
 </body>
 </html>

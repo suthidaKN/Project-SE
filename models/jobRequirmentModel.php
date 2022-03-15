@@ -156,6 +156,146 @@ class JobRequirment{
         return $JobRequirmentlist;
     }
 
+    public static function search($key){
+
+        $JobRequirmentlist = [];
+        require("./connection_connect.php");
+        $sql = "SELECT *FROM jobrequirment
+        LEFT JOIN students ON students.stuID = jobrequirment.JStu
+        LEFT JOIN company  ON company.CompanyID = jobrequirment.JCompany
+        LEFT JOIN prof  ON prof.pID = jobrequirment.JProf
+        LEFT JOIN jobtype  ON jobtype.JobTypeID = jobrequirment.Jtype
+        LEFT JOIN title  ON title.titleID = students.stuTitle
+        LEFT JOIN appproved  ON  appproved.aID = jobrequirment.JApprove
+        LEFT JOIN pass  ON pass.PassID = jobrequirment.JPass
+        LEFT JOIN districts on districts.district_id = company.CTumbon
+        LEFT JOIN amphures on amphures.amphure_id = districts.amphure_id
+        LEFT JOIN provinces ON provinces.province_id = amphures.province_id
+        WHERE students.stuFN like '%$key%'
+        or appproved.aName like '$key'
+        or company.CompanyName like '%$key%'
+        or students.stuYear like '%$key%'
+        or jobrequirment.JDate like '%$key%'
+        order by students.stuID";
+        $result = $conn->query($sql);
+        while($my_row = $result->fetch_assoc()){
+
+            $JobID = $my_row['JID'];
+            $JobTypeID = $my_row['JobTypeID'];
+            $JobTypeName = $my_row['JobTypeName'];
+            $JobDate = $my_row['JDate'];
+            $stuID = $my_row['stuID'];
+            $stuFN = $my_row['stuFN'];
+            $stuLN = $my_row['stuLN'];
+            $stuPhone = $my_row['stuPhone'];
+            $stuFB = $my_row['stuFB'];
+            $titleID = $my_row['titleID'];
+            $titleName = $my_row['titleName'];
+            $pID = $my_row['pID'];
+            $pTitle = $my_row['pTitle'];
+            $pFN = $my_row['pName'];
+            $pLN = $my_row['pLastname'];
+            $pEmail = $my_row['pEmail'];
+            $pPhone = $my_row['pPhone'];
+            $approvedID = $my_row['aID'];
+            $approvedName = $my_row['aName'];
+            $passID = $my_row['PassID'];
+            $passName = $my_row['PassName'];
+            $cID = $my_row['CompanyID'];
+            $cName = $my_row['CompanyName'];
+            $cAddress = $my_row['CAddress'];
+            $cStreet = $my_row['CStreet'];
+            $districtsID = $my_row['district_id'];
+            $zipcode = $my_row['zip_code'];
+            $districtsName = $my_row['district_name_th'];
+            $amphureID = $my_row['amphure_id'];
+            $amphureName = $my_row['amphure_name_th'];
+            $provinceID = $my_row['province_id'];
+            $provinceName = $my_row['province_name_th'];
+            $JobPosition = $my_row['JPosition'];
+            $JobBossName = $my_row['JBossName'];
+            $JobBossPosition = $my_row['JBossPosition'];
+            $JobCoordinatorName = $my_row['JCoordinatorName'];
+            $JobCoordinatorTel = $my_row['JCoordinatorTel'];
+            $JobCoordinatorEmail = $my_row['JCoordinatorEmail'];
+            $JobStartDate = $my_row['JStartDate'];
+            $JobEndDate = $my_row['JEndDate'];
+            $JobPay = $my_row['JPay'];
+            $JobAccommodation = $my_row['JAccommodation'];
+            $JobRequirmentlist[] = new JobRequirment($JobID,$JobTypeID,$JobTypeName,$JobDate,$stuID,$stuFN, $stuLN,$stuPhone,$stuFB,$titleID,$titleName,$pID,$pTitle,$pFN,$pLN,$pEmail,$pPhone,$approvedID,$approvedName,$passID,$passName,$cID,$cName,$cAddress,$cStreet,$districtsID,$zipcode,$districtsName,$amphureID,$amphureName,$provinceID,$provinceName,$JobPosition,$JobBossName,$JobBossPosition,$JobCoordinatorName,$JobCoordinatorTel,$JobCoordinatorEmail,$JobStartDate,$JobEndDate,$JobPay,$JobAccommodation);
+        }
+        require("./connection_close.php");
+        return $JobRequirmentlist;
+    }
+
+    public static function searchNull(){
+
+        $JobRequirmentlist = [];
+        require("./connection_connect.php");
+        $sql = "SELECT *FROM jobrequirment
+        LEFT JOIN students ON students.stuID = jobrequirment.JStu
+        LEFT JOIN company  ON company.CompanyID = jobrequirment.JCompany
+        LEFT JOIN prof  ON prof.pID = jobrequirment.JProf
+        LEFT JOIN jobtype  ON jobtype.JobTypeID = jobrequirment.Jtype
+        LEFT JOIN title  ON title.titleID = students.stuTitle
+        LEFT JOIN appproved  ON  appproved.aID = jobrequirment.JApprove
+        LEFT JOIN pass  ON pass.PassID = jobrequirment.JPass
+        LEFT JOIN districts on districts.district_id = company.CTumbon
+        LEFT JOIN amphures on amphures.amphure_id = districts.amphure_id
+        LEFT JOIN provinces ON provinces.province_id = amphures.province_id
+        WHERE jobrequirment.JApprove is null
+        order by students.stuID";
+        $result = $conn->query($sql);
+        while($my_row = $result->fetch_assoc()){
+
+            $JobID = $my_row['JID'];
+            $JobTypeID = $my_row['JobTypeID'];
+            $JobTypeName = $my_row['JobTypeName'];
+            $JobDate = $my_row['JDate'];
+            $stuID = $my_row['stuID'];
+            $stuFN = $my_row['stuFN'];
+            $stuLN = $my_row['stuLN'];
+            $stuPhone = $my_row['stuPhone'];
+            $stuFB = $my_row['stuFB'];
+            $titleID = $my_row['titleID'];
+            $titleName = $my_row['titleName'];
+            $pID = $my_row['pID'];
+            $pTitle = $my_row['pTitle'];
+            $pFN = $my_row['pName'];
+            $pLN = $my_row['pLastname'];
+            $pEmail = $my_row['pEmail'];
+            $pPhone = $my_row['pPhone'];
+            $approvedID = $my_row['aID'];
+            $approvedName = $my_row['aName'];
+            $passID = $my_row['PassID'];
+            $passName = $my_row['PassName'];
+            $cID = $my_row['CompanyID'];
+            $cName = $my_row['CompanyName'];
+            $cAddress = $my_row['CAddress'];
+            $cStreet = $my_row['CStreet'];
+            $districtsID = $my_row['district_id'];
+            $zipcode = $my_row['zip_code'];
+            $districtsName = $my_row['district_name_th'];
+            $amphureID = $my_row['amphure_id'];
+            $amphureName = $my_row['amphure_name_th'];
+            $provinceID = $my_row['province_id'];
+            $provinceName = $my_row['province_name_th'];
+            $JobPosition = $my_row['JPosition'];
+            $JobBossName = $my_row['JBossName'];
+            $JobBossPosition = $my_row['JBossPosition'];
+            $JobCoordinatorName = $my_row['JCoordinatorName'];
+            $JobCoordinatorTel = $my_row['JCoordinatorTel'];
+            $JobCoordinatorEmail = $my_row['JCoordinatorEmail'];
+            $JobStartDate = $my_row['JStartDate'];
+            $JobEndDate = $my_row['JEndDate'];
+            $JobPay = $my_row['JPay'];
+            $JobAccommodation = $my_row['JAccommodation'];
+            $JobRequirmentlist[] = new JobRequirment($JobID,$JobTypeID,$JobTypeName,$JobDate,$stuID,$stuFN, $stuLN,$stuPhone,$stuFB,$titleID,$titleName,$pID,$pTitle,$pFN,$pLN,$pEmail,$pPhone,$approvedID,$approvedName,$passID,$passName,$cID,$cName,$cAddress,$cStreet,$districtsID,$zipcode,$districtsName,$amphureID,$amphureName,$provinceID,$provinceName,$JobPosition,$JobBossName,$JobBossPosition,$JobCoordinatorName,$JobCoordinatorTel,$JobCoordinatorEmail,$JobStartDate,$JobEndDate,$JobPay,$JobAccommodation);
+        }
+        require("./connection_close.php");
+        return $JobRequirmentlist;
+    }
+
 
     // $JobID;
     // $JobTypeID;

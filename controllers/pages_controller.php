@@ -10,5 +10,8 @@
         public function company() {
             require_once("./views/pages/company.php");
         }
+        public function logout(){
+            require_once("./views/pages/Logout.php");
+        }
     }
 ?>
