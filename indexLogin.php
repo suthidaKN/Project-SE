@@ -143,9 +143,7 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
             
     </div>
         
-</body>   
-
-หายม้ายยยยยยยยยยยยยยยยยยย
+</body>  
 
 </html>
 
