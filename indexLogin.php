@@ -94,7 +94,7 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
             <li><a class="active" ><?php echo "$account->pTitle$account->pFN $account->pLN" ?></a> </li>
             <li><a href="?controller=prof&action=home">หน้าหลัก</a></li>
             <li><a href="?controller=prof&action=company">รายชื่อสถานประกอบการ</a></li>
-            <li><a href="?controller=prof&action=index">ตรวจสอบคำร้องของนิสิต</a></li>
+            <li><a href="?controller=prof&action=request">ตรวจสอบคำร้องของนิสิต</a></li>
             <li><a href="?controller=prof&action=index">ตรวจสอบรายงาน</a></li>
             <li><a href="?controller=prof&action=index">ตรวจสอบประวัตินิสิต</a></li>
          <?php
