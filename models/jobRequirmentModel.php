@@ -1,5 +1,5 @@
 <?php
-class Prof{
+class JobRequirment{
     public $JobID;
     public $JobTypeID;
     public $JobTypeName;
@@ -103,7 +103,8 @@ class Prof{
         LEFT JOIN pass  ON pass.PassID = jobrequirment.JPass
         LEFT JOIN districts on districts.district_id = company.CTumbon
         LEFT JOIN amphures on amphures.amphure_id = districts.amphure_id
-        LEFT JOIN provinces ON provinces.province_id = amphures.province_id";
+        LEFT JOIN provinces ON provinces.province_id = amphures.province_id
+        order by students.stuID";
         $result = $conn->query($sql);
         while($my_row = $result->fetch_assoc()){
 
@@ -149,7 +150,7 @@ class Prof{
             $JobEndDate = $my_row['JEndDate'];
             $JobPay = $my_row['JPay'];
             $JobAccommodation = $my_row['JAccommodation'];
-            $JobRequirmentlist[] = new Prof($JobID,$JobTypeID,$JobTypeName,$JobDate,$stuID,$stuFN, $stuLN,$stuPhone,$stuFB,$titleID,$titleName,$pID,$pTitle,$pFN,$pLN,$pEmail,$pPhone,$approvedID,$approvedName,$passID,$passName,$cID,$cName,$cAddress,$cStreet,$districtsID,$zipcode,$districtsName,$amphureID,$amphureName,$provinceID,$provinceName,$JobPosition,$JobBossName,$JobBossPosition,$JobCoordinatorName,$JobCoordinatorTel,$JobCoordinatorEmail,$JobStartDate,$JobEndDate,$JobPay,$JobAccommodation);
+            $JobRequirmentlist[] = new JobRequirment($JobID,$JobTypeID,$JobTypeName,$JobDate,$stuID,$stuFN, $stuLN,$stuPhone,$stuFB,$titleID,$titleName,$pID,$pTitle,$pFN,$pLN,$pEmail,$pPhone,$approvedID,$approvedName,$passID,$passName,$cID,$cName,$cAddress,$cStreet,$districtsID,$zipcode,$districtsName,$amphureID,$amphureName,$provinceID,$provinceName,$JobPosition,$JobBossName,$JobBossPosition,$JobCoordinatorName,$JobCoordinatorTel,$JobCoordinatorEmail,$JobStartDate,$JobEndDate,$JobPay,$JobAccommodation);
         }
         require("./connection_close.php");
         return $JobRequirmentlist;

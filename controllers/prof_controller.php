@@ -8,6 +8,7 @@
             require_once("./views/Prof/companyProf.php");
         }
         public function request() {
+            $JobRequirment_List = JobRequirment::getAll();
             require_once("./views/Prof/request.php");
         }
     }

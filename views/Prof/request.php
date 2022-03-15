@@ -56,8 +56,27 @@ p{
   color: #58006E;
 }
 p2{
-  font-size: 20px;
+  font-size: 16px;
+  font-family: 'Kanit', sans-serif ;
 
+}
+p3{
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'Kanit', sans-serif;
+  color: #d0a200;
+}
+p4{
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'Kanit', sans-serif;
+  color: #006c68;
+}
+p5{
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'Kanit', sans-serif;
+  color: #b40202;
 }
 
     /*.box:hover{background: #C9C9CC; color: #fff;}
@@ -107,26 +126,29 @@ p2{
                     </div>
                 </div> 
             </div>
+            <?php foreach($JobRequirment_List as $JobRequirment){?>
             <div class="column">
                 <div class="box">
                     <div class="column2">
                         <div class="box2">
-                            <p2>สุธิดา เครือนาค</p2>
+                            <p2><?php echo "$JobRequirment->stuFN $JobRequirment->stuLN";?></p2>
                         </div> 
                     </div>  
                     <div class="column2">
                         <div class="box2">
-                            <p2>6220504798</p2>
+                            <p2><?php echo "$JobRequirment->stuID";?></p2>
                         </div> 
                     </div>  
                     <div class="column2">
                         <div class="box2">
-                            <p2>ฝึกงาน</p2>
+                            <p2><?php echo "$JobRequirment->JobTypeName";?></p2>
                         </div> 
                     </div>  
                     <div class="column2">
                         <div class="box2">
-                            <p2>อนุมัติ</p2>
+                        <?php if(is_null($JobRequirment->approvedName)){ ?> <p3><?php echo "รอการตรวจสอบ";?></p3><?php } ?>
+                        <?php if($JobRequirment->approvedID=="1"){ ?> <p4><?php echo "$JobRequirment->approvedName";?></p4><?php } ?>
+                        <?php if($JobRequirment->approvedID=="2"){ ?> <p5><?php echo "$JobRequirment->approvedName";?></p5><?php } ?>
                         </div> 
                     </div>
                     <form method ="get" action="">
@@ -134,6 +156,9 @@ p2{
                         <button type = "submit" name = "action" value = "detail" style="width:10%; border-radius: 50px;  padding: 5px; background: #EE87FC; color: #440058; border: none; font-size: 15px; border-left: none; cursor: pointer;">รายละเอียด</button> 
                 </div> 
             </div>
+            <?php
+            }
+            ?>
         </div>
          <br><br><br>
 </div>

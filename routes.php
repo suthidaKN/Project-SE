@@ -23,7 +23,8 @@ function call($controller, $action){
 
 
                         break;
-        case "prof":   $controller = new ProfController();
+        case "prof":   require_once("./models/jobRequirmentModel.php");
+                        $controller = new ProfController();
                         break;
 
     }

@@ -1,14 +1,5 @@
 <?php
 session_start();
-if(isset($_GET['controller'])&&isset($_GET['action']))
-{
-    $controller = $_GET['controller'];
-    $action = $_GET['action'];
-}else
-{
-    $controller = 'pages';
-    $action = 'home';
-}
 ?>
 <html>
 <head>
@@ -74,7 +65,17 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
         <?php
           require_once("./models/accountModel.php");
           $account = Account::getID($_SESSION["user"]);
-          if(!is_null($account->stuID)){ ?>
+          if(!is_null($account->stuID)){ 
+            if(isset($_GET['controller'])&&isset($_GET['action']))
+            {
+                $controller = $_GET['controller'];
+                $action = $_GET['action'];
+            }else
+            {
+                $controller = 'pages';
+                $action = 'home';
+            }?>
+            ?>
             <a style="text-align: center;" href="?controller=pages&action=home">
                 <img src="./images/logo.png" style="width: 175px; height: 100px;">
             </a>
@@ -87,7 +88,16 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
             <li><a href="?controller=student&action=index">ตรวจสอบผลการฝึกงาน</a></li>
           <?php
           }
-          elseif(!is_null($account->pID)){ ?>
+          elseif(!is_null($account->pID)){ 
+            if(isset($_GET['controller'])&&isset($_GET['action']))
+            {
+                $controller = $_GET['controller'];
+                $action = $_GET['action'];
+            }else
+            {
+                $controller = 'prof';
+                $action = 'home';
+            }?>
             <a style="text-align: center;" href="?controller=prof&action=home">
               <img src="./images/logo.png" style="width: 175px; height: 100px;">
             </a>
@@ -99,7 +109,16 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
             <li><a href="?controller=prof&action=index">ตรวจสอบประวัตินิสิต</a></li>
          <?php
           }
-          elseif(!is_null($account->oID)){ ?>
+          elseif(!is_null($account->oID)){
+            if(isset($_GET['controller'])&&isset($_GET['action']))
+            {
+                $controller = $_GET['controller'];
+                $action = $_GET['action'];
+            }else
+            {
+                $controller = 'pages';
+                $action = 'home';
+            }?>
             <a style="text-align: center;" href="?controller=pages&action=home">
               <img src="./images/logo.png" style="width: 175px; height: 100px;">
             </a>
