@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@500&family=Kanit&family=Short+Stack&family=Sriracha&display=swap" rel="stylesheet">
     <style>
 
 @keyframes shine {
@@ -37,9 +40,10 @@
     margin-right: 200px;
 }
 p{
-  margin-left: 220px;
+margin-left: 400px;
+font-weight: 500;
   font-size: 50px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'IBM Plex Sans Thai', sans-serif;
   color: #58006E;
 }
 

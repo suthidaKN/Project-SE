@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@500&family=Kanit&family=Short+Stack&family=Sriracha&display=swap" rel="stylesheet">
     <style>
 
 @keyframes shine {
@@ -46,10 +49,15 @@
     font-size: 20px;
 }
 p{
-  margin-left: 220px;
+  margin-left: 400px;
+  font-weight: 500;
   font-size: 50px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'IBM Plex Sans Thai', sans-serif;
   color: #58006E;
+}
+p2{
+  font-size: 20px;
+
 }
 
     /*.box:hover{background: #C9C9CC; color: #fff;}
@@ -64,6 +72,7 @@ p{
         <p>
           ตรวจสอบคำร้องของนิสิต
         </p>
+       
         <div class="row" >
             <div class="column">
                 <div class="box1">
@@ -73,27 +82,27 @@ p{
                         <button type = "submit" name = "action" value = "search" style="width:20%; border-radius: 50px;  padding: 10px; background: #8A8A8A; color: white; border: none; font-size: 17px; border-left: none; cursor: pointer;">ค้นหา...</button>
                     </form>
                 </div>
-            </div>
+            </div> 
             <div class="column">
                 <div class="box" style="background-color: #006c68;">
                     <div class="column2">
                         <div class="box2" style="color: fff;">
-                            <p1>ชื่อ-นามสกุล</p1>
+                            <p2>ชื่อ-นามสกุล</p2>
                         </div> 
                     </div>  
                     <div class="column2">
                         <div class="box2" style="color: fff;">
-                            <p1>รหัสนิสิต</p1>
+                            <p2>รหัสนิสิต</p2>
                         </div> 
                     </div>  
                     <div class="column2">
                         <div class="box2" style="color: fff;">
-                            <p1>ประเภท</p1>
+                            <p2>ประเภท</p2>
                         </div> 
                     </div>  
                     <div class="column2">
                         <div class="box2" style="color: fff;">
-                            <p1>สถานะ</p1>
+                            <p2>สถานะ</p2>
                         </div> 
                     </div>
                 </div> 
@@ -102,22 +111,22 @@ p{
                 <div class="box">
                     <div class="column2">
                         <div class="box2">
-                            <p1>สุธิดา เครือนาค</p1>
+                            <p2>สุธิดา เครือนาค</p2>
                         </div> 
                     </div>  
                     <div class="column2">
                         <div class="box2">
-                            <p1>6220504798</p1>
+                            <p2>6220504798</p2>
                         </div> 
                     </div>  
                     <div class="column2">
                         <div class="box2">
-                            <p1>ฝึกงาน</p1>
+                            <p2>ฝึกงาน</p2>
                         </div> 
                     </div>  
                     <div class="column2">
                         <div class="box2">
-                            <p1>อนุมัติ</p1>
+                            <p2>อนุมัติ</p2>
                         </div> 
                     </div>
                     <form method ="get" action="">
