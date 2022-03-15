@@ -61,7 +61,7 @@ p{
         <form method ="get" action="">
             <input type = "text" placeholder="Search..." name = "key" style="width:78%; border-radius: 50px;  padding: 10px; font-size: 17px; border: none; background: #FEF5FF;">
             <input type = "hidden" name = "controller" value = "register"/>
-            <button type = "submit" name = "action" value = "search" style="width:20%; border-radius: 50px;  padding: 10px; background: #9122F3; color: white; border: none; font-size: 17px; border-left: none; cursor: pointer;">Search</button>
+            <button type = "submit" name = "action" value = "search" style="width:20%; border-radius: 50px;  padding: 10px; background: #8a8a8a; color: white; border: none; font-size: 17px; border-left: none; cursor: pointer;">ค้นหา...</button>
         </form>
         </div>
         </div>
