@@ -62,11 +62,8 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
             background-color: #7863a0;
             color: white;
         }
-
-        
-        h5{
-            background-color: #0fcbff;
-            font-size: 15px;
+        p1 {
+            font-size: 14px;
         }
        
 
@@ -81,7 +78,7 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
             <a style="text-align: center;" href="?controller=pages&action=home">
                 <img src="./images/logo.png" style="width: 175px; height: 100px;">
             </a>
-            <li><a class="active" ><?php echo "$account->titleName$account->stuFN $account->stuLN" ?></a> </li>
+            <li><a class="active" ><p1><?php echo "$account->titleName$account->stuFN $account->stuLN" ?></p1></a> </li>
             <li><a href="?controller=pages&action=home">หน้าหลัก</a></li>
             <li><a href="?controller=pages&action=company">รายชื่อสถานประกอบการ</a></li>
             <li><a href="?controller=student&action=index">ยื่นคำร้องขอฝึกงาน</a></li>
@@ -94,7 +91,7 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
             <a style="text-align: center;" href="?controller=prof&action=home">
               <img src="./images/logo.png" style="width: 175px; height: 100px;">
             </a>
-            <li><a class="active" ><?php echo "$account->pTitle$account->pFN $account->pLN" ?></a> </li>
+            <li><a class="active" ><p1><?php echo "$account->pTitle$account->pFN $account->pLN" ?></p1></a> </li>
             <li><a href="?controller=prof&action=home">หน้าหลัก</a></li>
             <li><a href="?controller=prof&action=company">รายชื่อสถานประกอบการ</a></li>
             <li><a href="?controller=prof&action=request">ตรวจสอบคำร้องของนิสิต</a></li>
@@ -106,7 +103,7 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
             <a style="text-align: center;" href="?controller=pages&action=home">
               <img src="./images/logo.png" style="width: 175px; height: 100px;">
             </a>
-            <li><a class="active" ><?php echo "$account->oFN $account->oLN" ?></a> </li>
+            <li><a class="active" ><p1><?php echo "$account->oFN $account->oLN" ?></p1></a> </li>
             <li><a href="?controller=officer&action=home">หน้าหลัก</a></li>
             <li><a href="?controller=officer&action=company">รายชื่อสถานประกอบการ</a></li>
             <li><a href="?controller=officer&action=index">ตรวจสอบคำร้องของนิสิต</a></li>
