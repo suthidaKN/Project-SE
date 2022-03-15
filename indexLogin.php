@@ -74,13 +74,13 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
 </head>
 <body>
     <ul>
-        <a style="text-align: center;" href="?controller=pages&action=home">
-          <img src="./images/logo.png" style="width: 175px; height: 100px;">
-        </a>
         <?php
           require_once("./models/accountModel.php");
           $account = Account::getID($_SESSION["user"]);
           if(!is_null($account->stuID)){ ?>
+            <a style="text-align: center;" href="?controller=pages&action=home">
+                <img src="./images/logo.png" style="width: 175px; height: 100px;">
+            </a>
             <li><a class="active" ><?php echo "$account->titleName$account->stuFN $account->stuLN" ?></a> </li>
             <li><a href="?controller=pages&action=home">หน้าหลัก</a></li>
             <li><a href="?controller=pages&action=company">รายชื่อสถานประกอบการ</a></li>
@@ -91,6 +91,9 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
           <?php
           }
           elseif(!is_null($account->pID)){ ?>
+            <a style="text-align: center;" href="?controller=prof&action=home">
+              <img src="./images/logo.png" style="width: 175px; height: 100px;">
+            </a>
             <li><a class="active" ><?php echo "$account->pTitle$account->pFN $account->pLN" ?></a> </li>
             <li><a href="?controller=prof&action=home">หน้าหลัก</a></li>
             <li><a href="?controller=prof&action=company">รายชื่อสถานประกอบการ</a></li>
@@ -100,6 +103,9 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
          <?php
           }
           elseif(!is_null($account->oID)){ ?>
+            <a style="text-align: center;" href="?controller=pages&action=home">
+              <img src="./images/logo.png" style="width: 175px; height: 100px;">
+            </a>
             <li><a class="active" ><?php echo "$account->oFN $account->oLN" ?></a> </li>
             <li><a href="?controller=officer&action=home">หน้าหลัก</a></li>
             <li><a href="?controller=officer&action=company">รายชื่อสถานประกอบการ</a></li>
