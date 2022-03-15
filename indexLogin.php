@@ -1,13 +1,25 @@
 <?php
 session_start();
+require_once("./models/accountModel.php");
+$account = Account::getID($_SESSION["user"]);
 if(isset($_GET['controller'])&&isset($_GET['action']))
 {
     $controller = $_GET['controller'];
     $action = $_GET['action'];
 }else
 {
+  if(!is_null($account->stuID)){
     $controller = 'pages';
     $action = 'home';
+  }
+  elseif(!is_null($account->pID)){
+    $controller = 'prof';
+    $action = 'home';
+  }
+  elseif(!is_null($account->oID)){
+    $controller = 'pages';
+    $action = 'home';
+  }
 }
 ?>
 <html>
@@ -72,8 +84,6 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
 <body>
     <ul>
         <?php
-          require_once("./models/accountModel.php");
-          $account = Account::getID($_SESSION["user"]);
           if(!is_null($account->stuID)){ ?>
             <a style="text-align: center;" href="?controller=pages&action=home">
                 <img src="./images/logo.png" style="width: 175px; height: 100px;">
