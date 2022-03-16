@@ -29,6 +29,8 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv=Content-Type content="text/html; charset=tis-620">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@500&family=Kanit&family=Short+Stack&family=Sriracha&display=swap" rel="stylesheet">
+
     
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@200;400;500&display=swap');
@@ -42,11 +44,6 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
     
      
     <style>
-        body{
-                background-image: linear-gradient(#91FFE5,#CB8DF5);
-                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-                
-            }
         ul {
             list-style-type: none;
             margin: 0;
@@ -56,6 +53,7 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
             position: fixed;
             height: 100%;
             overflow: auto;
+            font-family: 'IBM Plex Sans Thai', sans-serif;
         }
 
         li a {
@@ -76,7 +74,7 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
             color: white;
         }
         p1 {
-            font-size: 14px;
+            font-size: 13px;
         }
        
 
@@ -132,7 +130,7 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
             <?php require_once("./routes.php");?>
         
             
-        <footer class="text-center text-lg-start text-light"style="background-color: #9933ff">
+        <footer class="text-center text-lg-start text-light"style="background-color: #9933ff; font-family: 'IBM Plex Sans Thai', sans-serif;">
           <div class="container p-4">
             <div class="row" >
               <div class="col-lg-6 col-md-12 mb-4 mb-md-0">

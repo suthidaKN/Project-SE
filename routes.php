@@ -1,7 +1,7 @@
 <?php
 
 $controllers = array('pages'=>['home', 'error' , 'company','logout'], 
-                     'prof'=>['home','company','request','search'],
+                     'prof'=>['home','company','request','search','detail','approve'],
                      'student'=>[]);
 function call($controller, $action){
     require_once("controllers/".$controller."_controller.php");
