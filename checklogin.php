@@ -65,20 +65,20 @@ session_id();
                            window.location = "indexLogin.php"; //หน้าที่ต้องการให้กระโดดไป
                        });
                      }, 50);
-                 </script>';
+                    </script>';
                       
                   }else{
-       echo '<script>
-       setTimeout(function() {
-        swal({
-            title: "user หรือ  password ไม่ถูกต้อง",
-            text: "กรุณา Login ใหม่",
-            type: "warning"
-        }, function() {
-            window.location = "login.php"; //หน้าที่ต้องการให้กระโดดไป
-        });
-      }, 50);
-  </script>';
+                      echo '<script>
+                      setTimeout(function() {
+                        swal({
+                            title: "user หรือ  password ไม่ถูกต้อง",
+                            text: "กรุณา Login ใหม่",
+                            type: "error"
+                        }, function() {
+                            window.location = "login.php"; //หน้าที่ต้องการให้กระโดดไป
+                        });
+                      }, 50);
+                      </script>';
  
                   }
         }

@@ -9,21 +9,15 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
     </head>
     <body>
-        <div class="container">
-            <div class="row">
-              <div class="col-md-1"></div>
-                <div class="col-md-10"> <br>
+
                     <h3>PHP PDO Basic Upload PDF File</h3>
                     <form action="" method="post" enctype="multipart/form-data">
-                        <input type="text" name="doc_name" required class="form-control" placeholder="ชื่อเอกสาร"> <br>
+                        <input type="text" name="doc_name" required class="form-control" placeholder="ID jobrequirment"> <br>
                          <font color="red">*อัพโหลดได้เฉพาะ .pdf เท่านั้น </font><br>
                         <input type="file" name="doc_file" required   class="form-control" accept="application/pdf"> <br><br>
                         <button type="submit" class="btn btn-primary">Upload</button>
                     </form>
                    
-                </div>
-            </div>
-        </div>
     </body>
 </html>
 

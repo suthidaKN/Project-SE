@@ -6,8 +6,8 @@
     font-weight: 200;
     text-align: center;
     font-size: 50px;
-    font-family: 'Sriracha', cursive;
-    color: #7302E4; 
+    font-family: 'IBM Plex Sans Thai', sans-serif;
+    color: #58006E;
   }
   form.example input[type=text] {
           padding: 10px;
@@ -57,7 +57,7 @@
         <p3>คุณต้องการออกจากระบบหรือไม่? </p3><br><br><br>
         <a class="btn btn-default" style="width: 10%;
           padding: 10px;
-          background: #44B940;
+          background: #006C68;
           color: white;
           border: none;
           font-size: 17px;
@@ -66,7 +66,7 @@
           border-radius: 20px;" href="./indexLogin.php">ยกเลิก</a>
           <a class="btn btn-default" style="width: 10%;
           padding: 10px;
-          background: #D44E4E;
+          background: #6C0000;
           color: white;
           border: none;
           font-size: 17px;

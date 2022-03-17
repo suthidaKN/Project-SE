@@ -115,6 +115,9 @@
             <div class="column">
                 <div class="box">
                     <div class="column2">
+                    <a href=?controller=prof&action=request>
+                        <img src="./images/back-arrow.png" style="width: 40px; height: 40px;">
+                    </a>
                         <div class="box2" style="text-align: center; margin-top: 20px;">
                             <?php $img = "./images/".$JobRequirment->stuID.".jpg"; ?>
                             <img src="<?php echo $img; ?>" style="width: 250px; height: 250px; border-radius: 250px">
@@ -149,9 +152,14 @@
                            
 
                             <?php if(is_null($JobRequirment->approvedID)) { ?>
-                            <p2><?php echo "วันที่อัพโหลดเอกสาร : $JobRequirment->dateCreate "; ?></p2><br><br><br>
-                            <a class="btn btn-default" style="background-color: #0C913F; color: #fff; border-radius: 10px; height: 43px; " href="?controller=prof&action=approve&<?php echo "key=1"; ?>&<?php echo "ID=$JobRequirment->JobID"; ?>">อนุมัติ</a>
-                            <a class="btn btn-default" style="background-color: #E43E3E; color: #fff; border-radius: 10px; height: 43px; " href="?controller=prof&action=approve&<?php echo "key=2"; ?>&<?php echo "ID=$JobRequirment->JobID"; ?>">ไม่อนุมัติ</a>
+                            <p2><?php echo "วันที่อัพโหลดเอกสาร : $JobRequirment->dateCreate "; ?></p2><br><br>
+                            <form action="" method="post" enctype="multipart/form-data" >
+                                <input type="hidden" name="ID"  value="<?php echo "$JobRequirment->JobID"; ?>">
+                                <button type="submit"  name="key" value="1" class="btn btn-default" style="background-color: #22CE00; color: #fff; border-radius: 10px; height: 43px; ">อนุมติ</button>
+                                <button type="submit"  name="key" value="2" class="btn btn-default" style="background-color: #FF5959; color: #fff; border-radius: 10px; height: 43px; ">ไม่อนุมติ</button>
+                            </form>
+    
+                            
                             <?php }
                             else { ?>
                                 <?php if($JobRequirment->approvedID == '2') { ?>
@@ -173,3 +181,78 @@
 </div>
 </body>
 </html>
+
+
+<?php 
+
+    if (isset($_POST['ID'])) {
+        date_default_timezone_set('asia/bangkok');
+        $date = date('Y-m-d');
+        $ID = $_POST['ID'];
+        $key = $_POST['key'];
+         
+        require_once("./models/jobRequirmentModel.php");
+        JobRequirment::approve($ID,$key,$date);
+
+        echo '<script type="text/javascript">';
+        echo "var ID = '$ID';"; // ส่งค่า $data จาก PHP ไปยังตัวแปร data ของ Javascript
+        echo '</script>';
+
+        if($key==1){ ?>
+            <script>
+             swal({
+                title: "อนุมัติ",
+                text: "อนุมัติคำร้องขอฝึกงานเรียบร้อย",
+                type: "success",
+             },function() {
+                window.location = "indexLogin.php?controller=prof&action=detail&<?php echo "ID=$ID"; ?>"; //หน้าที่ต้องการให้กระโดดไป
+             });
+
+          </script>';
+        <?php   
+        }else{
+           ?>
+            <script>
+                swal({
+                    title: "ไม่อนุมัติ",
+                    text: "กรุณาบอกเหตุผลที่ไม่ผ่านการอนุมัติ : ",
+                    imageUrl: './images/exclamation-mark.png',
+                    type: "input",
+                    closeOnConfirm: false,
+                    inputPlaceholder: "กรุณาบอกเหตุผล...."
+                  }, function (inputValue) {
+                    if (inputValue === false) return false;
+                    if (inputValue === "") {
+                        
+                        swal.showInputError("กรุณาบอกเหตุผล!");
+                        return false;
+                    }
+                    var nn = inputValue;
+                    var va = '1';
+                    
+                    $.ajax({
+                        url: "reason.php",
+                        data: {value:nn,ID:ID},
+                        method: 'POST',
+                        success: function (data) {
+                            // success
+                        }
+                    });
+                    swal({
+                        title:"เรียบร้อย!",
+                        text: "เหตุผลที่ไม่ผ่านการอนุมัติ : " + inputValue, 
+                        type: "success"
+                    },function() {
+                        window.location = "indexLogin.php?controller=prof&action=detail&<?php echo "ID=$ID"; ?>"; //หน้าที่ต้องการให้กระโดดไป
+                    });
+                   
+                    }
+               
+                  );
+            </script>
+            <?php
+
+        }
+}
+
+?>

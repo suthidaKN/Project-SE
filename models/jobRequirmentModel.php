@@ -393,6 +393,17 @@ class JobRequirment{
         $sql = "UPDATE `jobrequirment` SET `JApprove` = '$key' , `JApproveDate` = '$date' WHERE `jobrequirment`.`JID` = '$ID' ;";
         $result = $conn->query($sql);
         require("./connection_close.php");
+        echo "approve";
+        return $result;
+    }
+    public static function approveReason($reason,$ID){
+
+        require("./connection_connect.php");
+        $sql = "UPDATE `jobrequirment` SET `reason` = '$reason' 
+        WHERE `jobrequirment`.`JID` = '$ID' ;";
+        $result = $conn->query($sql);
+        require("./connection_close.php");
+        echo "approve";
         return $result;
     }
 
