@@ -90,8 +90,8 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
             <li><a class="active" ><p1><?php echo "$account->titleName$account->stuFN $account->stuLN" ?></p1></a> </li>
             <li><a href="?controller=pages&action=home">หน้าหลัก</a></li>
             <li><a href="?controller=pages&action=company">รายชื่อสถานประกอบการ</a></li>
-            <li><a href="?controller=student&action=index">ยื่นคำร้องขอฝึกงาน</a></li>
-            <li><a href="?controller=student&action=index">ตรวจสอบผลการอนุมัติ</a></li>
+            <li><a href="?controller=student&action=newRequirement">ยื่นคำร้องขอฝึกงาน</a></li>
+            <li><a href="?controller=student&action=checkStatus">ตรวจสอบผลการอนุมัติ</a></li>
             <li><a href="?controller=student&action=index">ส่งรายงานการฝึกงาน</a></li>
             <li><a href="?controller=student&action=index">ตรวจสอบผลการฝึกงาน</a></li>
             <li><a href="?controller=pages&action=logout">ออกจากระบบ</a></li>

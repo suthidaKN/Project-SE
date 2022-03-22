@@ -72,6 +72,7 @@ p{
           
           <div class="column">
               <div class="box">
+                
               </div> 
           </div>
           <div class="column">

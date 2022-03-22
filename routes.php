@@ -2,18 +2,19 @@
 
 $controllers = array('pages'=>['home', 'error' , 'company','logout'], 
                      'prof'=>['home','company','request','search','detail','approve'],
-                     'student'=>[]);
+                     'student'=>['home','newRequirement','addRequirement','checkStatus']);
 function call($controller, $action){
     require_once("controllers/".$controller."_controller.php");
     switch($controller)
     {
         case "pages":   $controller = new PagesController();
                         break;
-        case "student":   
-
-
-
-
+        case "student": 
+                        require_once("./models/jobRequirmentModel.php");
+                        require_once("./models/studentModel.php");
+                        $controller = new StudentController();
+                        break;
+  
 
 
 
