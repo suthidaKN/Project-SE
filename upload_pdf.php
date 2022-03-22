@@ -12,7 +12,7 @@
 
                     <h3>PHP PDO Basic Upload PDF File</h3>
                     <form action="" method="post" enctype="multipart/form-data">
-                        <input type="text" name="doc_name" required class="form-control" placeholder="ID jobrequirment"> <br>
+                        <input type="hidden" name="doc_name" value="21" required class="form-control" placeholder="ID jobrequirment"> <br>
                          <font color="red">*อัพโหลดได้เฉพาะ .pdf เท่านั้น </font><br>
                         <input type="file" name="doc_file" required   class="form-control" accept="application/pdf"> <br><br>
                         <button type="submit" class="btn btn-primary">Upload</button>

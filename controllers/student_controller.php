@@ -1,21 +1,25 @@
 <?php
     class StudentController
     {
-       public function home(){
-            require_once("./views/student/homeStudent.php");
-        }     
         public function newRequirement() {
             //echo "stuSontroller";
-
-            $JobRequirment_List = JobRequirment::getAll();
-            //$studentList=student::getAll();
+            
+            $account = Account::getID($_SESSION["user"]);
+            $student = JobRequirment::getIDstudent($account->stuID);
+            $JobRequirmentList=JobRequirment::getAll();
+            $JobRequirmentList=JobRequirment::getCompany();
             require_once("./views/student/requestStudent.php");
         }
         public function addRequirement(){
-            $JID = $_GET['JID'];
+            $JID = JobRequirment::sentCountAll();
+            settype($JID,"integer");
+            $JID = $JID+1;
             $Jtype = $_GET['Jtype'];
-            $JDate = $_GET['JDate'];
+            date_default_timezone_set('asia/bangkok');
+            $date = date('Y-m-d');
+           
             $JStu = $_GET['JStu'];
+            echo $JStu;
             $JPosition = $_GET['JPosition'];
             $JBossname = $_GET['JBossname'];
             $JBossPosition = $_GET['JBossPosition'];
@@ -27,10 +31,14 @@
             $JEndDate = $_GET['JEndDate'];
             $JPay = $_GET['JPay'];
             $JAccommodation = $_GET['JAccommodation'];
-            JobRequirment::Add($JID,$Jtype,$JDate,$JStu,$JPosition,$JBossname,$JBossPosition,$JCompany,$JCoordinatorName,$JCoordinatorTel,$JCoordinatorEmail, $JStartDate,$JEndDate,$JPay,$JAccommodation);
-            StudentController :: home();
-        
+            //JobRequirment::Add($JID,$Jtype,$date,$JStu,$JPosition,$JBossname,$JBossPosition,$JCompany,$JCoordinatorName,$JCoordinatorTel,$JCoordinatorEmail, $JStartDate,$JEndDate,$JPay,$JAccommodation);
+            echo "$JID,$Jtype,$date,$JStu,$JPosition,$JBossname,$JBossPosition,$JCompany,$JCoordinatorName,$JCoordinatorTel,$JCoordinatorEmail, $JStartDate,$JEndDate,$JPay,$JAccommodation";
+            require_once("./views/student/requestStudent.php");
         }
+        public function addCompany(){
+
+        }
+
         public function checkStatus(){
             
             $account = Account::getID($_SESSION["user"]);
