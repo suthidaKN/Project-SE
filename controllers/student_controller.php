@@ -5,12 +5,39 @@
             //echo "stuSontroller";
             
             $account = Account::getID($_SESSION["user"]);
-            $student = JobRequirment::getIDstudent($account->stuID);
+            $JobRequirment = JobRequirment::getJobReqStudent($account->stuID);
+            $maxJobReqStuID= 0;
+            foreach($JobRequirment as $J){
+                
+                settype($J->JobID,"integer" );
+                $JID = $J->JobID;
+                if($maxJobReqStuID < $JID ){
+                    $maxJobReqStuID = $JID;
+                    echo $maxJobReqStuID;
+                }
+
+            }
+            echo $maxJobReqStuID;
+            $student = JobRequirment::getID($maxJobReqStuID);
             $JobRequirmentList=JobRequirment::getAll();
             $JobRequirmentList=JobRequirment::getCompany();
             require_once("./views/student/requestStudent.php");
         }
         public function addRequirement(){
+            $account = Account::getID($_SESSION["user"]);
+            $JobRequirment = JobRequirment::getJobReqStudent($account->stuID);
+            $maxJobReqStuID= 0;
+            foreach($JobRequirment as $J){
+                
+                settype($J->JobID,"integer" );
+                $JID = $J->JobID;
+                if($maxJobReqStuID < $JID ){
+                    $maxJobReqStuID = $JID;
+                    echo $maxJobReqStuID;
+                }
+
+            }
+            echo $maxJobReqStuID;
             $JID = JobRequirment::sentCountAll();
             settype($JID,"integer");
             $JID = $JID+1;
@@ -31,19 +58,51 @@
             $JEndDate = $_GET['JEndDate'];
             $JPay = $_GET['JPay'];
             $JAccommodation = $_GET['JAccommodation'];
-            //JobRequirment::Add($JID,$Jtype,$date,$JStu,$JPosition,$JBossname,$JBossPosition,$JCompany,$JCoordinatorName,$JCoordinatorTel,$JCoordinatorEmail, $JStartDate,$JEndDate,$JPay,$JAccommodation);
-            echo "$JID,$Jtype,$date,$JStu,$JPosition,$JBossname,$JBossPosition,$JCompany,$JCoordinatorName,$JCoordinatorTel,$JCoordinatorEmail, $JStartDate,$JEndDate,$JPay,$JAccommodation";
+            JobRequirment::Add($JID,$Jtype,$date,$JStu,$JPosition,$JBossname,$JBossPosition,$JCompany,$JCoordinatorName,$JCoordinatorTel,$JCoordinatorEmail, $JStartDate,$JEndDate,$JPay,$JAccommodation);
+            $student = JobRequirment::getID($maxJobReqStuID);
             require_once("./views/student/requestStudent.php");
         }
         public function addCompany(){
 
         }
-
         public function checkStatus(){
+            $account = Account::getID($_SESSION["user"]);
+            $JobRequirment = JobRequirment::getJobReqStudent($account->stuID);
+            $maxJobReqStuID= 0;
+            foreach($JobRequirment as $J){
+                
+                settype($J->JobID,"integer" );
+                $JID = $J->JobID;
+                if($maxJobReqStuID < $JID ){
+                    $maxJobReqStuID = $JID;
+                    echo $maxJobReqStuID;
+                }
+
+            }
+            echo $maxJobReqStuID;
+            $JobRequirment = JobRequirment::getID($maxJobReqStuID);
+            //echo is_null($student->approvedName);
+            require_once("./views/student/status.php");
+        }
+
+        public function detailStatus(){
             
             $account = Account::getID($_SESSION["user"]);
-            $JobRequirment = JobRequirment::getIDstudent($account->stuID);
-            echo is_null($JobRequirment->approvedName);
+            $JobRequirment = JobRequirment::getJobReqStudent($account->stuID);
+            $maxJobReqStuID= 0;
+            foreach($JobRequirment as $J){
+                
+                settype($J->JobID,"integer" );
+                $JID = $J->JobID;
+                if($maxJobReqStuID < $JID ){
+                    $maxJobReqStuID = $JID;
+                    echo $maxJobReqStuID;
+                }
+
+            }
+            echo $maxJobReqStuID;
+            $JobRequirment = JobRequirment::getID($maxJobReqStuID);
+            //echo is_null($student->approvedName);
             require_once("./views/student/requirmentStatus.php");
         }     
     }

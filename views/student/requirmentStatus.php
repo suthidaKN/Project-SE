@@ -147,11 +147,10 @@
               
                                     <br><p3><?php echo "สถานะ : "; ?></p3>
                                     <?php if(is_null($JobRequirment->approvedID)){ ?> <p6><?php echo "รอการตรวจสอบ";?></p6><?php } ?>
-                                    <?php if($JobRequirment->approvedID=="1"){ ?> <p4><?php echo "$JobRequirment->approvedName";?></p4><?php } ?>
-                                    <?php if($JobRequirment->approvedID=="2"){ ?> <p5><?php echo "$JobRequirment->approvedName";?></p5> <br><p5><?php echo "เหตุผล : $JobRequirment->reason"; ?></p5><br><?php } ?>
+                                    <?php if($JobRequirment->approvedID=="1"){ ?> <p4><?php echo "$JobRequirment->approvedName";?></p4><br><p3><?php echo "วันที่ตรวจสอบ : $JobRequirment->JApproveDate "; ?></p3><br><br><?php } ?>
+                                    <?php if($JobRequirment->approvedID=="2"){ ?> <p5><?php echo "$JobRequirment->approvedName";?></p5> <br><p5><?php echo "เหตุผล : $JobRequirment->reason"; ?></p5><br><br><p3><?php echo "วันที่ตรวจสอบ : $JobRequirment->JApproveDate "; ?></p3><br><br><?php } ?>
                                     
                             
-                            <br><p3><?php echo "วันที่ตรวจสอบ : $JobRequirment->JApproveDate "; ?></p3><br><br>
                             
                         </div> 
                     </div> 

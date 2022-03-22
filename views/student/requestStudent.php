@@ -137,6 +137,27 @@
         padding: 30px;
         
     }
+    .row1:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+
+    .column1 {
+    float: left;
+    width: 100%;
+    }
+    
+    .box1{
+        background-color: #FFFFFF7C;
+        margin-left: 160px;
+        margin-right: 160px;
+        margin-top: 10px;
+        height: 220px;
+        border-radius: 50px;
+        padding: 30px;
+        text-align: center;
+    }
     .column2 {
         float: left;
         width: 65%; 
@@ -172,6 +193,19 @@
       margin-left: 13px;
 
     }
+    p4{
+      font-size: 35px;
+      font-weight: 600;
+      font-family: 'Kanit', sans-serif;
+      color: #FFC802;
+    }
+    p3{
+      font-size: 35px;
+      font-family: 'Kanit', sans-serif ;
+      color: #006c68;
+      font-weight: 600;
+    
+    }
 
     /*.box:hover{background: #D2FFC9;}
     .box1:hover{background: #b0b0ff; color: #fff;}
@@ -188,16 +222,32 @@
            
         <div class="row" >
             <div class="column">
-                <div class="box">
-                <?php
-                if (is_null($student->approvedID)){
-                  
-                } 
+              <?php
+                if (is_null($student->approvedID)){ ?>
+                  <div style="height: 1200px;" >
+                    <br>
+            
+                    <div class="row1" >
+                        <div class="column1">
+                            <div class="box1">
+                             <br><p3><?php echo "สถานะ : "; ?></p3>
+                                    <?php if(is_null($student->approvedID)){ ?> <p4><?php echo "รอการตรวจสอบ";?></p4><?php } ?>
+                                
+                                    <br><br><a href=?controller=student&action=detailStatus style="background-color: #9F9C9C;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-family: 'IBM Plex Sans Thai', sans-serif; border-radius: 30px; ">รายละเอียด</a> 
+                </div> 
+            </div>  
+        </div>
+        <br><br>
+        
+    </div>
+              <?php  } 
                 else{  ?>
+                <div class="box">
+                
                   <div style="text-align: center; margin:10px">
                   <img src="./images/timeline.png" style="width: 800px; height: 500px;" >
                 </div> 
-                <?php } ?>
+              
   
                   <div class="column3">
                   <div class="box2">
@@ -208,11 +258,7 @@
                    
             
             <div class="box2">
-              <?php
-                if (is_null($student->approvedID)){
-                  echo "รอการตรวจสอบ";
-                } 
-                else{  ?>
+              
                 
                 <form class="example" action="" method="GET">
                 <a href="document/form_internship2565.pdf" target="_blank " style="background-color: #58006E;color: white;padding: 14px 25px;text-align: center;text-decoration: none;display: inline-block;font-family: 'IBM Plex Sans Thai', sans-serif; border-radius: 30px; " >ดาวน์โหลดใบคำร้องขอฝึกงาน</a><br>
@@ -260,12 +306,13 @@
                 
                   </form>
                  
-                  <?php } ?>
+                 
               
                 
               </div>
               </div>
-            </div>
+            </div> 
+            <?php } ?>
             <br><br><br><br><br><br>
             </div>
           </div>

@@ -2,7 +2,7 @@
 
 $controllers = array('pages'=>['home', 'error' , 'company','logout'], 
                      'prof'=>['home','company','request','search','detail','approve'],
-                     'student'=>['home','newRequirement','addRequirement','checkStatus']);
+                     'student'=>['home','newRequirement','addRequirement','checkStatus', 'detailStatus']);
 function call($controller, $action){
     require_once("controllers/".$controller."_controller.php");
     switch($controller)
