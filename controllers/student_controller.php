@@ -32,7 +32,10 @@
         
         }
         public function checkStatus(){
-            $JobRequirment = JobRequirment::getIDstudent($_SESSION["user"]);
+            
+            $account = Account::getID($_SESSION["user"]);
+            $JobRequirment = JobRequirment::getIDstudent($account->stuID);
+            echo is_null($JobRequirment->approvedName);
             require_once("./views/student/requirmentStatus.php");
         }     
     }

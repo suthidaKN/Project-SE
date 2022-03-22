@@ -87,6 +87,12 @@
       font-family: 'Kanit', sans-serif;
       color: #FF0202;
     }
+    p6{
+      font-size: 18px;
+      font-weight: 600;
+      font-family: 'Kanit', sans-serif;
+      color: #FFC802;
+    }
 
     /*.box:hover{background: #C9C9CC; color: #fff;}
     .box1:hover{background: #b0b0ff; color: #fff;}
@@ -144,7 +150,10 @@
                             <?php }
                             else { ?>
                                 <?php if($JobRequirment->approvedID == '2') { ?>
-                                    <br><p3><?php echo "สถานะ : "; ?></p3><p5><?php echo "$JobRequirment->approvedName"; ?></p5><br> 
+                                    <br><p3><?php echo "สถานะ : "; ?></p3>
+                                    <?php if(is_null($JobRequirment->approvedID)){ ?> <p6><?php echo "รอการตรวจสอบ";?></p6><?php } ?>
+                                    <?php if($JobRequirment->approvedID=="1"){ ?> <p4><?php echo "$JobRequirment->approvedName";?></p4><?php } ?>
+                                    <?php if($JobRequirment->approvedID=="2"){ ?> <p5><?php echo "$JobRequirment->approvedName";?></p5><?php } ?>
                                     <p5><?php echo "เหตุผล : $JobRequirment->reason"; ?></p5><br>
                                 <?php } ?>
                                 <?php if($JobRequirment->approvedID == '1') { ?>
@@ -162,5 +171,3 @@
 </div>
 </body>
 </html>
-
-?>

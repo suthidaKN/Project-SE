@@ -12,10 +12,10 @@ function call($controller, $action){
         case "student": 
                         require_once("./models/jobRequirmentModel.php");
                         require_once("./models/studentModel.php");
+                        require_once("./models/accountModel.php");
                         $controller = new StudentController();
                         break;
   
-
 
 
 
