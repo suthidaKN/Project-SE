@@ -25,9 +25,6 @@ class JobRequirment{
     public $cName;
     public $cAddress;
     public $cStreet;
-    public $districtsID;
-    public $zipcode;
-    public $districtsName;
     public $amphureID;
     public $amphureName;
     public $provinceID;
@@ -47,7 +44,7 @@ class JobRequirment{
     public $doc_file;
     public $dateCreate;
 
-    public function __construct($doc_file,$dateCreate,$reason,$JApproveDate,$JobID,$JobTypeID,$JobTypeName,$JobDate,$stuID,$stuFN, $stuLN,$stuPhone,$stuFB,$titleID,$titleName,$pID,$pTitle,$pFN,$pLN,$pEmail,$pPhone,$approvedID,$approvedName,$passID,$passName,$cID,$cName,$cAddress,$cStreet,$districtsID,$zipcode,$districtsName,$amphureID,$amphureName,$provinceID,$provinceName,$JobPosition,$JobBossName,$JobBossPosition,$JobCoordinatorName,$JobCoordinatorTel,$JobCoordinatorEmail,$JobStartDate,$JobEndDate,$JobPay,$JobAccommodation)
+    public function __construct($doc_file,$dateCreate,$reason,$JApproveDate,$JobID,$JobTypeID,$JobTypeName,$JobDate,$stuID,$stuFN, $stuLN,$stuPhone,$stuFB,$titleID,$titleName,$pID,$pTitle,$pFN,$pLN,$pEmail,$pPhone,$approvedID,$approvedName,$passID,$passName,$cID,$cName,$cAddress,$cStreet,$amphureID,$amphureName,$provinceID,$provinceName,$JobPosition,$JobBossName,$JobBossPosition,$JobCoordinatorName,$JobCoordinatorTel,$JobCoordinatorEmail,$JobStartDate,$JobEndDate,$JobPay,$JobAccommodation)
     {
         $this->JobID = $JobID;
         $this->JobTypeID = $JobTypeID;
@@ -74,9 +71,6 @@ class JobRequirment{
         $this->cName = $cName;
         $this->cAddress = $cAddress;
         $this->cStreet = $cStreet;
-        $this->districtsID = $districtsID;
-        $this->zipcode = $zipcode;
-        $this->districtsName = $districtsName;
         $this->amphureID = $amphureID;
         $this->amphureName = $amphureName;
         $this->provinceID = $provinceID;
@@ -109,8 +103,7 @@ class JobRequirment{
         LEFT JOIN title  ON title.titleID = students.stuTitle
         LEFT JOIN appproved  ON  appproved.aID = jobrequirment.JApprove
         LEFT JOIN pass  ON pass.PassID = jobrequirment.JPass
-        LEFT JOIN districts on districts.district_id = company.CTumbon
-        LEFT JOIN amphures on amphures.amphure_id = districts.amphure_id
+        LEFT JOIN amphures on amphures.amphure_id = company.CTumbon
         LEFT JOIN provinces ON provinces.province_id = amphures.province_id
         LEFT JOIN tbl_pdf on tbl_pdf.doc_name = jobrequirment.JID
         order by students.stuID";
@@ -142,9 +135,6 @@ class JobRequirment{
             $cName = $my_row['CompanyName'];
             $cAddress = $my_row['CAddress'];
             $cStreet = $my_row['CStreet'];
-            $districtsID = $my_row['district_id'];
-            $zipcode = $my_row['zip_code'];
-            $districtsName = $my_row['district_name_th'];
             $amphureID = $my_row['amphure_id'];
             $amphureName = $my_row['amphure_name_th'];
             $provinceID = $my_row['province_id'];
@@ -163,7 +153,7 @@ class JobRequirment{
             $JApproveDate = $my_row['JApproveDate'];
             $doc_file = $my_row['doc_file'];
             $dateCreate = $my_row['dateCreate'];
-            $JobRequirmentlist[] = new JobRequirment($doc_file,$dateCreate,$reason,$JApproveDate,$JobID,$JobTypeID,$JobTypeName,$JobDate,$stuID,$stuFN, $stuLN,$stuPhone,$stuFB,$titleID,$titleName,$pID,$pTitle,$pFN,$pLN,$pEmail,$pPhone,$approvedID,$approvedName,$passID,$passName,$cID,$cName,$cAddress,$cStreet,$districtsID,$zipcode,$districtsName,$amphureID,$amphureName,$provinceID,$provinceName,$JobPosition,$JobBossName,$JobBossPosition,$JobCoordinatorName,$JobCoordinatorTel,$JobCoordinatorEmail,$JobStartDate,$JobEndDate,$JobPay,$JobAccommodation);
+            $JobRequirmentlist[] = new JobRequirment($doc_file,$dateCreate,$reason,$JApproveDate,$JobID,$JobTypeID,$JobTypeName,$JobDate,$stuID,$stuFN, $stuLN,$stuPhone,$stuFB,$titleID,$titleName,$pID,$pTitle,$pFN,$pLN,$pEmail,$pPhone,$approvedID,$approvedName,$passID,$passName,$cID,$cName,$cAddress,$cStreet,$amphureID,$amphureName,$provinceID,$provinceName,$JobPosition,$JobBossName,$JobBossPosition,$JobCoordinatorName,$JobCoordinatorTel,$JobCoordinatorEmail,$JobStartDate,$JobEndDate,$JobPay,$JobAccommodation);
         }
         require("./connection_close.php");
         return $JobRequirmentlist;
@@ -180,8 +170,7 @@ class JobRequirment{
         LEFT JOIN title  ON title.titleID = students.stuTitle
         LEFT JOIN appproved  ON  appproved.aID = jobrequirment.JApprove
         LEFT JOIN pass  ON pass.PassID = jobrequirment.JPass
-        LEFT JOIN districts on districts.district_id = company.CTumbon
-        LEFT JOIN amphures on amphures.amphure_id = districts.amphure_id
+        LEFT JOIN amphures on amphures.amphure_id = company.CTumbon
         LEFT JOIN provinces ON provinces.province_id = amphures.province_id
         LEFT JOIN tbl_pdf on tbl_pdf.doc_name = jobrequirment.JID
         WHERE jobrequirment.JID = '$ID'";
@@ -212,9 +201,6 @@ class JobRequirment{
         $cName = $my_row['CompanyName'];
         $cAddress = $my_row['CAddress'];
         $cStreet = $my_row['CStreet'];
-        $districtsID = $my_row['district_id'];
-        $zipcode = $my_row['zip_code'];
-        $districtsName = $my_row['district_name_th'];
         $amphureID = $my_row['amphure_id'];
         $amphureName = $my_row['amphure_name_th'];
         $provinceID = $my_row['province_id'];
@@ -234,7 +220,7 @@ class JobRequirment{
         $doc_file = $my_row['doc_file'];
         $dateCreate = $my_row['dateCreate'];
         require("./connection_close.php");
-        return new JobRequirment($doc_file,$dateCreate,$reason,$JApproveDate,$JobID,$JobTypeID,$JobTypeName,$JobDate,$stuID,$stuFN, $stuLN,$stuPhone,$stuFB,$titleID,$titleName,$pID,$pTitle,$pFN,$pLN,$pEmail,$pPhone,$approvedID,$approvedName,$passID,$passName,$cID,$cName,$cAddress,$cStreet,$districtsID,$zipcode,$districtsName,$amphureID,$amphureName,$provinceID,$provinceName,$JobPosition,$JobBossName,$JobBossPosition,$JobCoordinatorName,$JobCoordinatorTel,$JobCoordinatorEmail,$JobStartDate,$JobEndDate,$JobPay,$JobAccommodation);
+        return new JobRequirment($doc_file,$dateCreate,$reason,$JApproveDate,$JobID,$JobTypeID,$JobTypeName,$JobDate,$stuID,$stuFN, $stuLN,$stuPhone,$stuFB,$titleID,$titleName,$pID,$pTitle,$pFN,$pLN,$pEmail,$pPhone,$approvedID,$approvedName,$passID,$passName,$cID,$cName,$cAddress,$cStreet,$amphureID,$amphureName,$provinceID,$provinceName,$JobPosition,$JobBossName,$JobBossPosition,$JobCoordinatorName,$JobCoordinatorTel,$JobCoordinatorEmail,$JobStartDate,$JobEndDate,$JobPay,$JobAccommodation);
     }
 
     public static function search($key){
@@ -249,8 +235,7 @@ class JobRequirment{
         LEFT JOIN title  ON title.titleID = students.stuTitle
         LEFT JOIN appproved  ON  appproved.aID = jobrequirment.JApprove
         LEFT JOIN pass  ON pass.PassID = jobrequirment.JPass
-        LEFT JOIN districts on districts.district_id = company.CTumbon
-        LEFT JOIN amphures on amphures.amphure_id = districts.amphure_id
+        LEFT JOIN amphures on amphures.amphure_id = company.CTumbon
         LEFT JOIN provinces ON provinces.province_id = amphures.province_id
         LEFT JOIN tbl_pdf on tbl_pdf.doc_name = jobrequirment.JID
         WHERE students.stuFN like '%$key%'
@@ -287,9 +272,6 @@ class JobRequirment{
             $cName = $my_row['CompanyName'];
             $cAddress = $my_row['CAddress'];
             $cStreet = $my_row['CStreet'];
-            $districtsID = $my_row['district_id'];
-            $zipcode = $my_row['zip_code'];
-            $districtsName = $my_row['district_name_th'];
             $amphureID = $my_row['amphure_id'];
             $amphureName = $my_row['amphure_name_th'];
             $provinceID = $my_row['province_id'];
@@ -308,7 +290,7 @@ class JobRequirment{
             $JApproveDate = $my_row['JApproveDate'];
             $doc_file = $my_row['doc_file'];
             $dateCreate = $my_row['dateCreate'];
-            $JobRequirmentlist[] = new JobRequirment($doc_file,$dateCreate,$reason,$JApproveDate,$JobID,$JobTypeID,$JobTypeName,$JobDate,$stuID,$stuFN, $stuLN,$stuPhone,$stuFB,$titleID,$titleName,$pID,$pTitle,$pFN,$pLN,$pEmail,$pPhone,$approvedID,$approvedName,$passID,$passName,$cID,$cName,$cAddress,$cStreet,$districtsID,$zipcode,$districtsName,$amphureID,$amphureName,$provinceID,$provinceName,$JobPosition,$JobBossName,$JobBossPosition,$JobCoordinatorName,$JobCoordinatorTel,$JobCoordinatorEmail,$JobStartDate,$JobEndDate,$JobPay,$JobAccommodation);
+            $JobRequirmentlist[] = new JobRequirment($doc_file,$dateCreate,$reason,$JApproveDate,$JobID,$JobTypeID,$JobTypeName,$JobDate,$stuID,$stuFN, $stuLN,$stuPhone,$stuFB,$titleID,$titleName,$pID,$pTitle,$pFN,$pLN,$pEmail,$pPhone,$approvedID,$approvedName,$passID,$passName,$cID,$cName,$cAddress,$cStreet,$amphureID,$amphureName,$provinceID,$provinceName,$JobPosition,$JobBossName,$JobBossPosition,$JobCoordinatorName,$JobCoordinatorTel,$JobCoordinatorEmail,$JobStartDate,$JobEndDate,$JobPay,$JobAccommodation);
         }
         require("./connection_close.php");
         return $JobRequirmentlist;
@@ -326,8 +308,7 @@ class JobRequirment{
         LEFT JOIN title  ON title.titleID = students.stuTitle
         LEFT JOIN appproved  ON  appproved.aID = jobrequirment.JApprove
         LEFT JOIN pass  ON pass.PassID = jobrequirment.JPass
-        LEFT JOIN districts on districts.district_id = company.CTumbon
-        LEFT JOIN amphures on amphures.amphure_id = districts.amphure_id
+        LEFT JOIN amphures on amphures.amphure_id = company.CTumbon
         LEFT JOIN provinces ON provinces.province_id = amphures.province_id
         LEFT JOIN tbl_pdf on tbl_pdf.doc_name = jobrequirment.JID
         WHERE jobrequirment.JApprove is null
@@ -360,9 +341,6 @@ class JobRequirment{
             $cName = $my_row['CompanyName'];
             $cAddress = $my_row['CAddress'];
             $cStreet = $my_row['CStreet'];
-            $districtsID = $my_row['district_id'];
-            $zipcode = $my_row['zip_code'];
-            $districtsName = $my_row['district_name_th'];
             $amphureID = $my_row['amphure_id'];
             $amphureName = $my_row['amphure_name_th'];
             $provinceID = $my_row['province_id'];
@@ -381,7 +359,7 @@ class JobRequirment{
             $reason = $my_row['reason'];
             $doc_file = $my_row['doc_file'];
             $dateCreate = $my_row['dateCreate'];
-            $JobRequirmentlist[] = new JobRequirment($doc_file,$dateCreate,$reason,$JApproveDate,$JobID,$JobTypeID,$JobTypeName,$JobDate,$stuID,$stuFN, $stuLN,$stuPhone,$stuFB,$titleID,$titleName,$pID,$pTitle,$pFN,$pLN,$pEmail,$pPhone,$approvedID,$approvedName,$passID,$passName,$cID,$cName,$cAddress,$cStreet,$districtsID,$zipcode,$districtsName,$amphureID,$amphureName,$provinceID,$provinceName,$JobPosition,$JobBossName,$JobBossPosition,$JobCoordinatorName,$JobCoordinatorTel,$JobCoordinatorEmail,$JobStartDate,$JobEndDate,$JobPay,$JobAccommodation);
+            $JobRequirmentlist[] = new JobRequirment($doc_file,$dateCreate,$reason,$JApproveDate,$JobID,$JobTypeID,$JobTypeName,$JobDate,$stuID,$stuFN, $stuLN,$stuPhone,$stuFB,$titleID,$titleName,$pID,$pTitle,$pFN,$pLN,$pEmail,$pPhone,$approvedID,$approvedName,$passID,$passName,$cID,$cName,$cAddress,$cStreet,$amphureID,$amphureName,$provinceID,$provinceName,$JobPosition,$JobBossName,$JobBossPosition,$JobCoordinatorName,$JobCoordinatorTel,$JobCoordinatorEmail,$JobStartDate,$JobEndDate,$JobPay,$JobAccommodation);
         }
         require("./connection_close.php");
         return $JobRequirmentlist;
@@ -425,8 +403,7 @@ class JobRequirment{
         LEFT JOIN title  ON title.titleID = students.stuTitle
         LEFT JOIN appproved  ON  appproved.aID = jobrequirment.JApprove
         LEFT JOIN pass  ON pass.PassID = jobrequirment.JPass
-        LEFT JOIN districts on districts.district_id = company.CTumbon
-        LEFT JOIN amphures on amphures.amphure_id = districts.amphure_id
+        LEFT JOIN amphures on amphures.amphure_id = company.CTumbon
         LEFT JOIN provinces ON provinces.province_id = amphures.province_id
         LEFT JOIN tbl_pdf on tbl_pdf.doc_name = jobrequirment.JID
         WHERE students.stuID = '$ID'";
@@ -457,9 +434,6 @@ class JobRequirment{
         $cName = $my_row['CompanyName'];
         $cAddress = $my_row['CAddress'];
         $cStreet = $my_row['CStreet'];
-        $districtsID = $my_row['district_id'];
-        $zipcode = $my_row['zip_code'];
-        $districtsName = $my_row['district_name_th'];
         $amphureID = $my_row['amphure_id'];
         $amphureName = $my_row['amphure_name_th'];
         $provinceID = $my_row['province_id'];
@@ -479,7 +453,7 @@ class JobRequirment{
         $doc_file = $my_row['doc_file'];
         $dateCreate = $my_row['dateCreate'];
         require("./connection_close.php");
-        return new JobRequirment($doc_file,$dateCreate,$reason,$JApproveDate,$JobID,$JobTypeID,$JobTypeName,$JobDate,$stuID,$stuFN, $stuLN,$stuPhone,$stuFB,$titleID,$titleName,$pID,$pTitle,$pFN,$pLN,$pEmail,$pPhone,$approvedID,$approvedName,$passID,$passName,$cID,$cName,$cAddress,$cStreet,$districtsID,$zipcode,$districtsName,$amphureID,$amphureName,$provinceID,$provinceName,$JobPosition,$JobBossName,$JobBossPosition,$JobCoordinatorName,$JobCoordinatorTel,$JobCoordinatorEmail,$JobStartDate,$JobEndDate,$JobPay,$JobAccommodation);
+        return new JobRequirment($doc_file,$dateCreate,$reason,$JApproveDate,$JobID,$JobTypeID,$JobTypeName,$JobDate,$stuID,$stuFN, $stuLN,$stuPhone,$stuFB,$titleID,$titleName,$pID,$pTitle,$pFN,$pLN,$pEmail,$pPhone,$approvedID,$approvedName,$passID,$passName,$cID,$cName,$cAddress,$cStreet,$amphureID,$amphureName,$provinceID,$provinceName,$JobPosition,$JobBossName,$JobBossPosition,$JobCoordinatorName,$JobCoordinatorTel,$JobCoordinatorEmail,$JobStartDate,$JobEndDate,$JobPay,$JobAccommodation);
     }
     public static function getCompany(){
 
@@ -493,8 +467,7 @@ class JobRequirment{
         LEFT JOIN title  ON title.titleID = students.stuTitle
         LEFT JOIN appproved  ON  appproved.aID = jobrequirment.JApprove
         LEFT JOIN pass  ON pass.PassID = jobrequirment.JPass
-        LEFT JOIN districts on districts.district_id = company.CTumbon
-        LEFT JOIN amphures on amphures.amphure_id = districts.amphure_id
+        LEFT JOIN amphures on amphures.amphure_id = company.CTumbon
         LEFT JOIN provinces ON provinces.province_id = amphures.province_id
         LEFT JOIN tbl_pdf on tbl_pdf.doc_name = jobrequirment.JID
         GROUP by company.CompanyID";
@@ -526,9 +499,6 @@ class JobRequirment{
             $cName = $my_row['CompanyName'];
             $cAddress = $my_row['CAddress'];
             $cStreet = $my_row['CStreet'];
-            $districtsID = $my_row['district_id'];
-            $zipcode = $my_row['zip_code'];
-            $districtsName = $my_row['district_name_th'];
             $amphureID = $my_row['amphure_id'];
             $amphureName = $my_row['amphure_name_th'];
             $provinceID = $my_row['province_id'];
@@ -547,7 +517,7 @@ class JobRequirment{
             $JApproveDate = $my_row['JApproveDate'];
             $doc_file = $my_row['doc_file'];
             $dateCreate = $my_row['dateCreate'];
-            $JobRequirmentlist[] = new JobRequirment($doc_file,$dateCreate,$reason,$JApproveDate,$JobID,$JobTypeID,$JobTypeName,$JobDate,$stuID,$stuFN, $stuLN,$stuPhone,$stuFB,$titleID,$titleName,$pID,$pTitle,$pFN,$pLN,$pEmail,$pPhone,$approvedID,$approvedName,$passID,$passName,$cID,$cName,$cAddress,$cStreet,$districtsID,$zipcode,$districtsName,$amphureID,$amphureName,$provinceID,$provinceName,$JobPosition,$JobBossName,$JobBossPosition,$JobCoordinatorName,$JobCoordinatorTel,$JobCoordinatorEmail,$JobStartDate,$JobEndDate,$JobPay,$JobAccommodation);
+            $JobRequirmentlist[] = new JobRequirment($doc_file,$dateCreate,$reason,$JApproveDate,$JobID,$JobTypeID,$JobTypeName,$JobDate,$stuID,$stuFN, $stuLN,$stuPhone,$stuFB,$titleID,$titleName,$pID,$pTitle,$pFN,$pLN,$pEmail,$pPhone,$approvedID,$approvedName,$passID,$passName,$cID,$cName,$cAddress,$cStreet,$amphureID,$amphureName,$provinceID,$provinceName,$JobPosition,$JobBossName,$JobBossPosition,$JobCoordinatorName,$JobCoordinatorTel,$JobCoordinatorEmail,$JobStartDate,$JobEndDate,$JobPay,$JobAccommodation);
         }
         require("./connection_close.php");
         return $JobRequirmentlist;
@@ -573,8 +543,7 @@ class JobRequirment{
         LEFT JOIN title  ON title.titleID = students.stuTitle
         LEFT JOIN appproved  ON  appproved.aID = jobrequirment.JApprove
         LEFT JOIN pass  ON pass.PassID = jobrequirment.JPass
-        LEFT JOIN districts on districts.district_id = company.CTumbon
-        LEFT JOIN amphures on amphures.amphure_id = districts.amphure_id
+        LEFT JOIN amphures on amphures.amphure_id = company.CTumbon
         LEFT JOIN provinces ON provinces.province_id = amphures.province_id
         LEFT JOIN tbl_pdf on tbl_pdf.doc_name = jobrequirment.JID
         WHERE students.stuID = '$ID'";
@@ -606,9 +575,6 @@ class JobRequirment{
             $cName = $my_row['CompanyName'];
             $cAddress = $my_row['CAddress'];
             $cStreet = $my_row['CStreet'];
-            $districtsID = $my_row['district_id'];
-            $zipcode = $my_row['zip_code'];
-            $districtsName = $my_row['district_name_th'];
             $amphureID = $my_row['amphure_id'];
             $amphureName = $my_row['amphure_name_th'];
             $provinceID = $my_row['province_id'];
@@ -627,7 +593,7 @@ class JobRequirment{
             $JApproveDate = $my_row['JApproveDate'];
             $doc_file = $my_row['doc_file'];
             $dateCreate = $my_row['dateCreate'];
-            $JobRequirmentlist[] = new JobRequirment($doc_file,$dateCreate,$reason,$JApproveDate,$JobID,$JobTypeID,$JobTypeName,$JobDate,$stuID,$stuFN, $stuLN,$stuPhone,$stuFB,$titleID,$titleName,$pID,$pTitle,$pFN,$pLN,$pEmail,$pPhone,$approvedID,$approvedName,$passID,$passName,$cID,$cName,$cAddress,$cStreet,$districtsID,$zipcode,$districtsName,$amphureID,$amphureName,$provinceID,$provinceName,$JobPosition,$JobBossName,$JobBossPosition,$JobCoordinatorName,$JobCoordinatorTel,$JobCoordinatorEmail,$JobStartDate,$JobEndDate,$JobPay,$JobAccommodation);
+            $JobRequirmentlist[] = new JobRequirment($doc_file,$dateCreate,$reason,$JApproveDate,$JobID,$JobTypeID,$JobTypeName,$JobDate,$stuID,$stuFN, $stuLN,$stuPhone,$stuFB,$titleID,$titleName,$pID,$pTitle,$pFN,$pLN,$pEmail,$pPhone,$approvedID,$approvedName,$passID,$passName,$cID,$cName,$cAddress,$cStreet,$amphureID,$amphureName,$provinceID,$provinceName,$JobPosition,$JobBossName,$JobBossPosition,$JobCoordinatorName,$JobCoordinatorTel,$JobCoordinatorEmail,$JobStartDate,$JobEndDate,$JobPay,$JobAccommodation);
         }
         require("./connection_close.php");
         return $JobRequirmentlist;
