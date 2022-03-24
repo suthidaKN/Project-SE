@@ -88,51 +88,7 @@
   margin-left: 13px;
 }
 
-
-/* Create a custom radio button */
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: #FEF5FF;
-;
-  border-radius: 50%;
-}
-
-/* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
-  background-color: #CB8DF5;
-}
-
-/* When the radio button is checked, add a blue background */
-.container input:checked ~ .checkmark {
-  background-color: #7000FF;
-}
-
-/* Create the indicator (the dot/circle - hidden when not checked) */
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-/* Show the indicator (dot/circle) when checked */
-.container input:checked ~ .checkmark:after {
-  display: block;
-}
-
-/* Style the indicator (dot/circle) */
-.container .checkmark:after {
- 	top: 9px;
-	left: 9px;
-	width: 8px;
-	height: 8px;
-	border-radius: 50%;
-	background: #fff;
-}
-    
+  
     .row:after {
       content: "";
       display: table;
@@ -286,8 +242,8 @@
 
                     <div style="margin-left: 20%;">
                     <input type="hidden" name="controller" value="newRequirement"/><br><br>
-                    <a class="btn btn-default" style="background-color: #7000FF; color: #fff; border-radius: 20px; font-family: 'IBM Plex Sans Thai', sans-serif; " href=?controller=student&action=newRequirement>ยกเลิก</a><br><br>
-                    <a class="btn btn-default" style="background-color: #7000FF; color: #fff; border-radius: 20px; font-family: 'IBM Plex Sans Thai', sans-serif; " href=?controller=student&action=addCompany></a>เสนอสถานที่ฝึกงานใหม่<br><br>                        
+                    <a class="btn btn-default" style="background-color: #9122F3; color: #fff; border-radius: 20px; font-family: 'IBM Plex Sans Thai', sans-serif; " href=?controller=student&action=newRequirement>ยกเลิก</a><br><br>
+                    <a class="btn btn-default" style="background-color: #9122F3; color: #fff; border-radius: 20px; font-family: 'IBM Plex Sans Thai', sans-serif; " href=?controller=student&action=addCompany></a>เสนอสถานที่ฝึกงานใหม่<br><br>                        
                     </div>
                 
                   </form>
