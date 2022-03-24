@@ -291,7 +291,10 @@
                         <p2>ระยะการฝึกงานตั้งแต่วันที่ - ถึงวันที่ </p2><br><input type="date" style="background-color: #FEF5FF; border-radius: 30px; color: #440058; font-family: 'IBM Plex Sans Thai', sans-serif; padding: 8px; margin: 8px; width: 33.3%;" name="JStartDate" ><img src="./images/minus.png" style="width: 15px; height: 15px; margin: 10px; " ><input type="date" style="background-color: #FEF5FF; border-radius: 30px; color: #440058; font-family: 'IBM Plex Sans Thai', sans-serif; padding: 8px; width: 33.3%; margin: 8px;" name="JEndDate" ><br><br>
                         <p2>จำนวนค่าตอบแทน (บาท/วัน หรือ บาท/เดือน) (หรือ ไม่มีค่าตอบแทน)</p2><br><input type="text" name="JPay"/><br><br>
                         <p2>ที่พัก(มี/ไม่มี/อื่นๆ)</p2><br> <input type="text" name="JAccommodation"/><br><br>
-                        
+                        <?php
+                        settype($JID,"integer");
+                        $JID = $JID+1;
+                        ?>
                         <input type="hidden" name="doc_name" value="<?php echo $JID; ?>" required class="form-control" placeholder="ID jobrequirment"> <br>
                          <font color="red">*อัพโหลดได้เฉพาะ .pdf เท่านั้น </font><br>
                         <input type="file" name="doc_file" required  style="width: 75%; border-radius: 20px;" class="form-control" accept="application/pdf"> <br><br>
@@ -331,11 +334,9 @@ if (isset($_POST['doc_name'])) {
       $JID = $J->JobID;
       if($maxJobReqStuID < $JID ){
           $maxJobReqStuID = $JID;
-          echo $maxJobReqStuID;
       }
 
   }
-  echo "max = $maxJobReqStuID";
   $JID = JobRequirment::sentCountAll();
   settype($JID,"integer");
   $JID = $JID+1;

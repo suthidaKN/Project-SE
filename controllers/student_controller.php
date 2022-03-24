@@ -14,10 +14,10 @@
                 $CID = $J->JobID;
                 if($maxJobReqStuID < $CID ){
                     $maxJobReqStuID = $CID;
-                    echo $maxJobReqStuID;
                 }
 
             }
+            $JID = JobRequirment::sentCountAll();
             $company = Company::getAll();
             //echo $maxJobReqStuID;
             $student = JobRequirment::getID($maxJobReqStuID);

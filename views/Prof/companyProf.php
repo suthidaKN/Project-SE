@@ -76,7 +76,7 @@ p4{
 <body>
 <div style="background-image: linear-gradient(#91FFE5,#CB8DF5);background-repeat: no-repeat; background-size: 100% 80%px;">
 
-        <br>
+        <br><br>
         <center>
         <p>
           รายชื่อสถานประกอบการ
@@ -126,31 +126,34 @@ if (isset($_POST['ID'])) {
     $ID = $_POST['ID'];
     $result = Company::delete($ID);
 
-            if($result){
-                echo '<script>
+            if($result){ ?>
+              <script>
                 setTimeout(function() {
-                 swal({
-                     title: "ลบสถานประกอบการสำเร็จ",
-                     text: "",
-                     type: "success"
-                 }, function() {
-                     window.location = "indexLogin.php?controller=prof&action=company"; //หน้าที่ต้องการให้กระโดดไป
-                 });
+                  swal({
+                    title: "Are you sure?",
+                    text: "คุณต้องการลบสถานประกอบการนี้ใช่หรือไม่",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonClass: "btn-danger",
+                    confirmButtonText: "Yes, delete it!",
+                    closeOnConfirm: false
+                  },
+                  function(){
+                    $.ajax({
+                      url: "reason.php",
+                      data: {value:nn,ID:ID},
+                      method: 'POST',
+                      success: function (data) {
+                          // success
+                      }
+                  });
+                    swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                  });
                }, 100);
-           </script>';
-       }else{
-          echo '<script>
-                setTimeout(function() {
-                 swal({
-                     title: "เกิดข้อผิดพลาด",
-                     type: "error"
-                 }, function() {
-                     window.location = "indexLogin.php?controller=prof&action=company"; //หน้าที่ต้องการให้กระโดดไป
-                 });
-               }, 100);
-           </script>';
-            } //else ของ if result
+           </script>
+    
 
-          
+          <?php
       }
+    }
 ?>
