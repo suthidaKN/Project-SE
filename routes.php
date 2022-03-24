@@ -8,6 +8,7 @@ function call($controller, $action){
     switch($controller)
     {
         case "pages":   $controller = new PagesController();
+                        require_once("./models/jobRequirmentModel.php");
                         break;
         case "student": 
                         require_once("./models/jobRequirmentModel.php");
