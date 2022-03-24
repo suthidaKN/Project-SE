@@ -52,9 +52,15 @@ p2{
   color: #58006E;
 }
 p3{
-  font-size: 25px;
+  margin-left: 40px;
+  font-size: 18px;
   font-family: 'IBM Plex Sans Thai', sans-serif;
-  color: #9700BD;
+  color: #A31CC5;
+}
+p4{
+  font-size: 15px;
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+  color: #A31CC5;
 }
 
     /*.box:hover{background: #C9C9CC; color: #fff;}
@@ -83,8 +89,13 @@ p3{
         <?php foreach($CompanyList as $company) {?>
           <div class="column">
               <div class="box">
-                <p2><?php echo $company->CompanyName ?></p2>
-                <p3>ตำแหน่ง</p3>
+                <p2><?php echo $company->CompanyName ?></p2><br>
+                <p3>ตำแหน่ง</p3><p4><?php echo " : $company->";?></p4><br>
+                <p3>ที่อยู่</p3><p4><?php echo " : $company->";?></p4><br>
+                <p3>รายได้</p3><p4><?php echo " : $company->";?></p4><br>
+                <div style="text-align: end;">
+                  <button type = "submit" name = "action" value = "detail" style="width:9%; border-radius: 10px;  padding: 5px; background: #87A59E; color: #FFFFFF; border: none; font-size: 13px; border-left: none; cursor: pointer;">รายละเอียด</button> 
+                </div>
               </div> 
           </div>
           <?php } ?>
