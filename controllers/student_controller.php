@@ -31,7 +31,7 @@
             settype($CID,"integer");
             $CID = $CID+1;
             echo $CID;
-            $ID = aiModel::getid('Company', 'CompanyID');
+            //$ID = aiModel::getid('Company', 'CompanyID');
             require_once("./views/student/addCompany.php");
         }
         
