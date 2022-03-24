@@ -8,7 +8,7 @@
             require_once("./views/pages/error.php"); 
         }       
         public function company() {
-            $CompanyList = JobRequirment::getCompany();
+            $CompanyList = Company::getAll();
             require_once("./views/pages/company.php");
         }
         public function logout(){

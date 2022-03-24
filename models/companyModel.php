@@ -62,8 +62,10 @@ class Company{
     public static function getAll(){
         $companyList=[];
         require("./connection_connect.php");
-        $sql = "SELECT * FROM company,districts,provinces
-        where company.CTumbon = districts.district_id and districts.amphure_id = provinces.province_id";
+        $sql = "SELECT * FROM company 
+        LEFT JOIN districts on districts.district_id = company.CTumbon
+        LEFT JOIN amphures on amphures.amphure_id = districts.amphure_id
+        LEFT JOIN provinces ON provinces.province_id = amphures.province_id";
         $result = $conn->query($sql);
         while($row=$result->fetch_assoc()){
             $CompanyID = $row['CompanyID'];
@@ -88,13 +90,13 @@ class Company{
             $CCoorDepartment = $row['CCoorDepartment'];
             $CCoorPhone = $row['CCoorPhone'];
             $CCoorEmail = $row['CCoorEmail'];
-            $CRecivePostion = $row['CRecivePostion'];
+            $CRecivePostion = $row['CReceivePosition'];
             $CJobDescription = $row['CJobDescription'];
             $CNumber = $row['CNumber'];
             $CSkillReq = $row['CSkillReq'];
         
 
-            $companylList[] = new Company($CompanyID,$CompanyName, $CAddress,$CStreet, $CTumbon,$district_id,$district_name_th,$amphure_id,$amphure_name_th,$province_id,
+            $companyList[] = new Company($CompanyID,$CompanyName, $CAddress,$CStreet, $CTumbon,$district_id,$district_name_th,$amphure_id,$amphure_name_th,$province_id,
             $province_name_th,$zip_code,$CType,$CPhone,$CFax,$CManager,$CMngPosition,$CCoordinator,$CCoorPosition,$CCoorDepartment,$CCoorPhone,$CCoorEmail,
             $CRecivePostion,$CJobDescription,$CNumber,$CSkillReq);
         }
