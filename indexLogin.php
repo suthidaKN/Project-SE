@@ -113,6 +113,10 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
             <li><a class="active" ><p1><?php echo "$account->oFN $account->oLN" ?></p1></a> </li>
             <li><a href="?controller=officer&action=home">หน้าหลัก</a></li>
             <li><a href="?controller=officer&action=company">รายชื่อสถานประกอบการ</a></li>
+<<<<<<< Updated upstream
+=======
+            <li><a href="?controller=officer&action=index">ตรวจสอบคำร้องของนิสิต</a></li>
+>>>>>>> Stashed changes
             <li><a href="?controller=pages&action=logout">ออกจากระบบ</a></li>
           <?php
           }
