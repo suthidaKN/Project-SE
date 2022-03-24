@@ -34,6 +34,7 @@
     height: 200px;
     border-radius: 50px;
     padding: 30px;
+    padding-left: 40px;
 }
 .box1{
     margin-left: 210px;
@@ -49,18 +50,18 @@ p{
 p2{
   font-size: 25px;
   font-family: 'IBM Plex Sans Thai', sans-serif;
-  color: #58006E;
+  color: #350042;
 }
 p3{
-  margin-left: 40px;
+  margin-left: 30px;
   font-size: 18px;
   font-family: 'IBM Plex Sans Thai', sans-serif;
-  color: #A31CC5;
+  color: #670081;
 }
 p4{
   font-size: 15px;
   font-family: 'IBM Plex Sans Thai', sans-serif;
-  color: #A31CC5;
+  color: #9400B9;
 }
 
     /*.box:hover{background: #C9C9CC; color: #fff;}
@@ -71,7 +72,7 @@ p4{
 <body>
 <div style="background-image: linear-gradient(#91FFE5,#CB8DF5);background-repeat: no-repeat; background-size: 100% 80%px;">
 
-        <br>
+        <br><br>
         <p>
           รายชื่อสถานประกอบการ
         </p>
@@ -90,11 +91,11 @@ p4{
           <div class="column">
               <div class="box">
                 <p2><?php echo $company->CompanyName ?></p2><br>
-                <p3>ตำแหน่ง</p3><p4><?php echo " : $company->";?></p4><br>
-                <p3>ที่อยู่</p3><p4><?php echo " : $company->";?></p4><br>
-                <p3>รายได้</p3><p4><?php echo " : $company->";?></p4><br>
+                <p3>ตำแหน่ง</p3><p4><?php echo " : $company->CRecivePostion";?></p4><br>
+                <p3>ที่อยู่</p3><p4><?php echo " : $company->CAddress $company->CStreet $company->amphure_name_th $company->province_name_th";?></p4><br>
+                <p3>จำนวนที่รับ</p3><p4><?php echo " : $company->CNumber";?></p4><br>
                 <div style="text-align: end;">
-                  <button type = "submit" name = "action" value = "detail" style="width:9%; border-radius: 10px;  padding: 5px; background: #87A59E; color: #FFFFFF; border: none; font-size: 13px; border-left: none; cursor: pointer;">รายละเอียด</button> 
+                  <a href=?controller=pages&action=detailCompany&<?php echo "key=$company->CompansyID"?>style="width:9%; border-radius: 10px;  padding: 5px; background: #87A59E; color: #FFFFFF; border: none; font-size: 13px; border-left: none; cursor: pointer;">รายละเอียด</button> 
                 </div>
               </div> 
           </div>

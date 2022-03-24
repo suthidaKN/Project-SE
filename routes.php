@@ -1,6 +1,6 @@
 <?php
 
-$controllers = array('pages'=>['home', 'error' , 'company','logout'], 
+$controllers = array('pages'=>['home', 'error' , 'company','logout','detailCompany'], 
                      'prof'=>['home','company','request','search','detail','approve'],
                      'student'=>['home','newRequirement','newCompany','addCompany','checkStatus', 'detailStatus']);
 function call($controller, $action){
