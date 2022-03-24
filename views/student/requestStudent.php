@@ -272,9 +272,9 @@
                         </label><br>
                   
                         <p2>เลือกสถานฝึกงานที่ภาควิชามีอยู่แล้ว</p2> <select name="JCompany" class="form-control form-control-lg" style="width: 75%; border-radius: 20px; padding: 10px; background: #FEF5FF; color:#58006E; font-size: 17px;">
-                        <?php foreach($JobRequirmentList as $JobRequirment)
+                        <?php foreach($company  as $com)
                         {
-                          echo "<option value=$JobRequirment->cID > $JobRequirment->cName </option>";
+                          echo "<option value=$com->CompansyID > $com->CompanyName </option>";
                         }
                         ?>
                         </select><br>

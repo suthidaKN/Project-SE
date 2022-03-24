@@ -92,17 +92,12 @@ class Company{
         require("./connection_close.php");
         return $companyList;
     }
-    public static function Add(){
+    public static function Add($CID,$CompanyName, $CAddress,$CStreet, $CTumbon,$CType,$CPhone,$CFax,$CManager,$CMngPosition,$CCoordinator,$CCoorPosition,$CCoorDepartment,$CCoorPhone,$CCoorEmail,$CRecivePostion,$CJobDescription,$CNumber,$CSkillReq){
         require("./connection_connect.php");
-        $sql = "INSERT INTO `company` (`CompanyID`, `CompanyName`, `CAddress`, `CStreet`, 
-        `CType`, `CPhone`, `CFax`, `CManager`, `CMngPosition`, `CCoordinator`, `CCoorPosition`,
-         `CCoorDepartment`, `CCoorPhone`, `CCoorEmail`, `CReceivePosition`, `CJobDescription`,
-          `CNumber`, `CSkillReq`) VALUES ('$CompanyID', '$CompanyName', '$CAddress', $CStreet, 
-           '$CType', '$CPhone', '$CFax', '$CManager', '$CMngPosition', '$CCoordinator', '$CCoorPosition', '$CCoorDepartment',
-           '$CCoorPhone', '$CCoorEmail', '$CRecivePostion', '$CJobDescription', '$CNumber','$CSkillReq')
-        ";
+        $sql = "INSERT INTO `company` (`CompanyID`, `CompanyName`, `CAddress`, `CStreet`, `CTumbon`, `CType`, `CPhone`, `CFax`, `CManager`, `CMngPosition`, `CCoordinator`, `CCoorPosition`, `CCoorDepartment`, `CCoorPhone`, `CCoorEmail`, `CReceivePosition`, `CJobDescription`, `CNumber`, `CSkillReq`)
+         VALUES ('$CID', '$CompanyName', '$CAddress', '$CStreet',' $CTumbon','$CType', '$CPhone', '$CFax', '$CManager', '$CMngPosition', '$CCoordinator', '$CCoorPosition', '$CCoorDepartment',
+           '$CCoorPhone', '$CCoorEmail', '$CRecivePostion', '$CJobDescription', '$CNumber','$CSkillReq');";
         $result = $conn->query($sql);
-       
         require("./connection_close.php");
         return $result;
         }

@@ -21,6 +21,7 @@
             $CID = JobRequirment::sentCountAll();
             settype($CID,"integer");
             $CID = $CID+1;
+            $company = Company::getAll();
             //echo $maxJobReqStuID;
             $student = JobRequirment::getID($maxJobReqStuID);
             $JobRequirmentList=JobRequirment::getCompany();
