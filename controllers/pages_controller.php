@@ -14,5 +14,9 @@
         public function logout(){
             require_once("./views/pages/Logout.php");
         }
+        public function detailCompany(){
+            $key = $_GET['key'];
+            require_once("./views/pages/detailCompany.php");
+        }
     }
 ?>

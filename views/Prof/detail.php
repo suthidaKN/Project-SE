@@ -1,12 +1,3 @@
-
-      
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -137,7 +128,7 @@
                             <p3><?php echo "ออกหนังสือขอความอนุเคราะห์ถึง"; ?></p3><br>
                             <p3><?php echo "$JobRequirment->JobBossPosition "; ?></p3><p2><?php echo "$JobRequirment->JobBossName"; ?></p2><br>
                             <p2><?php echo "$JobRequirment->cName"; ?></p2><br>
-                            <p2><?php echo "$JobRequirment->cAddress $JobRequirment->cStreet $JobRequirment->districtsName $JobRequirment->amphureName $JobRequirment->provinceName $JobRequirment->zipcode"; ?></p2><br><br>
+                            <p2><?php echo "$JobRequirment->cAddress $JobRequirment->cStreet $JobRequirment->amphureName $JobRequirment->provinceName"; ?></p2><br><br>
 
                             <p3><?php echo "ผู้ประสานงาน"; ?></p3><br>
                             <p2><?php echo "$JobRequirment->JobCoordinatorName"; ?></p2><br>

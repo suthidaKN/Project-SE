@@ -61,8 +61,7 @@ class Company{
         $companyList=[];
         require("./connection_connect.php");
         $sql = "SELECT * FROM company 
-        LEFT JOIN districts on districts.district_id = company.CTumbon
-        LEFT JOIN amphures on amphures.amphure_id = districts.amphure_id
+        LEFT JOIN amphures on amphures.amphure_id = company.CTumbon
         LEFT JOIN provinces ON provinces.province_id = amphures.province_id";
         $result = $conn->query($sql);
         while($row=$result->fetch_assoc()){

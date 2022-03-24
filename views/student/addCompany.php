@@ -232,7 +232,7 @@
 <body>
 <div style="background-image: linear-gradient(#91FFE5,#CB8DF5);background-repeat: no-repeat; background-size: 100% 80%px;">
 
-        <br>
+        <br><br>
         <p>
             เสนอสถานที่ฝึกงานใหม่
         </p>
