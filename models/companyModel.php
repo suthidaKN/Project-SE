@@ -34,7 +34,7 @@ class Company{
         $this->amphure_id=$amphure_id;
         $this->amphure_name_th=$amphure_name_th;
         $this->province_id=$province_id;
-        $this->province_name_en=$province_name_th;
+        $this->province_name_th=$province_name_th;
         $this->CType=$CType;
         $this->CPhone=$CPhone;
         $this->CFax=$CFax;
