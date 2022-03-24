@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "root";
-$password = ""; //ไม่ได้ตั้งรหัสผ่านก็ลบ  yourpassword ออก
+$username = "SE_64";
+$password = "address"; //ไม่ได้ตั้งรหัสผ่านก็ลบ  yourpassword ออก
 
 try {
   $conn = new PDO("mysql:host=$servername;dbname=se_64;charset=tis620", $username, $password);

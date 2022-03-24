@@ -8,6 +8,9 @@
   <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
   <link rel="stylesheet" href="jqueryui/style.css">
+  <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
   <script>
   $(function() {
     $( "#datepicker" ).datepicker({
@@ -224,6 +227,7 @@
             <div class="column">
               <?php
               if (is_null($student->approvedID)){ ?>
+              <div style="height: 600px;">
                 <div class="row1" >
                   <div class="column1">
                     <div class="box1">
@@ -234,7 +238,8 @@
                     </div> 
                   </div>  
                 </div>
-                <br><br>        
+                <br><br>  
+              </div>      
               <?php  } 
               else{  ?>
                 <div class="box">
@@ -248,7 +253,7 @@
                 </div>
                 <div class="column2">
                    <div class="box2">
-                    <form class="example" action="" method="GET" >
+                    <form class="example" action="" method="post" enctype="multipart/form-data">
                       <a href="document/form_internship2565.pdf" target="_blank " style="background-color: #58006E;color: white;padding: 14px 25px;text-align: center;text-decoration: none;display: inline-block;font-family: 'IBM Plex Sans Thai', sans-serif; border-radius: 30px; " >ดาวน์โหลดใบคำร้องขอฝึกงาน</a><br>
                         <br>
                         <p3><?php echo "ชื่อ นามสกุล : $student->titleName$student->stuFN  $student->stuLN";?></p3><br>
@@ -285,13 +290,16 @@
                         <p2>ระยะการฝึกงานตั้งแต่วันที่ - ถึงวันที่ </p2><br><input type="date" style="background-color: #FEF5FF; border-radius: 30px; color: #440058; font-family: 'IBM Plex Sans Thai', sans-serif; padding: 8px; margin: 8px; width: 33.3%;" name="JStartDate" ><img src="./images/minus.png" style="width: 15px; height: 15px; margin: 10px; " ><input type="date" style="background-color: #FEF5FF; border-radius: 30px; color: #440058; font-family: 'IBM Plex Sans Thai', sans-serif; padding: 8px; width: 33.3%; margin: 8px;" name="JEndDate" ><br><br>
                         <p2>จำนวนค่าตอบแทน (บาท/วัน หรือ บาท/เดือน) (หรือ ไม่มีค่าตอบแทน)</p2><br><input type="text" name="JPay"/><br><br>
                         <p2>ที่พัก(มี/ไม่มี/อื่นๆ)</p2><br> <input type="text" name="JAccommodation"/><br><br>
-                          
-
+                        
+                        <input type="hidden" name="doc_name" value="<?php echo $JID; ?>" required class="form-control" placeholder="ID jobrequirment"> <br>
+                         <font color="red">*อัพโหลดได้เฉพาะ .pdf เท่านั้น </font><br>
+                        <input type="file" name="doc_file" required   class="form-control" accept="application/pdf"> <br><br>
+                       
 
                         <div style="margin-left: 20%;">
                           <input type="hidden" name="controller" value="student"/><br><br>
                           <button type="submit" name="action" value="home">ย้อนกลับ</button>
-                          <button type="submit" name="action" value="addRequirement">ส่งคำร้อง</button>
+                          <button type="submit"  class="btn btn-primary" >ส่งคำร้อง</button>
                         </div>
                       
                     </form>
@@ -306,3 +314,124 @@
 </div>
 </body>
 </html>
+
+
+<?php 
+
+if (isset($_POST['doc_name'])) {
+
+
+  $account = Account::getID($_SESSION["user"]);
+  $JobRequirment = JobRequirment::getJobReqStudent($account->stuID);
+  $maxJobReqStuID= 0;
+  foreach($JobRequirment as $J){
+      
+      settype($J->JobID,"integer" );
+      $JID = $J->JobID;
+      if($maxJobReqStuID < $JID ){
+          $maxJobReqStuID = $JID;
+          echo $maxJobReqStuID;
+      }
+
+  }
+  echo $maxJobReqStuID;
+  $JID = JobRequirment::sentCountAll();
+  settype($JID,"integer");
+  $JID = $JID+1;
+  $Jtype = $_POST['Jtype'];
+  date_default_timezone_set('asia/bangkok');
+  $date = date('Y-m-d');
+ 
+  $JStu = $_POST['JStu'];
+  echo $JStu;
+  $JPosition = $_POST['JPosition'];
+  $JBossname = $_POST['JBossname'];
+  $JBossPosition = $_POST['JBossPosition'];
+  $JCompany = $_POST['JCompany'];
+  $JCoordinatorName = $_POST['JCoordinatorName'];
+  $JCoordinatorTel = $_POST['JCoordinatorTel'];
+  $JCoordinatorEmail = $_POST['JCoordinatorEmail'];
+  $JStartDate = $_POST['JStartDate'];
+  $JEndDate = $_POST['JEndDate'];
+  $JPay = $_POST['JPay'];
+  $JAccommodation = $_POST['JAccommodation'];
+  JobRequirment::Add($JID,$Jtype,$date,$JStu,$JPosition,$JBossname,$JBossPosition,$JCompany,$JCoordinatorName,$JCoordinatorTel,$JCoordinatorEmail, $JStartDate,$JEndDate,$JPay,$JAccommodation);
+  $student = JobRequirment::getID($maxJobReqStuID);
+
+    require_once 'connect.php';
+     //สร้างตัวแปรวันที่เพื่อเอาไปตั้งชื่อไฟล์ใหม่
+    $date1 = date("Ymd_His");
+    //สร้างตัวแปรสุ่มตัวเลขเพื่อเอาไปตั้งชื่อไฟล์ที่อัพโหลดไม่ให้ชื่อไฟล์ซ้ำกัน
+    $numrand = (mt_rand());
+    $doc_file = (isset($_POST['doc_file']) ? $_POST['doc_file'] : '');
+    $upload=$_FILES['doc_file']['name'];
+
+    //มีการอัพโหลดไฟล์
+    if($upload !='') {
+    //ตัดขื่อเอาเฉพาะนามสกุล
+    $typefile = strrchr($_FILES['doc_file']['name'],".");
+
+    //สร้างเงื่อนไขตรวจสอบนามสกุลของไฟล์ที่อัพโหลดเข้ามา
+    if($typefile =='.pdf'){
+
+    //โฟลเดอร์ที่เก็บไฟล์ **สร้างไฟล์ index.php หรือ index.html (ไม่ต้องมี code) ไว้ในโฟลเดอร์ด้วยนะครับจะได้ป้องกันการเข้าถึงทุกไฟล์ในโฟลเดอร์
+    $path="docs/";
+    //ตั้งชื่อไฟล์ใหม่เป็น สุ่มตัวเลข+วันที่
+    $newname = 'doc_'.$numrand.$date1.$typefile;
+    $path_copy=$path.$newname;
+    //คัดลอกไฟล์ไปยังโฟลเดอร์
+    move_uploaded_file($_FILES['doc_file']['tmp_name'],$path_copy); 
+
+     //ประกาศตัวแปรรับค่าจากฟอร์ม
+    $doc_name = $_POST['doc_name'];
+    
+    //sql insert
+    $stmt = $conn->prepare("INSERT INTO tbl_pdf (doc_name, doc_file)
+    VALUES (:doc_name, '$newname')");
+    $stmt->bindParam(':doc_name', $doc_name, PDO::PARAM_STR);
+    $result = $stmt->execute();
+    $conn = null; //close connect db
+    //เงื่อนไขตรวจสอบการเพิ่มข้อมูล
+            if($result){
+                echo '<script>
+                     setTimeout(function() {
+                      swal({
+                          title: "ยื่นคำร้องเรียบร้อย",
+                          text: "รอการตรวจสอบจากทางภาควิชา",
+                          type: "success"
+                      }, function() {
+                          window.location = "indexLogin.php?controller=student&action=newRequirement"; //หน้าที่ต้องการให้กระโดดไป
+                      });
+                    }, 100);
+                </script>';
+            }else{
+               echo '<script>
+                     setTimeout(function() {
+                      swal({
+                          title: "เกิดข้อผิดพลาด",
+                          type: "error"
+                      }, function() {
+                          window.location = "indexLogin.php?controller=student&action=newRequirement"; //หน้าที่ต้องการให้กระโดดไป
+                      });
+                    }, 100);
+                </script>';
+            } //else ของ if result
+
+        
+        }else{ //ถ้าไฟล์ที่อัพโหลดไม่ตรงตามที่กำหนด
+            echo '<script>
+                         setTimeout(function() {
+                          swal({
+                              title: "คุณอัพโหลดไฟล์ไม่ถูกต้อง",
+                              type: "error"
+                          }, function() {
+                              window.location = "upload_pdf.php"; //หน้าที่ต้องการให้กระโดดไป
+                          });
+                        }, 1000);
+                    </script>';
+        } //else ของเช็คนามสกุลไฟล์
+   
+    } // if($upload !='') {
+
+    } //isset
+?>
