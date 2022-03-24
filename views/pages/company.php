@@ -41,7 +41,6 @@
     margin-right: 200px;
 }
 p{
-  margin-left: 400px;
   font-size: 50px;
   font-weight: 500;
   font-family: 'IBM Plex Sans Thai', sans-serif;
@@ -73,9 +72,11 @@ p4{
 <div style="background-image: linear-gradient(#91FFE5,#CB8DF5);background-repeat: no-repeat; background-size: 100% 80%px;">
 
         <br><br>
+        <center>
         <p>
           รายชื่อสถานประกอบการ
         </p>
+        </center>
         <div class="row" >
         <div class="column">
         <div class="box1">

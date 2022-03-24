@@ -65,7 +65,6 @@
     }
 
     p{
-        margin-left: 350px;
         font-weight: 500;
         font-size: 50px;
         font-family: 'IBM Plex Sans Thai', sans-serif;
@@ -108,9 +107,11 @@
 
     <div style="height: 1200px;" >
         <br><br>
+        <center>
         <p>
           รายละเอียดสถานประกอบการ
         </p>
+        </center>
         <div class="row" >
             <div class="column">
                 <div class="box">
