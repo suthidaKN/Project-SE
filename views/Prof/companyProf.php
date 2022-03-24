@@ -97,7 +97,7 @@ p4{
             <?php foreach($CompanyList as $company) {?>
           <div class="column">
               <div class="box">
-                <p2><?php echo "$company->CompanyName $company->CompanyID" ?></p2><br>
+                <p2><?php echo "$company->CompanyName" ?></p2><br>
                 <p3>ตำแหน่ง</p3><p4><?php echo " : $company->CRecivePostion";?></p4><br>
                 <p3>ที่อยู่</p3><p4><?php echo " : $company->CAddress $company->CStreet $company->amphure_name_th $company->province_name_th";?></p4><br>
                 <p3>จำนวนที่รับ</p3><p4><?php echo " : $company->CNumber";?></p4><br>
@@ -124,7 +124,10 @@ p4{
 if (isset($_POST['ID'])) {
 
     $ID = $_POST['ID'];
-    $result = Company::delete($ID);
+    echo '<script type="text/javascript">';
+    echo "var ID = '$ID';"; // ส่งค่า $data จาก PHP ไปยังตัวแปร data ของ Javascript
+    echo '</script>';
+    $result = Company::get($ID);
 
             if($result){ ?>
               <script>
@@ -140,14 +143,21 @@ if (isset($_POST['ID'])) {
                   },
                   function(){
                     $.ajax({
-                      url: "reason.php",
-                      data: {value:nn,ID:ID},
+                      url: "delete.php",
+                      data: {ID:ID},
                       method: 'POST',
                       success: function (data) {
                           // success
                       }
                   });
-                    swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                    swal({
+                      title:"เรียบร้อย!",
+                        text: "ลบสถานประกอบการแล้ว" ,
+                        type: "success"
+                    },function() {
+                        window.location = "indexLogin.php?controller=prof&action=company"; //หน้าที่ต้องการให้กระโดดไป
+                    });
+                      
                   });
                }, 100);
            </script>

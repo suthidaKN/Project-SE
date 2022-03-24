@@ -198,5 +198,12 @@ class Company{
             require("./connection_close.php");
             return $result;
         }
+        public static function get($ID){
+            require("./connection_connect.php");
+            $sql = "SELECT CompanyID FROM company WHERE `company`.`CompanyID` = '$ID'";
+            $result = $conn->query($sql);
+            require("./connection_close.php");
+            return $result;
+        }
 
 }
