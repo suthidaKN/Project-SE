@@ -29,7 +29,7 @@
       }
   
       form.example button {
-          width: 100px;
+          width: 200px;
           padding: 10px;
           background: #9122F3;
           color: white;
@@ -132,9 +132,10 @@
         margin-left: 160px;
         margin-right: 160px;
         margin-top: 10px;
-        height: 2150px;
+        height: 1900px;
         border-radius: 50px;
         padding: 30px;
+        text-align: center;
         
     }
     .row1:after {
@@ -223,13 +224,8 @@
         <div class="row" >
             <div class="column">
                 <div class="box">
-            
-            <div class="box2">
-              
-                
+        
                 <form class="example" action="" method="GET">
-                 
-
                     <p2>ชื่อสถานประกอบการ/หน่วยงาน </p2><br><input type="text" name="CompanyName"/><br><br>
                     <p2>ประเภทธุรกิจ</p2><br> <input type="text" name="CType"/><br><br>
                     <p2>ที่อยู่ </p2>
@@ -252,25 +248,18 @@
                     <p2>จำนวนที่รับ (คน) </p2><br> <input type="text" name="CNumber"/><br><br>
                     <p2>ความสามารถทางวิชาการหรือทักษะที่นิสิตควรมี </p2><br> <input type="text" name="CSkillReq"/><br><br>
 
-
                     <div style="margin-left: 20%;">
-                    <input type="hidden" name="controller" value="newRequirement"/><br><br>
-                      <button type="submit" name="action" value="new">ย้อนกลับ</button>
+                    <input type="hidden" name="controller" value="student"/><br><br>
+                      <button type="submit" name="action" value="newRequirement">ย้อนกลับ</button>
                       <button type="submit" name="action" value="addCompany">เสนอสถานที่ฝึกงานใหม่</button>
                     </div>
                 
                   </form>
-                 
-                 
-              
                 
-              </div>
+                </div>
               </div>
             </div> 
             <br><br><br><br><br><br>
-            </div>
-          </div>
-         
-</div>
-</body>
+        </div>
+    </body>
 </html>
