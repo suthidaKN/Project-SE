@@ -8,6 +8,10 @@
   <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
   <link rel="stylesheet" href="jqueryui/style.css">
+  <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+
 
   <script type="text/javascript">
     $(document).ready(function(){
@@ -202,7 +206,7 @@
             <div class="box2">
               
                 
-                <form class="example" action="" method="GET">
+                <form class="example" action="" method="POST"  enctype="multipart/form-data">
                  
                     <p2>ชื่อสถานประกอบการ/หน่วยงาน </p2><br><input type="text" name="CompanyName"/><br><br>
                     <p2>ประเภทธุรกิจ</p2><br> <input type="text" name="CType"/><br><br>
@@ -242,9 +246,10 @@
 
 
                     <div style="margin-left: 20%;">
+                    <input type = "hidden" name = "doc" value = "student"/>
                     <input type = "hidden" name = "controller" value = "student"/>
                     <a class="btn btn-default" style="background-color: #9122F3; color: #fff; border-radius: 20px; font-family: 'IBM Plex Sans Thai', sans-serif; " href=?controller=student&action=newRequirement>ยกเลิก</a>
-                    <button class="example"  name= "action" value = "addCompany" >เสนอสถานที่ฝึกงานใหม่</button><br><br>                        
+                    <button type="submit"  >เสนอสถานที่ฝึกงานใหม่</button><br><br>                        
                     </div>
                 
                   </form>
@@ -261,3 +266,64 @@
 </div>
 </body>
 </html>
+
+<?php 
+
+if (isset($_POST['doc'])) {
+
+      $CID = Company::CountCompanyAll();
+      settype($CID,"integer");
+      $CID = $CID+1;
+      
+      $CompanyName= $_POST['CompanyName']; 
+      $CAddress= $_POST['CAddress'];
+      $CStreet= $_POST['CStreet'];
+      $CTumbon= $_POST['id_amphure'];
+      $CType= $_POST['CType'];
+      $CPhone= $_POST['CPhone'];
+      $CFax= $_POST['CFax'];
+      $CManager= $_POST['CManager'];
+      $CMngPosition= $_POST['CMngPosition'];
+      $CCoordinator= $_POST['CCoordinator'];
+      $CCoorPosition= $_POST['CCoorPosition'];
+      $CCoorDepartment= $_POST['CCoorDepartment'];
+      $CCoorPhone= $_POST['CCoorPhone'];
+      $CCoorEmail= $_POST['CCoorEmail'];
+      $CRecivePostion= $_POST['CRecivePostion'];
+      $CJobDescription= $_POST['CJobDescription'];
+      $CNumber= $_POST['CNumber'];
+      $CSkillReq= $_POST['CSkillReq'];
+
+      echo $CID,$CompanyName, $CAddress,$CStreet, $CTumbon,$CType,$CPhone,$CFax,$CManager,$CMngPosition,$CCoordinator,$CCoorPosition,$CCoorDepartment,$CCoorPhone,$CCoorEmail,
+      $CRecivePostion,$CJobDescription,$CNumber,$CSkillReq;
+      $result = Company::Add($CID,$CompanyName, $CAddress,$CStreet, $CTumbon,$CType,$CPhone,$CFax,$CManager,$CMngPosition,$CCoordinator,$CCoorPosition,$CCoorDepartment,$CCoorPhone,$CCoorEmail,
+      $CRecivePostion,$CJobDescription,$CNumber,$CSkillReq);
+
+            if($result){
+                echo '<script>
+                     setTimeout(function() {
+                      swal({
+                          title: "เพิ่มสถานประกอบการสำเร็จ",
+                          text: "",
+                          type: "success"
+                      }, function() {
+                          window.location = "indexLogin.php?controller=student&action=newRequirement"; //หน้าที่ต้องการให้กระโดดไป
+                      });
+                    }, 100);
+                </script>';
+            }else{
+               echo '<script>
+                     setTimeout(function() {
+                      swal({
+                          title: "เกิดข้อผิดพลาด",
+                          type: "error"
+                      }, function() {
+                          window.location = "indexLogin.php?controller=student&action=newRequirement"; //หน้าที่ต้องการให้กระโดดไป
+                      });
+                    }, 100);
+                </script>';
+            } //else ของ if result
+
+          
+      }
+?>
