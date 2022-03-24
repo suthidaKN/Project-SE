@@ -46,6 +46,16 @@ p{
   font-family: 'IBM Plex Sans Thai', sans-serif;
   color: #58006E;
 }
+p2{
+  font-size: 25px;
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+  color: #58006E;
+}
+p3{
+  font-size: 25px;
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+  color: #9700BD;
+}
 
     /*.box:hover{background: #C9C9CC; color: #fff;}
     .box1:hover{background: #b0b0ff; color: #fff;}
@@ -73,7 +83,8 @@ p{
         <?php foreach($CompanyList as $company) {?>
           <div class="column">
               <div class="box">
-                <?php echo $company->cAddress ?>
+                <p2><?php echo $company->CompanyName ?></p2>
+                <p3>ตำแหน่ง</p3>
               </div> 
           </div>
           <?php } ?>
