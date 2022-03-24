@@ -24,7 +24,7 @@ class Company{
     public $CSkillReq;
 
 
-    public function __construct($CompanyID,$CompanyName, $CAddress,$CStreet,$amphure_id,$amphure_name_th,$province_id,
+    public function __construct($CompanyID,$CompanyName, $CTumbon,$CAddress,$CStreet,$amphure_id,$amphure_name_th,$province_id,
     $province_name_th,$CType,$CPhone,$CFax,$CManager,$CMngPosition,$CCoordinator,$CCoorPosition,$CCoorDepartment,$CCoorPhone,$CCoorEmail,
     $CRecivePostion,$CJobDescription,$CNumber,$CSkillReq){
         $this->CompanyID=$CompanyID;
@@ -36,6 +36,7 @@ class Company{
         $this->province_id=$province_id;
         $this->province_name_th=$province_name_th;
         $this->CType=$CType;
+        $this->CTumbon = $CTumbon;
         $this->CPhone=$CPhone;
         $this->CFax=$CFax;
         $this->CManager=$CManager;
@@ -61,6 +62,7 @@ class Company{
         while($row=$result->fetch_assoc()){
             $CompanyID = $row['CompanyID'];
             $CompanyName = $row['CompanyName']; 
+            $CTumbon = $row['CTumbon'];
             $CAddress = $row['CAddress'];
             $CStreet = $row['CStreet'];
             $amphure_id = $row['amphure_id'];
