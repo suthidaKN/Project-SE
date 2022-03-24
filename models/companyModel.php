@@ -145,5 +145,14 @@ class Company{
             require("./connection_close.php");
             return $companyList;
         }
+        public static function CountCompanyAll(){
+            require("./connection_connect.php");
+            $sql = "SELECT *from company";
+            $result = $conn->query($sql);
+            $row=$result->fetch_all();
+            $row = count($row);
+            require("./connection_close.php");
+            return $row;
+        }
 
 }

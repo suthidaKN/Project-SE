@@ -7,32 +7,39 @@
             $account = Account::getID($_SESSION["user"]);
             $JobRequirment = JobRequirment::getJobReqStudent($account->stuID);
             $maxJobReqStuID= 0;
+            
             foreach($JobRequirment as $J){
                 
                 settype($J->JobID,"integer" );
-                $JID = $J->JobID;
-                if($maxJobReqStuID < $JID ){
-                    $maxJobReqStuID = $JID;
+                $CID = $J->JobID;
+                if($maxJobReqStuID < $CID ){
+                    $maxJobReqStuID = $CID;
                     echo $maxJobReqStuID;
                 }
 
             }
-            $JID = JobRequirment::sentCountAll();
-            settype($JID,"integer");
-            $JID = $JID+1;
+            $CID = JobRequirment::sentCountAll();
+            settype($CID,"integer");
+            $CID = $CID+1;
             //echo $maxJobReqStuID;
             $student = JobRequirment::getID($maxJobReqStuID);
             $JobRequirmentList=JobRequirment::getCompany();
             require_once("./views/student/requestStudent.php");
         }
         public function newCompany(){
+            $CID = Company::CountCompanyAll();
+            settype($CID,"integer");
+            $CID = $CID+1;
+            echo $CID;
             $ID = aiModel::getid('Company', 'CompanyID');
             require_once("./views/student/addCompany.php");
         }
         
         public function addCompany(){
+            $CID = Company::CountCompanyAll();
+            settype($CID,"integer");
+            $CID = $CID+1;
             
-            $CompanyID= $_GET['CompanyID'];
             $CompanyName= $_GET['CompanyName']; 
             $CAddress= $_GET['CAddress'];
             $CStreet= $_GET['CStreet'];
@@ -52,7 +59,7 @@
             $CNumber= $_GET['CNumber'];
             $CSkillReq= $_GET['CSkillReq'];
 
-            Company::Add($CompanyID,$CompanyName, $CAddress,$CStreet, $CTumbon,$CType,$CPhone,$CFax,$CManager,$CMngPosition,$CCoordinator,$CCoorPosition,$CCoorDepartment,$CCoorPhone,$CCoorEmail,
+            Company::Add($CID,$CompanyName, $CAddress,$CStreet, $CTumbon,$CType,$CPhone,$CFax,$CManager,$CMngPosition,$CCoordinator,$CCoorPosition,$CCoorDepartment,$CCoorPhone,$CCoorEmail,
             $CRecivePostion,$CJobDescription,$CNumber,$CSkillReq);
             require_once("./views/student/requestStudent.php");
         
@@ -64,9 +71,9 @@
             foreach($JobRequirment as $J){
                 
                 settype($J->JobID,"integer" );
-                $JID = $J->JobID;
-                if($maxJobReqStuID < $JID ){
-                    $maxJobReqStuID = $JID;
+                $CID = $J->JobID;
+                if($maxJobReqStuID < $CID ){
+                    $maxJobReqStuID = $CID;
                     //echo $maxJobReqStuID;
                 }
 
@@ -85,9 +92,9 @@
             foreach($JobRequirment as $J){
                 
                 settype($J->JobID,"integer" );
-                $JID = $J->JobID;
-                if($maxJobReqStuID < $JID ){
-                    $maxJobReqStuID = $JID;
+                $CID = $J->JobID;
+                if($maxJobReqStuID < $CID ){
+                    $maxJobReqStuID = $CID;
                     //echo $maxJobReqStuID;
                 }
 
