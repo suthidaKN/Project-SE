@@ -22,18 +22,15 @@ class Company{
     public $CCoorDepartment;
     public $CCoorPhone;
     public $CCoorEmail;
-    public $CStuPosition;
     public $CRecivePostion;
     public $CJobDescription;
     public $CNumber;
     public $CSkillReq;
-    public $CStartDate;
-    public $CEndDate;
- 
+
 
     public function __construct($CompanyID,$CompanyName, $CAddress,$CStreet, $CTumbon,$district_id,$district_name_th,$amphure_id,$amphure_name_th,$province_id,
-    $province_name_th,$zip_code,$CType,$CPhone,$CFax,$CManager,$CMngPosition,$CCoordinator,$CCoorPosition,$CCoorDepartment,$CCoorPhone,$CCoorEmail,$CStuPosition,
-    $CRecivePostion,$CJobDescription,$CNumber,$CSkillReq,$CStartDate,$CEndDate){
+    $province_name_th,$zip_code,$CType,$CPhone,$CFax,$CManager,$CMngPosition,$CCoordinator,$CCoorPosition,$CCoorDepartment,$CCoorPhone,$CCoorEmail,
+    $CRecivePostion,$CJobDescription,$CNumber,$CSkillReq){
         $this->CompanyID=$CompanyID;
         $this->CompanyName=$CompanyName;
         $this->CAddress=$CAddress;
@@ -56,14 +53,11 @@ class Company{
         $this->CCoorDepartment=$CCoorDepartment;
         $this->CCoorPhone=$CCoorPhone;
         $this->CCoorEmail= $CCoorEmail;
-        $this->CStuPosition=$CStuPosition;
         $this->CRecivePostion=$CRecivePostion;
         $this->CJobDescription=$CJobDescription;
         $this->CNumber=$CNumber;
         $this->CSkillReq=$CSkillReq;
-        $this->CStartDate=$CStartDate;
-        $this->CEndDate=$CEndDate;
-
+    
     }
     public static function getAll(){
         $companyList=[];
@@ -94,17 +88,15 @@ class Company{
             $CCoorDepartment = $row['CCoorDepartment'];
             $CCoorPhone = $row['CCoorPhone'];
             $CCoorEmail = $row['CCoorEmail'];
-            $CStuPosition = $row['CStuPosition'];
             $CRecivePostion = $row['CRecivePostion'];
             $CJobDescription = $row['CJobDescription'];
             $CNumber = $row['CNumbe'];
             $CSkillReq = $row['CSkillReq'];
-            $CStartDate = $row['CStartDate'];
-            $CEndDate = $row['CEndDate'];
+        
 
             $companylList[] = new Company($CompanyID,$CompanyName, $CAddress,$CStreet, $CTumbon,$district_id,$district_name_th,$amphure_id,$amphure_name_th,$province_id,
-            $province_name_th,$zip_code,$CType,$CPhone,$CFax,$CManager,$CMngPosition,$CCoordinator,$CCoorPosition,$CCoorDepartment,$CCoorPhone,$CCoorEmail,$CStuPosition,
-            $CRecivePostion,$CJobDescription,$CNumber,$CSkillReq,$CStartDate,$CEndDate);
+            $province_name_th,$zip_code,$CType,$CPhone,$CFax,$CManager,$CMngPosition,$CCoordinator,$CCoorPosition,$CCoorDepartment,$CCoorPhone,$CCoorEmail,
+            $CRecivePostion,$CJobDescription,$CNumber,$CSkillReq);
         }
         require("./connection_close.php");
         return $companyList;
@@ -114,10 +106,10 @@ class Company{
         require("./connection_connect.php");
         $sql = "INSERT INTO `company` (`CompanyID`, `CompanyName`, `CAddress`, `CStreet`, `CTumbon`, 
         `CType`, `CPhone`, `CFax`, `CManager`, `CMngPosition`, `CCoordinator`, `CCoorPosition`,
-         `CCoorDepartment`, `CCoorPhone`, `CCoorEmail`, `CStuPosition`, `CReceivePosition`, `CJobDescription`,
-          `CNumber`, `CSkillReq`, `CStartDate`, `CEndDate`) VALUES ('$CompanyID', '$CompanyName', '$CAddress', $CStreet, 
+         `CCoorDepartment`, `CCoorPhone`, `CCoorEmail`, `CReceivePosition`, `CJobDescription`,
+          `CNumber`, `CSkillReq`) VALUES ('$CompanyID', '$CompanyName', '$CAddress', $CStreet, 
           '$CTumbon', '$CType', '$CPhone', '$CFax', '$CManager', '$CMngPosition', '$CCoordinator', '$CCoorPosition', '$CCoorDepartment',
-           '$CCoorPhone', '$CCoorPhone', '$CCoorEmail', '$CStuPosition', '$CRecivePostion', '$CJobDescription', '$CNumber', '$CStartDate', '$CEndDate')
+           '$CCoorPhone', '$CCoorPhone', '$CCoorEmail', '$CRecivePostion', '$CJobDescription', '$CNumber')
         ";
         $result = $conn->query($sql);
         while($row=$result->fetch_assoc()){
@@ -136,23 +128,21 @@ class Company{
             $CType = $row['CType'];
             $CPhone = $row['CPhone'];
             $CFax = $row['CFax'];
-            $CManager = $row['CManager'];;
-            $CMngPosition = $row['CMngPosition'];;
-            $CCoordinator = $row['CCoordinator'];;
-            $CCoorPosition = $row['CCoorPosition'];;
-            $CCoorDepartment = $row['CCoorDepartment'];;
-            $CCoorPhone = $row['CCoorPhone'];;
-            $CCoorEmail = $row['CCoorEmail'];;
-            $CStuPosition = $row['CStuPosition'];;
-            $CRecivePostion = $row['CRecivePostion'];;
-            $CJobDescription = $row['CJobDescription'];;
-            $CNumber = $row['CNumber'];;
-            $CSkillReq = $row['CSkillReq'];;
-            $CStartDate = $row['CStartDate'];;
-            $CEndDate = $row['CEndDate'];;
+            $CManager = $row['CManager'];
+            $CMngPosition = $row['CMngPosition'];
+            $CCoordinator = $row['CCoordinator'];
+            $CCoorPosition = $row['CCoorPosition'];
+            $CCoorDepartment = $row['CCoorDepartment'];
+            $CCoorPhone = $row['CCoorPhone'];
+            $CCoorEmail = $row['CCoorEmail'];
+            $CRecivePostion = $row['CRecivePostion'];
+            $CJobDescription = $row['CJobDescription'];
+            $CNumber = $row['CNumber'];
+            $CSkillReq = $row['CSkillReq'];
+
             $companylList[] = new Company($CompanyID,$CompanyName, $CAddress,$CStreet, $CTumbon,$district_id,$district_name_th,$amphure_id,$amphure_name_th,$province_id,
             $province_name_th,$zip_code,$CType,$CPhone,$CFax,$CManager,$CMngPosition,$CCoordinator,$CCoorPosition,$CCoorDepartment,$CCoorPhone,$CCoorEmail,$CStuPosition,
-            $CRecivePostion,$CJobDescription,$CNumber,$CSkillReq,$CStartDate,$CEndDate);
+            $CRecivePostion,$CJobDescription,$CNumber,$CSkillReq);
         }
         require("./connection_close.php");
         return $companyList;

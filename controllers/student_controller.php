@@ -36,22 +36,20 @@
             $CType= $_GET['CType'];
             $CPhone= $_GET['CPhone'];
             $CFax= $_GET['CFax'];
-            $CManager= $_GET['CManager'];;
-            $CMngPosition= $_GET['CMngPosition'];;
-            $CCoordinator= $_GET['CCoordinator'];;
-            $CCoorPosition= $_GET['CCoorPosition'];;
-            $CCoorDepartment= $_GET['CCoorDepartment'];;
-            $CCoorPhone= $_GET['CCoorPhone'];;
-            $CCoorEmail= $_GET['CCoorEmail'];;
-            $CStuPosition= $_GET['CStuPosition'];;
-            $CRecivePostion= $_GET['CRecivePostion'];;
-            $CJobDescription= $_GET['CJobDescription'];;
-            $CNumber= $_GET['CNumber'];;
-            $CSkillReq= $_GET['CSkillReq'];;
-            $CStartDate= $_GET['CStartDate'];;
-            $CEndDate= $_GET['CEndDate'];;
-            Company::Add($CompanyID,$CompanyName, $CAddress,$CStreet, $CTumbon,$CType,$CPhone,$CFax,$CManager,$CMngPosition,$CCoordinator,$CCoorPosition,$CCoorDepartment,$CCoorPhone,$CCoorEmail,$CStuPosition,
-            $CRecivePostion,$CJobDescription,$CNumber,$CSkillReq,$CStartDate,$CEndDate);
+            $CManager= $_GET['CManager'];
+            $CMngPosition= $_GET['CMngPosition'];
+            $CCoordinator= $_GET['CCoordinator'];
+            $CCoorPosition= $_GET['CCoorPosition'];
+            $CCoorDepartment= $_GET['CCoorDepartment'];
+            $CCoorPhone= $_GET['CCoorPhone'];
+            $CCoorEmail= $_GET['CCoorEmail'];
+            $CRecivePostion= $_GET['CRecivePostion'];
+            $CJobDescription= $_GET['CJobDescription'];
+            $CNumber= $_GET['CNumber'];
+            $CSkillReq= $_GET['CSkillReq'];
+
+            Company::Add($CompanyID,$CompanyName, $CAddress,$CStreet, $CTumbon,$CType,$CPhone,$CFax,$CManager,$CMngPosition,$CCoordinator,$CCoorPosition,$CCoorDepartment,$CCoorPhone,$CCoorEmail,
+            $CRecivePostion,$CJobDescription,$CNumber,$CSkillReq);
             require_once("./views/student/addCompany.php");
         
         }
