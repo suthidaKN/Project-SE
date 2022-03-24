@@ -27,11 +27,7 @@
             require_once("./views/student/requestStudent.php");
         }
         public function newCompany(){
-            $CID = Company::CountCompanyAll();
-            settype($CID,"integer");
-            $CID = $CID+1;
-            echo $CID;
-            //$ID = aiModel::getid('Company', 'CompanyID');
+        
             require_once("./views/student/addCompany.php");
         }
         
