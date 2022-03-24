@@ -8,6 +8,23 @@
   <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
   <link rel="stylesheet" href="jqueryui/style.css">
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+        $("#province").change(function(){
+            var province_id=$(this).val();
+            $.ajax({
+                url:"provincexDistrictOnchange.php",
+                method:"POST",
+                data:{provinceID:province_id},
+                success:function(data){
+                    $("#district").html(data);
+                }
+            });
+        });
+
+    });
+</script>
   <script>
   $(function() {
     $( "#datepicker" ).datepicker({
@@ -232,12 +249,26 @@
 
                     <p2>ชื่อสถานประกอบการ/หน่วยงาน </p2><br><input type="text" name="CompanyName"/><br><br>
                     <p2>ประเภทธุรกิจ</p2><br> <input type="text" name="CType"/><br><br>
-                    <p2>ที่อยู่ </p2>
-                    <p2>จังหวัด><?php foreach($$companylList as $Company)
-                        {
-                          echo "<option value=$Company->province_id > $Company->province_name_th </option>";
-                        }
-                        ?>
+                    <p2>ที่อยู่ </p2><br>
+                   
+
+                    <select name="PV_id" style="width: 75%;; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;" id="province">
+                                    <option value=" " >-เลือกจังหวัด-</option>
+                                    <?php
+                                        require("./connection_connect.php");
+                                        $sql="SELECT * FROM provinces order by province_name_th";
+                                        $result = $conn->query($sql);
+                                        while($my_row = $result->fetch_assoc()){
+                                    ?>
+                                    <option value="<?= $my_row["province_id"];?>"><?=$my_row["province_name_th"]; ?></option>
+                                    <?php } ?>        
+                                </select>
+                                <br><br>
+                                <select name="id_amphure" style="width: 75%;; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;" id="district">
+                                    <option value=" ">-เลือกอำเภอ-</option>
+                                </select><br><br>
+               
+
                     <p2>เบอร์โทรศัพท์ ของสถานประกอบการ/หน่วยงาน </p2><br> <input type="text" name="CPhone"/><br><br>
                     <p2>เบอร์โทรสาร ของสถานประกอบการ/หน่วยงาน </p2><br><input type="text" name="CFax"/><br><br>
                     <p2>ชื่อผู้จัดการ สถานประกอบการ/หัวหน้าหน่วยงาน </p2><br><input type="text" name="CManager"/><br><br>
@@ -267,9 +298,8 @@
               </div>
               </div>
             </div> 
-            <br><br><br><br><br><br>
             </div>
-          </div>
+            <br><br><br><br><br><br>
          
 </div>
 </body>
