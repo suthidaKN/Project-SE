@@ -149,7 +149,7 @@
         margin-left: 160px;
         margin-right: 160px;
         margin-top: 10px;
-        height: 2150px;
+        height: 1900px;
         border-radius: 50px;
         padding: 30px;
         
@@ -246,8 +246,8 @@
                 
                 <form class="example" action="" method="GET">
                  
-
-                    <p2>ชื่อสถานประกอบการ/หน่วยงาน </p2><br><input type="text" name="CompanyName"/><br><br>
+                    <p2>ลำดับที่ </p2><br> <input type="text" name="CompayID"/><br><br>
+                    <p2>ชื่อสถานประกอบการ/หน่วยงาน </p2><br><input type="text" name="CompanyName"  value="<?php echo "$CompanyID"?>"/><br><br>
                     <p2>ประเภทธุรกิจ</p2><br> <input type="text" name="CType"/><br><br>
                     <p2>ที่อยู่ </p2><br>
                    
@@ -286,8 +286,8 @@
 
                     <div style="margin-left: 20%;">
                     <input type="hidden" name="controller" value="newRequirement"/><br><br>
-                      <button type="submit" name="action" value="new">ย้อนกลับ</button>
-                      <button type="submit" name="action" value="addCompany">เสนอสถานที่ฝึกงานใหม่</button>
+                    <a class="btn btn-default" style="background-color: #7000FF; color: #fff; border-radius: 20px; font-family: 'IBM Plex Sans Thai', sans-serif; " href=?controller=student&action=newRequirement>ยกเลิก</a><br><br>
+                    <a class="btn btn-default" style="background-color: #7000FF; color: #fff; border-radius: 20px; font-family: 'IBM Plex Sans Thai', sans-serif; " href=?controller=student&action=addCompany></a>เสนอสถานที่ฝึกงานใหม่<br><br>                        
                     </div>
                 
                   </form>

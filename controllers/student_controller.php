@@ -26,6 +26,7 @@
             require_once("./views/student/requestStudent.php");
         }
         public function newCompany(){
+            $ID = aiModel::getid('Company', 'CompanyID');
             require_once("./views/student/addCompany.php");
         }
         

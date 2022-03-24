@@ -4,7 +4,6 @@ class Company{
     public $CompanyName;
     public $CAddress;
     public $CStreet;
-    public $CTumbon;
     public $district_id;
     public $zip_code;
     public $district_name_th;
@@ -28,14 +27,13 @@ class Company{
     public $CSkillReq;
 
 
-    public function __construct($CompanyID,$CompanyName, $CAddress,$CStreet, $CTumbon,$district_id,$district_name_th,$amphure_id,$amphure_name_th,$province_id,
+    public function __construct($CompanyID,$CompanyName, $CAddress,$CStreet,$district_id,$district_name_th,$amphure_id,$amphure_name_th,$province_id,
     $province_name_th,$zip_code,$CType,$CPhone,$CFax,$CManager,$CMngPosition,$CCoordinator,$CCoorPosition,$CCoorDepartment,$CCoorPhone,$CCoorEmail,
     $CRecivePostion,$CJobDescription,$CNumber,$CSkillReq){
         $this->CompanyID=$CompanyID;
         $this->CompanyName=$CompanyName;
         $this->CAddress=$CAddress;
         $this->CStreet=$CStreet;
-        $this->CTumbon=$CTumbon;
         $this->zip_code=$zip_code;
         $this->district_id=$district_id;
         $this->district_name_th=$district_name_th;
@@ -72,7 +70,6 @@ class Company{
             $CompanyName = $row['CompanyName']; 
             $CAddress = $row['CAddress'];
             $CStreet = $row['CStreet'];
-            $CTumbon = $row['CTumbon'];
             $district_id = $row['district_id'];
             $zip_code = $row['zip_code'];
             $district_name_th = $row['district_name_th'];
@@ -96,7 +93,7 @@ class Company{
             $CSkillReq = $row['CSkillReq'];
         
 
-            $companyList[] = new Company($CompanyID,$CompanyName, $CAddress,$CStreet, $CTumbon,$district_id,$district_name_th,$amphure_id,$amphure_name_th,$province_id,
+            $companyList[] = new Company($CompanyID,$CompanyName, $CAddress,$CStreet,$district_id,$district_name_th,$amphure_id,$amphure_name_th,$province_id,
             $province_name_th,$zip_code,$CType,$CPhone,$CFax,$CManager,$CMngPosition,$CCoordinator,$CCoorPosition,$CCoorDepartment,$CCoorPhone,$CCoorEmail,
             $CRecivePostion,$CJobDescription,$CNumber,$CSkillReq);
         }
@@ -106,11 +103,11 @@ class Company{
     public static function Add(){
         $companyList=[];
         require("./connection_connect.php");
-        $sql = "INSERT INTO `company` (`CompanyID`, `CompanyName`, `CAddress`, `CStreet`, `CTumbon`, 
+        $sql = "INSERT INTO `company` (`CompanyID`, `CompanyName`, `CAddress`, `CStreet`, 
         `CType`, `CPhone`, `CFax`, `CManager`, `CMngPosition`, `CCoordinator`, `CCoorPosition`,
          `CCoorDepartment`, `CCoorPhone`, `CCoorEmail`, `CReceivePosition`, `CJobDescription`,
           `CNumber`, `CSkillReq`) VALUES ('$CompanyID', '$CompanyName', '$CAddress', $CStreet, 
-          '$CTumbon', '$CType', '$CPhone', '$CFax', '$CManager', '$CMngPosition', '$CCoordinator', '$CCoorPosition', '$CCoorDepartment',
+           '$CType', '$CPhone', '$CFax', '$CManager', '$CMngPosition', '$CCoordinator', '$CCoorPosition', '$CCoorDepartment',
            '$CCoorPhone', '$CCoorEmail', '$CRecivePostion', '$CJobDescription', '$CNumber','$CSkillReq')
         ";
         $result = $conn->query($sql);
@@ -119,7 +116,6 @@ class Company{
             $CompanyName = $row['CompanyName']; 
             $CAddress = $row['CAddress'];
             $CStreet = $row['CStreet'];
-            $CTumbon = $row['CTumbon'];
             $district_id = $row['district_id'];
             $zip_code = $row['zip_code'];
             $district_name_th = $row['district_name_th'];
@@ -142,7 +138,7 @@ class Company{
             $CNumber = $row['CNumber'];
             $CSkillReq = $row['CSkillReq'];
 
-            $companylList[] = new Company($CompanyID,$CompanyName, $CAddress,$CStreet, $CTumbon,$district_id,$district_name_th,$amphure_id,$amphure_name_th,$province_id,
+            $companylList[] = new Company($CompanyID,$CompanyName, $CAddress,$CStreet, $district_id,$district_name_th,$amphure_id,$amphure_name_th,$province_id,
             $province_name_th,$zip_code,$CType,$CPhone,$CFax,$CManager,$CMngPosition,$CCoordinator,$CCoorPosition,$CCoorDepartment,$CCoorPhone,$CCoorEmail,$CStuPosition,
             $CRecivePostion,$CJobDescription,$CNumber,$CSkillReq);
         }
