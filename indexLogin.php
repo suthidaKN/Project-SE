@@ -92,8 +92,6 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
             <li><a href="?controller=pages&action=company">รายชื่อสถานประกอบการ</a></li>
             <li><a href="?controller=student&action=newRequirement">ยื่นคำร้องขอฝึกงาน</a></li>
             <li><a href="?controller=student&action=checkStatus">ตรวจสอบผลการอนุมัติ</a></li>
-            <li><a href="?controller=student&action=index">ส่งรายงานการฝึกงาน</a></li>
-            <li><a href="?controller=student&action=index">ตรวจสอบผลการฝึกงาน</a></li>
             <li><a href="?controller=pages&action=logout">ออกจากระบบ</a></li>
           <?php
           }
@@ -105,8 +103,6 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
             <li><a href="?controller=prof&action=home">หน้าหลัก</a></li>
             <li><a href="?controller=prof&action=company">รายชื่อสถานประกอบการ</a></li>
             <li><a href="?controller=prof&action=request">ตรวจสอบคำร้องของนิสิต</a></li>
-            <li><a href="?controller=prof&action=index">ตรวจสอบรายงาน</a></li>
-            <li><a href="?controller=prof&action=index">ตรวจสอบประวัตินิสิต</a></li>
             <li><a href="?controller=pages&action=logout">ออกจากระบบ</a></li>
          <?php
           }
@@ -117,8 +113,6 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
             <li><a class="active" ><p1><?php echo "$account->oFN $account->oLN" ?></p1></a> </li>
             <li><a href="?controller=officer&action=home">หน้าหลัก</a></li>
             <li><a href="?controller=officer&action=company">รายชื่อสถานประกอบการ</a></li>
-            <li><a href="?controller=officer&action=index">ตรวจสอบคำร้องของนิสิต</a></li>
-            <li><a href="?controller=officer&action=index">ตรวจสอบรายงาน</a></li>
             <li><a href="?controller=pages&action=logout">ออกจากระบบ</a></li>
           <?php
           }
