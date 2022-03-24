@@ -20,7 +20,7 @@
             $JID = JobRequirment::sentCountAll();
             settype($JID,"integer");
             $JID = $JID+1;
-            echo $maxJobReqStuID;
+            //echo $maxJobReqStuID;
             $student = JobRequirment::getID($maxJobReqStuID);
             $JobRequirmentList=JobRequirment::getAll();
             $JobRequirmentList=JobRequirment::getCompany();
@@ -84,11 +84,11 @@
                 $JID = $J->JobID;
                 if($maxJobReqStuID < $JID ){
                     $maxJobReqStuID = $JID;
-                    echo $maxJobReqStuID;
+                    //echo $maxJobReqStuID;
                 }
 
             }
-            echo $maxJobReqStuID;
+            //echo $maxJobReqStuID;
             $JobRequirment = JobRequirment::getID($maxJobReqStuID);
             //echo is_null($student->approvedName);
             require_once("./views/student/requirmentStatus.php");
