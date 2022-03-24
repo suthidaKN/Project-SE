@@ -230,7 +230,7 @@
                     <p2>ตำแหน่ง ของผู้จัดการ/หัวหน้าหน่วยงาน </p2><br><input type="text" name="CMngPosition" ><br><br>
                     <p2>ชื่อผู้ประสานงาน ของสถานประกอบการ/หน่วยงาน </p2><br><input type="text" name="CCoordinator"/><br><br>
                     <p2>ตำแหน่ง ของผู้ประสานงาน </p2><br> <input type="text" name="CCoorPosition"/><br><br>
-                    <p2>แผนก/ฝ่าย ของผู้ประสานงาน </p2><br> <input type="text" name="JCCoorDepartment"/><br><br>
+                    <p2>แผนก/ฝ่าย ของผู้ประสานงาน </p2><br> <input type="text" name="CCoorDepartment"/><br><br>
                     <p2>เบอร์โทรศัพท์ของผู้ประสานงาน </p2><br> <input type="text" name="CCoorPhone"/><br><br>
                     <p2>อีเมล (E-mail) ของผู้ประสานงาน </p2><br> <input type="text" name="CCoorEmail"/><br><br>
                     <p2>ตำแหน่งงานที่ต้องการรับนิสิตฝึกงาน/สหกิจศึกษา </p2><br> <input type="text" name="CRecivePostion"/><br><br>
