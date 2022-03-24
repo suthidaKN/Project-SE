@@ -35,9 +35,9 @@
         margin-left: 160px;
         margin-right: 160px;
         margin-top: 10px;
-        height: 250px;
+        height: 300px;
         border-radius: 50px;
-        padding: 30px;
+        padding: 20px;
         text-align: center;
     }
 
@@ -76,7 +76,7 @@
       color: #00AD26;
     }
     p5{
-      font-size: 35px;
+      font-size: 25px;
       font-weight: 600;
       font-family: 'Kanit', sans-serif;
       color: #FF0202;
