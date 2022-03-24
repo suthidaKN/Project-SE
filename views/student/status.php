@@ -40,6 +40,16 @@
         padding: 20px;
         text-align: center;
     }
+    .box1{
+        background-color: #FFFFFF7C;
+        margin-left: 160px;
+        margin-right: 160px;
+        margin-top: 10px;
+        height: 250px;
+        border-radius: 50px;
+        padding: 30px;
+        text-align: center;
+    }
 
     p{
         margin-left: 350px;
@@ -105,13 +115,21 @@
         </p>
         <div class="row" >
             <div class="column">
+              <?php if($JobRequirment->approvedID=="2"){ ?>
                 <div class="box">
-                <br><p3><?php echo "สถานะ : "; ?></p3>
-                                    <?php if(is_null($JobRequirment->approvedID)){ ?> <p2><?php echo "รอการตรวจสอบ";?></p2><?php } ?>
-                                    <?php if($JobRequirment->approvedID=="1"){ ?> <p4><?php echo "$JobRequirment->approvedName";?></p4><br><p7><?php echo "วันที่ตรวจสอบ : $JobRequirment->JApproveDate "; ?></p7><?php } ?>
-                                    <?php if($JobRequirment->approvedID=="2"){ ?> <p5><?php echo "$JobRequirment->approvedName";?></p5> <br><p5><?php echo "เหตุผล : $JobRequirment->reason"; ?></p5><br><br><p7><?php echo "วันที่ตรวจสอบ : $JobRequirment->JApproveDate "; ?></p7><?php } ?>
-                                    <br><br><a href=?controller=student&action=detailStatus style="background-color: #9F9C9C;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-family: 'IBM Plex Sans Thai', sans-serif; border-radius: 30px; ">รายละเอียด</a> 
+                  <br><p3><?php echo "สถานะ : "; ?></p3>
+                  <p5><?php echo "$JobRequirment->approvedName";?></p5> <br><p5><?php echo "เหตุผล : $JobRequirment->reason"; ?></p5><br><br><p7><?php echo "วันที่ตรวจสอบ : $JobRequirment->JApproveDate "; ?></p7>
+                  <br><br><a href=?controller=student&action=detailStatus style="background-color: #9F9C9C;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-family: 'IBM Plex Sans Thai', sans-serif; border-radius: 30px; ">รายละเอียด</a> 
                 </div> 
+                <?php } 
+                else { ?>
+                <div class="box1">
+                  <br><p3><?php echo "สถานะ : "; ?></p3>
+                  <?php if(is_null($JobRequirment->approvedID)){ ?> <p2><?php echo "รอการตรวจสอบ";?></p2><?php } ?>
+                  <?php if($JobRequirment->approvedID=="1"){ ?> <p4><?php echo "$JobRequirment->approvedName";?></p4><br><p7><?php echo "วันที่ตรวจสอบ : $JobRequirment->JApproveDate "; ?></p7><?php } ?>
+                  <br><br><a href=?controller=student&action=detailStatus style="background-color: #9F9C9C;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-family: 'IBM Plex Sans Thai', sans-serif; border-radius: 30px; ">รายละเอียด</a> 
+                </div> 
+                <?php } ?>
             </div>  
         </div>
         <br><br>

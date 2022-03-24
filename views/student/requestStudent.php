@@ -186,21 +186,21 @@
       margin-left: 13px;
 
     }
-    p3{
-      font-size: 20px;
+    p5{
+      font-size: 33px;
       font-family: 'Kanit', sans-serif ;
-      color:#440058;
+      color:#FF0000;
       margin-left: 13px;
 
     }
     p4{
-      font-size: 35px;
+      font-size: 22px;
       font-weight: 600;
       font-family: 'Kanit', sans-serif;
       color: #FFC802;
     }
     p3{
-      font-size: 35px;
+      font-size: 22px;
       font-family: 'Kanit', sans-serif ;
       color: #006c68;
       font-weight: 600;
@@ -223,92 +223,78 @@
         <div class="row" >
             <div class="column">
               <?php
-                if (is_null($student->approvedID)){ ?>
-                  <div style="height: 1200px;" >
-                    <br>
-            
-                    <div class="row1" >
-                        <div class="column1">
-                            <div class="box1">
-                             <br><p3><?php echo "สถานะ : "; ?></p3>
-                                    <?php if(is_null($student->approvedID)){ ?> <p4><?php echo "รอการตรวจสอบ";?></p4><?php } ?>
-                                
-                                    <br><br><a href=?controller=student&action=detailStatus style="background-color: #9F9C9C;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-family: 'IBM Plex Sans Thai', sans-serif; border-radius: 30px; ">รายละเอียด</a> 
-                </div> 
-            </div>  
-        </div>
-        <br><br>
-        
-    </div>
+              if (is_null($student->approvedID)){ ?>
+                <div class="row1" >
+                  <div class="column1">
+                    <div class="box1">
+                      <p5>ยังไม่สามารถส่งคำร้องได้!!</p5>
+                      <br><p3><?php echo "สถานะ : "; ?></p3>
+                      <?php if(is_null($student->approvedID)){ ?> <p4><?php echo "รอการตรวจสอบ";?></p4><?php } ?>
+                      <br><br><a href=?controller=student&action=detailStatus style="background-color: #9F9C9C;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-family: 'IBM Plex Sans Thai', sans-serif; border-radius: 30px; ">รายละเอียด</a> 
+                    </div> 
+                  </div>  
+                </div>
+                <br><br>        
               <?php  } 
-                else{  ?>
+              else{  ?>
                 <div class="box">
-                
-                  <div style="text-align: center; margin:10px">
+                <div style="text-align: center; margin:10px">
                   <img src="./images/timeline.png" style="width: 800px; height: 500px;" >
                 </div> 
-              
-  
-                  <div class="column3">
+                <div class="column3">
                   <div class="box2">
 
                   </div>
-                  </div>
-                    <div class="column2">
-                   
-            
-            <div class="box2">
-              
-                
-                <form class="example" action="" method="GET">
-                <a href="document/form_internship2565.pdf" target="_blank " style="background-color: #58006E;color: white;padding: 14px 25px;text-align: center;text-decoration: none;display: inline-block;font-family: 'IBM Plex Sans Thai', sans-serif; border-radius: 30px; " >ดาวน์โหลดใบคำร้องขอฝึกงาน</a><br>
-                  <br>
-                  <p3><?php echo "ชื่อ นามสกุล : $student->titleName$student->stuFN  $student->stuLN";?></p3><br>
-                  <input type="hidden" name="JStu" value="<?php echo $student->stuID ?>"/>
-                  <p3><?php echo "รหัสนิสิต: $student->stuID";  ?></p3><br>
-                  <p3><?php echo "เบอร์โทรศัพท์ : $student->stuPhone ";  ?></p3><br>
-                  <p3><?php echo "เฟสบุ๊ค : $student->stuFB";  ?></p3><br><br>
-                    <p2>ประเภท : </p2><br>
-                    <label class="container">ฝึกงาน
-                    <input type="radio" name="Jtype" value="1">
-                    <span class="checkmark"></span>
-                    </label>
-                    <label class="container">สหกิจ
-                      <input type="radio" name="Jtype" value="2">
-                      <span class="checkmark"></span>
-                    </label><br>
-            
-                    <p2>เลือกสถานฝึกงานที่ภาควิชามีอยู่แล้ว</p2> <select name="JCompany" class="form-control form-control-lg" style="width: 75%; border-radius: 20px; padding: 10px; background: #FEF5FF; color:#58006E; font-size: 17px;">
-                      <?php foreach($JobRequirmentList as $JobRequirment)
-                      {
+                </div>
+                <div class="column2">
+                   <div class="box2">
+                    <form class="example" action="" method="GET" >
+                      <a href="document/form_internship2565.pdf" target="_blank " style="background-color: #58006E;color: white;padding: 14px 25px;text-align: center;text-decoration: none;display: inline-block;font-family: 'IBM Plex Sans Thai', sans-serif; border-radius: 30px; " >ดาวน์โหลดใบคำร้องขอฝึกงาน</a><br>
+                        <br>
+                        <p3><?php echo "ชื่อ นามสกุล : $student->titleName$student->stuFN  $student->stuLN";?></p3><br>
+                        <input type="hidden" name="JStu" value="<?php echo $student->stuID ?>"/>
+                        <p3><?php echo "รหัสนิสิต: $student->stuID";  ?></p3><br>
+                        <p3><?php echo "เบอร์โทรศัพท์ : $student->stuPhone ";  ?></p3><br>
+                        <p3><?php echo "เฟสบุ๊ค : $student->stuFB";  ?></p3><br><br>
+                        <p2>ประเภท : </p2><br>
+                        <label class="container">ฝึกงาน
+                        <input type="radio" name="Jtype" value="1">
+                          <span class="checkmark"></span>
+                        </label>
+                        <label class="container">สหกิจ
+                          <input type="radio" name="Jtype" value="2">
+                          <span class="checkmark"></span>
+                        </label><br>
+                  
+                        <p2>เลือกสถานฝึกงานที่ภาควิชามีอยู่แล้ว</p2> <select name="JCompany" class="form-control form-control-lg" style="width: 75%; border-radius: 20px; padding: 10px; background: #FEF5FF; color:#58006E; font-size: 17px;">
+                        <?php foreach($JobRequirmentList as $JobRequirment)
+                        {
                           echo "<option value=$JobRequirment->cID > $JobRequirment->cName </option>";
-                      }
-                      ?>
-                    </select><br>
-                    <p2><?php echo "เสนอสถานที่ฝึกงานใหม่";  ?></p2>
-                    <p2><input type="hidden" name="controller" value="student"/></p2>
-                    <a class="btn btn-default" style="background-color: #7000FF; color: #fff; border-radius: 20px; " href=?controller=prof&action=addCompany>เสนอ</a><br><br>
-                    <p2>ตำแหน่งที่ไปฝึกงาน </p2><br><input type="text" name="JPosition"/><br><br>
-                    <p2>ระบุชื่อของผู้ที่จะให้ภาควิชาฯ ออกหนังสือขอความอนุเคราะห์ฝึกงาน</p2><br> <input type="text" name="JBossname"/><br><br>
-                    <p2>ระบุตำแหน่งของผู้ที่จะให้ภาควิชาฯ ออกหนังสือขอความอนุเคราะห์ฝึกงาน </p2><br><input type="text" name="JBossPosition"/><br><br>
-                    <p2>ชื่อผู้ประสานงาน</p2><br> <input type="text" name="JCoordinatorName"/><br><br>
-                    <p2>โทร </p2><br><input type="text" name="JCoordinatorTel"/><br><br>
-                    <p2>อีเมล </p2><br><input type="text" name="JCoordinatorEmail"/><br><br>
-                    <p2>ระยะการฝึกงานตั้งแต่วันที่ - ถึงวันที่ </p2><br><input type="date" style="background-color: #FEF5FF; border-radius: 30px; color: #440058; font-family: 'IBM Plex Sans Thai', sans-serif; padding: 8px; margin: 8px; width: 33.3%;" name="JStartDate" ><img src="./images/minus.png" style="width: 15px; height: 15px; margin: 10px; " ><input type="date" style="background-color: #FEF5FF; border-radius: 30px; color: #440058; font-family: 'IBM Plex Sans Thai', sans-serif; padding: 8px; width: 33.3%; margin: 8px;" name="JEndDate" ><br><br>
-                    <p2>จำนวนค่าตอบแทน (บาท/วัน หรือ บาท/เดือน) (หรือ ไม่มีค่าตอบแทน)</p2><br><input type="text" name="JPay"/><br><br>
-                    <p2>ที่พัก(มี/ไม่มี/อื่นๆ)</p2><br> <input type="text" name="JAccommodation"/><br><br>
-                    
-                    <div style="margin-left: 20%;">
-                    <input type="hidden" name="controller" value="student"/><br><br>
-                      <button type="submit" name="action" value="home">ย้อนกลับ</button>
-                      <button type="submit" name="action" value="addRequirement">ส่งคำร้อง</button>
-                    </div>
-                
-                  </form>
-                 
-                 
-              
-                
+                        }
+                        ?>
+                        </select><br>
+                        <p2><?php echo "เสนอสถานที่ฝึกงานใหม่";  ?></p2>
+                        <p2><input type="hidden" name="controller" value="student"/></p2>
+                        <a class="btn btn-default" style="background-color: #7000FF; color: #fff; border-radius: 20px; " href=?controller=prof&action=addCompany>เสนอ</a><br><br>
+                        <p2>ตำแหน่งที่ไปฝึกงาน </p2><br><input type="text" name="JPosition"/><br><br>
+                        <p2>ระบุชื่อของผู้ที่จะให้ภาควิชาฯ ออกหนังสือขอความอนุเคราะห์ฝึกงาน</p2><br> <input type="text" name="JBossname"/><br><br>
+                        <p2>ระบุตำแหน่งของผู้ที่จะให้ภาควิชาฯ ออกหนังสือขอความอนุเคราะห์ฝึกงาน </p2><br><input type="text" name="JBossPosition"/><br><br>
+                        <p2>ชื่อผู้ประสานงาน</p2><br> <input type="text" name="JCoordinatorName"/><br><br>
+                        <p2>โทร </p2><br><input type="text" name="JCoordinatorTel"/><br><br>
+                        <p2>อีเมล </p2><br><input type="text" name="JCoordinatorEmail"/><br><br>
+                        <p2>ระยะการฝึกงานตั้งแต่วันที่ - ถึงวันที่ </p2><br><input type="date" style="background-color: #FEF5FF; border-radius: 30px; color: #440058; font-family: 'IBM Plex Sans Thai', sans-serif; padding: 8px; margin: 8px; width: 33.3%;" name="JStartDate" ><img src="./images/minus.png" style="width: 15px; height: 15px; margin: 10px; " ><input type="date" style="background-color: #FEF5FF; border-radius: 30px; color: #440058; font-family: 'IBM Plex Sans Thai', sans-serif; padding: 8px; width: 33.3%; margin: 8px;" name="JEndDate" ><br><br>
+                        <p2>จำนวนค่าตอบแทน (บาท/วัน หรือ บาท/เดือน) (หรือ ไม่มีค่าตอบแทน)</p2><br><input type="text" name="JPay"/><br><br>
+                        <p2>ที่พัก(มี/ไม่มี/อื่นๆ)</p2><br> <input type="text" name="JAccommodation"/><br><br>
+                          
+
+
+                        <div style="margin-left: 20%;">
+                          <input type="hidden" name="controller" value="student"/><br><br>
+                          <button type="submit" name="action" value="home">ย้อนกลับ</button>
+                          <button type="submit" name="action" value="addRequirement">ส่งคำร้อง</button>
+                        </div>
+                      
+                    </form>
               </div>
               </div>
             </div> 
