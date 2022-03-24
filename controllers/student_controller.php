@@ -34,24 +34,24 @@
             settype($CID,"integer");
             $CID = $CID+1;
             
-            $CompanyName= $_GET['CompanyName']; 
-            $CAddress= $_GET['CAddress'];
-            $CStreet= $_GET['CStreet'];
-            $CTumbon= $_GET['id_amphure'];
-            $CType= $_GET['CType'];
-            $CPhone= $_GET['CPhone'];
-            $CFax= $_GET['CFax'];
-            $CManager= $_GET['CManager'];
-            $CMngPosition= $_GET['CMngPosition'];
-            $CCoordinator= $_GET['CCoordinator'];
-            $CCoorPosition= $_GET['CCoorPosition'];
-            $CCoorDepartment= $_GET['CCoorDepartment'];
-            $CCoorPhone= $_GET['CCoorPhone'];
-            $CCoorEmail= $_GET['CCoorEmail'];
-            $CRecivePostion= $_GET['CRecivePostion'];
-            $CJobDescription= $_GET['CJobDescription'];
-            $CNumber= $_GET['CNumber'];
-            $CSkillReq= $_GET['CSkillReq'];
+            $CompanyName= $_POST['CompanyName']; 
+            $CAddress= $_POST['CAddress'];
+            $CStreet= $_POST['CStreet'];
+            $CTumbon= $_POST['id_amphure'];
+            $CType= $_POST['CType'];
+            $CPhone= $_POST['CPhone'];
+            $CFax= $_POST['CFax'];
+            $CManager= $_POST['CManager'];
+            $CMngPosition= $_POST['CMngPosition'];
+            $CCoordinator= $_POST['CCoordinator'];
+            $CCoorPosition= $_POST['CCoorPosition'];
+            $CCoorDepartment= $_POST['CCoorDepartment'];
+            $CCoorPhone= $_POST['CCoorPhone'];
+            $CCoorEmail= $_POST['CCoorEmail'];
+            $CRecivePostion= $_POST['CRecivePostion'];
+            $CJobDescription= $_POST['CJobDescription'];
+            $CNumber= $_POST['CNumber'];
+            $CSkillReq= $_POST['CSkillReq'];
 
             echo $CID,$CompanyName, $CAddress,$CStreet, $CTumbon,$CType,$CPhone,$CFax,$CManager,$CMngPosition,$CCoordinator,$CCoorPosition,$CCoorDepartment,$CCoorPhone,$CCoorEmail,
             $CRecivePostion,$CJobDescription,$CNumber,$CSkillReq;
