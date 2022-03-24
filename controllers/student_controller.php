@@ -63,11 +63,11 @@
                 $JID = $J->JobID;
                 if($maxJobReqStuID < $JID ){
                     $maxJobReqStuID = $JID;
-                    echo $maxJobReqStuID;
+                    //echo $maxJobReqStuID;
                 }
 
             }
-            echo $maxJobReqStuID;
+            //echo $maxJobReqStuID;
             $JobRequirment = JobRequirment::getID($maxJobReqStuID);
             //echo is_null($student->approvedName);
             require_once("./views/student/status.php");
