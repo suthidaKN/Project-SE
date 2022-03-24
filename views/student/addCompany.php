@@ -240,9 +240,8 @@
 
 
                     <div style="margin-left: 20%;">
-                    <input type="hidden" name="controller" value="newRequirement"/><br><br>
                     <a class="btn btn-default" style="background-color: #9122F3; color: #fff; border-radius: 20px; font-family: 'IBM Plex Sans Thai', sans-serif; " href=?controller=student&action=newRequirement>ยกเลิก</a><br><br>
-                    <a class="btn btn-default" style="background-color: #9122F3; color: #fff; border-radius: 20px; font-family: 'IBM Plex Sans Thai', sans-serif; " href=?controller=student&action=addCompany></a>เสนอสถานที่ฝึกงานใหม่<br><br>                        
+                    <a class="btn btn-default" style="background-color: #9122F3; color: #fff; border-radius: 20px; font-family: 'IBM Plex Sans Thai', sans-serif; " href=?controller=student&action=addCompany>เสนอสถานที่ฝึกงานใหม่</a><br><br>                        
                     </div>
                 
                   </form>
