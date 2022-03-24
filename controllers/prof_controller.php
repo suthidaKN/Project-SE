@@ -5,6 +5,7 @@
             require_once("./views/Prof/homeProf.php");
         }     
         public function company() {
+            $CompanyList = Company::getAll();
             require_once("./views/Prof/companyProf.php");
         }
         public function request() {
@@ -30,6 +31,9 @@
             $JobRequirment = JobRequirment::getID($ID);
             require_once("./views/Prof/detail.php");
         }
+        public function newCompany(){
+            require_once("./views/prof/addCompany.php");
+        }
         public function approve(){
             $key = $_GET['key'];
             $ID = $_GET['ID'];
@@ -38,6 +42,16 @@
             $date = date('Y-m-d');
             JobRequirment::approve($ID,$key,$date);
             ProfController::request();
+        }
+        public function searchCompany(){
+            $key = $_GET['key'];
+            $CompanyList = Company::search($key);
+            require_once("./views/Prof/companyProf.php");
+        }
+        public function detailCompany(){
+            $key = $_GET['key'];
+            $com = Company::getID($key);
+            require_once("./views/prof/detailCompany.php");
         }
     }
 ?>

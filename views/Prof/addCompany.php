@@ -252,7 +252,7 @@
                     <div style="margin-left: 13.5%;">
                     <input type = "hidden" name = "doc" value = "student"/>
                     <input type = "hidden" name = "controller" value = "student"/>
-                    <a class="btn btn-default" style="background-color: #FF5959; color: #fff; border-radius: 20px; font-family: 'IBM Plex Sans Thai', sans-serif; " href=?controller=student&action=newRequirement>ยกเลิก</a>
+                    <a class="btn btn-default" style="background-color: #FF5959; color: #fff; border-radius: 20px; font-family: 'IBM Plex Sans Thai', sans-serif; " href=?controller=prof&action=company>ยกเลิก</a>
                     <button type="submit"  >เสนอสถานที่ฝึกงานใหม่</button><br><br>                        
                   </div>
                 
@@ -312,7 +312,7 @@ if (isset($_POST['doc'])) {
                           text: "",
                           type: "success"
                       }, function() {
-                          window.location = "indexLogin.php?controller=student&action=newRequirement"; //หน้าที่ต้องการให้กระโดดไป
+                          window.location = "indexLogin.php?controller=prof&action=company"; //หน้าที่ต้องการให้กระโดดไป
                       });
                     }, 100);
                 </script>';
@@ -323,7 +323,7 @@ if (isset($_POST['doc'])) {
                           title: "เกิดข้อผิดพลาด",
                           type: "error"
                       }, function() {
-                          window.location = "indexLogin.php?controller=student&action=newRequirement"; //หน้าที่ต้องการให้กระโดดไป
+                          window.location = "indexLogin.php?controller=prof&action=company"; //หน้าที่ต้องการให้กระโดดไป
                       });
                     }, 100);
                 </script>';

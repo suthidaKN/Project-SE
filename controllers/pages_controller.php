@@ -16,7 +16,13 @@
         }
         public function detailCompany(){
             $key = $_GET['key'];
+            $com = Company::getID($key);
             require_once("./views/pages/detailCompany.php");
+        }
+        public function searchCompany(){
+            $key = $_GET['key'];
+            $CompanyList = Company::search($key);
+            require_once("./views/pages/company.php");
         }
     }
 ?>

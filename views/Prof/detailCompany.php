@@ -116,7 +116,7 @@
               
                 <div class="column3">
                   <div class="box2">
-                    <a href=?controller=pages&action=company>
+                    <a href=?controller=prof&action=company>
                         <img src="./images/back-arrow.png" style="width: 40px; height: 40px;">
                     </a>
                   </div>

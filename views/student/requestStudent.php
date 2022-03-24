@@ -32,20 +32,21 @@
       }
   
       form.example button {
+          padding: 12px;
           width: 100px;
-          padding: 10px;
-          background: #9122F3;
+          background: #FF5959;
           color: white;
           border: none;
           font-size: 17px;
           border-left: none;
           cursor: pointer;
           border-radius: 20px;
+          font-family: 'IBM Plex Sans Thai', sans-serif;
       }
       
   
       form.example button:hover {
-          background: #950BDA;
+          background: #AD0000;
       }
   
       form.example::after {
@@ -299,7 +300,7 @@
                         <div style="margin-left: 20%;">
                           <input type="hidden" name="controller" value="student"/><br><br>
                           <button type="submit" name="action" value="home">ย้อนกลับ</button>
-                          <button type="submit"  class="btn btn-primary" >ส่งคำร้อง</button>
+                          <button type="submit" style="background-color: #01BD1A;">ส่งคำร้อง</button>
                         </div>
                       
                     </form>

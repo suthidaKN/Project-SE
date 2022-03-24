@@ -1,6 +1,6 @@
 <?php
 class Company{
-    public $CompansyID;
+    public $CompanyID;
     public $CompanyName;
     public $CAddress;
     public $CStreet;
@@ -52,6 +52,44 @@ class Company{
         $this->CSkillReq=$CSkillReq;
     
     }
+    public static function getID($ID){
+        require("./connection_connect.php");
+        $sql = "SELECT * FROM company 
+        LEFT JOIN amphures on amphures.amphure_id = company.CTumbon
+        LEFT JOIN provinces ON provinces.province_id = amphures.province_id
+        where company.CompanyID = '$ID'";
+        $result = $conn->query($sql);
+        $row=$result->fetch_assoc();
+            $CompanyID = $row['CompanyID'];
+            $CompanyName = $row['CompanyName']; 
+            $CTumbon = $row['CTumbon'];
+            $CAddress = $row['CAddress'];
+            $CStreet = $row['CStreet'];
+            $amphure_id = $row['amphure_id'];
+            $amphure_name_th = $row['amphure_name_th'];
+            $province_id = $row['province_id'];
+            $province_name_th = $row['province_name_th'];
+            $CType = $row['CType'];
+            $CPhone = $row['CPhone'];
+            $CFax = $row['CFax'];
+            $CManager = $row['CManager'];
+            $CMngPosition = $row['CMngPosition'];
+            $CCoordinator = $row['CCoordinator'];
+            $CCoorPosition = $row['CCoorPosition'];
+            $CCoorDepartment = $row['CCoorDepartment'];
+            $CCoorPhone = $row['CCoorPhone'];
+            $CCoorEmail = $row['CCoorEmail'];
+            $CRecivePostion = $row['CReceivePosition'];
+            $CJobDescription = $row['CJobDescription'];
+            $CNumber = $row['CNumber'];
+            $CSkillReq = $row['CSkillReq'];
+        
+            require("./connection_close.php");
+            return new Company($CompanyID,$CompanyName, $CAddress,$CStreet, $CTumbon,$amphure_id,$amphure_name_th,$province_id,
+            $province_name_th,$CType,$CPhone,$CFax,$CManager,$CMngPosition,$CCoordinator,$CCoorPosition,$CCoorDepartment,$CCoorPhone,$CCoorEmail,
+            $CRecivePostion,$CJobDescription,$CNumber,$CSkillReq);
+       
+    }
     public static function getAll(){
         $companyList=[];
         require("./connection_connect.php");
@@ -102,12 +140,13 @@ class Company{
         return $result;
         }
 
-        public static function search(){
+        public static function search($key){
             $companyList=[];
             require("./connection_connect.php");
             $sql = "SELECT * FROM company 
             LEFT JOIN amphures on amphures.amphure_id = company.CTumbon
-            LEFT JOIN provinces ON provinces.province_id = amphures.province_id";
+            LEFT JOIN provinces ON provinces.province_id = amphures.province_id
+            WHERE company.CompanyName LIKE '%$key%' or amphures.amphure_name_th LIKE '%$key%' or provinces.province_name_th LIKE '%$key%'";
             $result = $conn->query($sql);
             while($row=$result->fetch_assoc()){
                 $CompanyID = $row['CompanyID'];
@@ -150,6 +189,14 @@ class Company{
             $row = count($row);
             require("./connection_close.php");
             return $row;
+        }
+
+        public static function delete($ID){
+            require("./connection_connect.php");
+            $sql = "DELETE FROM company WHERE `company`.`CompanyID` = '$ID'";
+            $result = $conn->query($sql);
+            require("./connection_close.php");
+            return $result;
         }
 
 }

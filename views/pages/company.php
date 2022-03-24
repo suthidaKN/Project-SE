@@ -83,7 +83,7 @@ p4{
         <form method ="get" action="">
             <input type = "text" placeholder="Search..." name = "key" style="width:78%; border-radius: 50px;  padding: 10px; font-size: 17px; border: none; background: #FEF5FF;">
             <input type = "hidden" name = "controller" value = "pages"/>
-            <button type = "submit" name = "action" value = "search" style="width:20%; border-radius: 50px;  padding: 10px; background: #8a8a8a; color: white; border: none; font-size: 17px; border-left: none; cursor: pointer;">ค้นหา...</button>
+            <button type = "submit" name = "action" value = "searchCompany" style="width:20%; border-radius: 50px;  padding: 10px; background: #8a8a8a; color: white; border: none; font-size: 17px; border-left: none; cursor: pointer;">ค้นหา...</button>
         </form>
         </div>
         </div>
@@ -96,7 +96,7 @@ p4{
                 <p3>ที่อยู่</p3><p4><?php echo " : $company->CAddress $company->CStreet $company->amphure_name_th $company->province_name_th";?></p4><br>
                 <p3>จำนวนที่รับ</p3><p4><?php echo " : $company->CNumber";?></p4><br>
                 <div style="text-align: end;">
-                  <a href=?controller=pages&action=detailCompany&<?php echo "key=$company->CompansyID"?> style="background-color: #9F9C9C;color: white;padding: 8px 13px;text-align: center;text-decoration: none;display: inline-block;font-family: 'IBM Plex Sans Thai', sans-serif; border-radius: 30px;">รายละเอียด</a> 
+                  <a href=?controller=pages&action=detailCompany&<?php echo "key=$company->CompanyID"?> style="background-color: #9F9C9C;color: white;padding: 8px 13px;text-align: center;text-decoration: none;display: inline-block;font-family: 'IBM Plex Sans Thai', sans-serif; border-radius: 30px;">รายละเอียด</a> 
                 </div>
               </div> 
           </div>

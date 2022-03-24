@@ -13,7 +13,7 @@
 
     
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@200;400;500&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@500&family=Prompt:wght@200;400;500&display=swap');
     </style>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
@@ -63,20 +63,21 @@
       }
   
       form.example button {
-          width: 10%;
-          padding: 10px;
-          background: #093B18;
+          padding: 12px;
+          width: 100px;
+          background: #FF5959;
           color: white;
           border: none;
           font-size: 17px;
           border-left: none;
           cursor: pointer;
           border-radius: 20px;
+          font-family: 'IBM Plex Sans Thai', sans-serif;
       }
       
   
       form.example button:hover {
-          background: #950BDA;
+          background: #AD0000;
       }
   
       form.example::after {
@@ -146,23 +147,27 @@
       
             <div class="form-group">
             <br> <a class="btn btn-default" style="width: 10%;
-          padding: 10px;
-          background: #6C0000;
+          padding: 12px;
+          width: 100px;
+          background: #FF5959;
           color: white;
           border: none;
           font-size: 17px;
           border-left: none;
           cursor: pointer;
-          border-radius: 20px;" href="./index.php">ยกเลิก</a>
+          border-radius: 20px;
+          font-family: 'IBM Plex Sans Thai', sans-serif;" href="./index.php">ยกเลิก</a>
             <button type="submit" class="btn btn-default" style="width: 10%;
-          padding: 10px;
-          background: #006C68;
+           padding: 12px;
+          width: 100px;
+          background: #22CE00;
           color: white;
           border: none;
           font-size: 17px;
           border-left: none;
           cursor: pointer;
-          border-radius: 20px;" id="btn">
+          border-radius: 20px;
+          font-family: 'IBM Plex Sans Thai', sans-serif;" id="btn">
             <span class="glyphicon glyphicon-log-in"></span>
              เข้าสู่ระบบ </button></div>
                <label>
