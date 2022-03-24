@@ -39,7 +39,7 @@
             $CompanyName= $_GET['CompanyName']; 
             $CAddress= $_GET['CAddress'];
             $CStreet= $_GET['CStreet'];
-            $CTumbon= $_GET['CTumbon'];
+            $CTumbon= $_GET['id_amphure'];
             $CType= $_GET['CType'];
             $CPhone= $_GET['CPhone'];
             $CFax= $_GET['CFax'];
@@ -54,9 +54,10 @@
             $CJobDescription= $_GET['CJobDescription'];
             $CNumber= $_GET['CNumber'];
             $CSkillReq= $_GET['CSkillReq'];
-
-            Company::Add($CID,$CompanyName, $CAddress,$CStreet, $CTumbon,$CType,$CPhone,$CFax,$CManager,$CMngPosition,$CCoordinator,$CCoorPosition,$CCoorDepartment,$CCoorPhone,$CCoorEmail,
-            $CRecivePostion,$CJobDescription,$CNumber,$CSkillReq);
+            echo $CID,$CompanyName, $CAddress,$CStreet, $CTumbon,$CType,$CPhone,$CFax,$CManager,$CMngPosition,$CCoordinator,$CCoorPosition,$CCoorDepartment,$CCoorPhone,$CCoorEmail,
+            $CRecivePostion,$CJobDescription,$CNumber,$CSkillReq;
+            /*Company::Add($CID,$CompanyName, $CAddress,$CStreet, $CTumbon,$CType,$CPhone,$CFax,$CManager,$CMngPosition,$CCoordinator,$CCoorPosition,$CCoorDepartment,$CCoorPhone,$CCoorEmail,
+            $CRecivePostion,$CJobDescription,$CNumber,$CSkillReq);*/
             require_once("./views/student/requestStudent.php");
         
         }

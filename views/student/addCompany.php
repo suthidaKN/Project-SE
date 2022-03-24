@@ -202,11 +202,10 @@
                 
                 <form class="example" action="" method="GET">
                  
-                    <p2>ลำดับที่ </p2><br> <input type="text" name="CompayID"/><br><br>
-                    <p2>ชื่อสถานประกอบการ/หน่วยงาน </p2><br><input type="text" name="CompanyName"  value="<?php echo "$CompanyID"?>"/><br><br>
+                    <p2>ชื่อสถานประกอบการ/หน่วยงาน </p2><br><input type="text" name="CompanyName"/><br><br>
                     <p2>ประเภทธุรกิจ</p2><br> <input type="text" name="CType"/><br><br>
-                    <p2>ที่อยู่ </p2><br>
-                   
+                    <p2>ที่อยู่</p2><br> <input type="text" name="CAddress"/><br><br>
+                    <p2>ถนน</p2><br> <input type="text" name="CStreet"/><br><br>
 
                     <select name="PV_id" style="width: 75%;; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;" id="province">
                                     <option value=" " >-เลือกจังหวัด-</option>
