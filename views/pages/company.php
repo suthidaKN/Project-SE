@@ -70,32 +70,15 @@ p{
         </div>
         </div>
           
+        <?php foreach($CompanyList as $company) {?>
           <div class="column">
               <div class="box">
-                
+                <?php echo $company->cAddress ?>
               </div> 
           </div>
-          <div class="column">
-              <div class="box">
-              </div> 
+          <?php } ?>
           </div>  
-          <div class="column">
-              <div class="box">
-                
-              </div> 
-          </div>  
-          <div class="column">
-              <div class="box">
-                
-              </div> 
-          </div>  
-          <div class="column">
-              <div class="box">
-                
-              </div> 
-          </div>  
+          <br><br><br><br><br>
          </div>
-         <br><br><br>
-</div>
 </body>
 </html>

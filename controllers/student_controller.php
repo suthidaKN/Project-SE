@@ -22,7 +22,6 @@
             $JID = $JID+1;
             //echo $maxJobReqStuID;
             $student = JobRequirment::getID($maxJobReqStuID);
-            $JobRequirmentList=JobRequirment::getAll();
             $JobRequirmentList=JobRequirment::getCompany();
             require_once("./views/student/requestStudent.php");
         }

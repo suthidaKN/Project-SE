@@ -135,7 +135,7 @@
         margin-left: 160px;
         margin-right: 160px;
         margin-top: 10px;
-        height: 2200px;
+        height: 2250px;
         border-radius: 50px;
         padding: 30px;
         
@@ -293,7 +293,7 @@
                         
                         <input type="hidden" name="doc_name" value="<?php echo $JID; ?>" required class="form-control" placeholder="ID jobrequirment"> <br>
                          <font color="red">*อัพโหลดได้เฉพาะ .pdf เท่านั้น </font><br>
-                        <input type="file" name="doc_file" required   class="form-control" accept="application/pdf"> <br><br>
+                        <input type="file" name="doc_file" required  style="width: 75%; border-radius: 20px;" class="form-control" accept="application/pdf"> <br><br>
                        
 
                         <div style="margin-left: 20%;">
