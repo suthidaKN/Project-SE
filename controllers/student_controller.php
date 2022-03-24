@@ -18,9 +18,6 @@
                 }
 
             }
-            $CID = JobRequirment::sentCountAll();
-            settype($CID,"integer");
-            $CID = $CID+1;
             $company = Company::getAll();
             //echo $maxJobReqStuID;
             $student = JobRequirment::getID($maxJobReqStuID);
@@ -58,9 +55,10 @@
 
             echo $CID,$CompanyName, $CAddress,$CStreet, $CTumbon,$CType,$CPhone,$CFax,$CManager,$CMngPosition,$CCoordinator,$CCoorPosition,$CCoorDepartment,$CCoorPhone,$CCoorEmail,
             $CRecivePostion,$CJobDescription,$CNumber,$CSkillReq;
-            /*Company::Add($CID,$CompanyName, $CAddress,$CStreet, $CTumbon,$CType,$CPhone,$CFax,$CManager,$CMngPosition,$CCoordinator,$CCoorPosition,$CCoorDepartment,$CCoorPhone,$CCoorEmail,
-            $CRecivePostion,$CJobDescription,$CNumber,$CSkillReq);*/
+            Company::Add($CID,$CompanyName, $CAddress,$CStreet, $CTumbon,$CType,$CPhone,$CFax,$CManager,$CMngPosition,$CCoordinator,$CCoorPosition,$CCoorDepartment,$CCoorPhone,$CCoorEmail,
+            $CRecivePostion,$CJobDescription,$CNumber,$CSkillReq);
             StudentController::newRequirement();
+            
         
         }
         public function checkStatus(){

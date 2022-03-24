@@ -42,12 +42,13 @@
           background: #FEF5FF;
           border-radius: 30px;
           color: #58006E;
+          font-family: 'IBM Plex Sans Thai', sans-serif;
         
       }
   
       form.example button {
-          width: 100px;
-          padding: 10px;
+          padding: 6px;
+          width: 200px;
           background: #9122F3;
           color: white;
           border: none;
@@ -55,6 +56,7 @@
           border-left: none;
           cursor: pointer;
           border-radius: 20px;
+          font-family: 'IBM Plex Sans Thai', sans-serif;
       }
       
   
@@ -207,7 +209,7 @@
                     <p2>ที่อยู่</p2><br> <input type="text" name="CAddress"/><br><br>
                     <p2>ถนน</p2><br> <input type="text" name="CStreet"/><br><br>
 
-                    <select name="PV_id" style="width: 75%;; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;" id="province">
+                    <select name="PV_id" style="width: 75%;; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px; font-family: 'IBM Plex Sans Thai', sans-serif;" id="province">
                                     <option value=" " >-เลือกจังหวัด-</option>
                                     <?php
                                         require("./connection_connect.php");
@@ -219,7 +221,7 @@
                                     <?php } ?>        
                                 </select>
                                 <br><br>
-                                <select name="id_amphure" style="width: 75%;; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;" id="district">
+                                <select name="id_amphure" style="width: 75%;; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px; font-family: 'IBM Plex Sans Thai', sans-serif;" id="district">
                                     <option value=" ">-เลือกอำเภอ-</option>
                                 </select><br><br>
                
