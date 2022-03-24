@@ -90,7 +90,7 @@ class Company{
             $CCoorEmail = $row['CCoorEmail'];
             $CRecivePostion = $row['CRecivePostion'];
             $CJobDescription = $row['CJobDescription'];
-            $CNumber = $row['CNumbe'];
+            $CNumber = $row['CNumber'];
             $CSkillReq = $row['CSkillReq'];
         
 
@@ -109,7 +109,7 @@ class Company{
          `CCoorDepartment`, `CCoorPhone`, `CCoorEmail`, `CReceivePosition`, `CJobDescription`,
           `CNumber`, `CSkillReq`) VALUES ('$CompanyID', '$CompanyName', '$CAddress', $CStreet, 
           '$CTumbon', '$CType', '$CPhone', '$CFax', '$CManager', '$CMngPosition', '$CCoordinator', '$CCoorPosition', '$CCoorDepartment',
-           '$CCoorPhone', '$CCoorPhone', '$CCoorEmail', '$CRecivePostion', '$CJobDescription', '$CNumber')
+           '$CCoorPhone', '$CCoorEmail', '$CRecivePostion', '$CJobDescription', '$CNumber','$CSkillReq')
         ";
         $result = $conn->query($sql);
         while($row=$result->fetch_assoc()){
