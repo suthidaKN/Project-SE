@@ -54,6 +54,7 @@
             $CJobDescription= $_GET['CJobDescription'];
             $CNumber= $_GET['CNumber'];
             $CSkillReq= $_GET['CSkillReq'];
+            
             echo $CID,$CompanyName, $CAddress,$CStreet, $CTumbon,$CType,$CPhone,$CFax,$CManager,$CMngPosition,$CCoordinator,$CCoorPosition,$CCoorDepartment,$CCoorPhone,$CCoorEmail,
             $CRecivePostion,$CJobDescription,$CNumber,$CSkillReq;
             /*Company::Add($CID,$CompanyName, $CAddress,$CStreet, $CTumbon,$CType,$CPhone,$CFax,$CManager,$CMngPosition,$CCoordinator,$CCoorPosition,$CCoorDepartment,$CCoorPhone,$CCoorEmail,
