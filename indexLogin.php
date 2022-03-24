@@ -121,7 +121,7 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
         ?>
     </ul>
     <div style="margin-left:15%;">
-            <?php echo "controller = ".$controller.", action = ".$action;?>
+            
             <?php require_once("./routes.php");?>
         
             

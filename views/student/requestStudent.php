@@ -275,7 +275,7 @@
                         <p2>เลือกสถานฝึกงานที่ภาควิชามีอยู่แล้ว</p2> <select name="JCompany" class="form-control form-control-lg" style="width: 75%; border-radius: 20px; padding: 10px; background: #FEF5FF; color:#58006E; font-size: 17px;">
                         <?php foreach($company  as $com)
                         {
-                          echo "<option value=$com->CompansyID > $com->CompanyName </option>";
+                          echo "<option value=$com->CompanyID > $com->CompanyName </option>";
                         }
                         ?>
                         </select><br>
@@ -335,7 +335,7 @@ if (isset($_POST['doc_name'])) {
       }
 
   }
-  echo $maxJobReqStuID;
+  echo "max = $maxJobReqStuID";
   $JID = JobRequirment::sentCountAll();
   settype($JID,"integer");
   $JID = $JID+1;
@@ -357,6 +357,7 @@ if (isset($_POST['doc_name'])) {
   $JPay = $_POST['JPay'];
   $JAccommodation = $_POST['JAccommodation'];
   JobRequirment::Add($JID,$Jtype,$date,$JStu,$JPosition,$JBossname,$JBossPosition,$JCompany,$JCoordinatorName,$JCoordinatorTel,$JCoordinatorEmail, $JStartDate,$JEndDate,$JPay,$JAccommodation);
+  echo "$JID,$Jtype,$date,$JStu,$JPosition,$JBossname,$JBossPosition,$JCompany,$JCoordinatorName,$JCoordinatorTel,$JCoordinatorEmail, $JStartDate,$JEndDate,$JPay,$JAccommodation";
   $student = JobRequirment::getID($maxJobReqStuID);
 
     require_once 'connect.php';

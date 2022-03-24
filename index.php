@@ -56,12 +56,7 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
       </div>
   </div>
 </nav>
-   
-<div style="background-color: #04FFC4; text-align: center;" class="text-light">
-
-            <?php echo "controller = ".$controller.", action = ".$action;?>
-
-            </div>
+ 
             <?php require_once("./routes.php");?>
         
             <footer class="text-center text-lg-start text-light"style="background-color: #9933ff">
