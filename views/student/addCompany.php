@@ -135,7 +135,7 @@
         height: 1900px;
         border-radius: 50px;
         padding: 30px;
-        text-align: center;
+        
         
     }
     .row1:after {
