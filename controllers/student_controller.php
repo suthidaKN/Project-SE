@@ -25,8 +25,12 @@
             $JobRequirmentList=JobRequirment::getCompany();
             require_once("./views/student/requestStudent.php");
         }
-
+        public function newCompany(){
+            require_once("./views/student/addCompany.php");
+        }
+        
         public function addCompany(){
+            
             $CompanyID= $_GET['CompanyID'];
             $CompanyName= $_GET['CompanyName']; 
             $CAddress= $_GET['CAddress'];
@@ -49,7 +53,7 @@
 
             Company::Add($CompanyID,$CompanyName, $CAddress,$CStreet, $CTumbon,$CType,$CPhone,$CFax,$CManager,$CMngPosition,$CCoordinator,$CCoorPosition,$CCoorDepartment,$CCoorPhone,$CCoorEmail,
             $CRecivePostion,$CJobDescription,$CNumber,$CSkillReq);
-            require_once("./views/student/addCompany.php");
+            require_once("./views/student/requestStudent.php");
         
         }
         public function checkStatus(){

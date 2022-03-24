@@ -292,7 +292,6 @@
               </div>
               </div>
             </div> 
-            <?php } ?>
             <br><br><br><br><br><br>
             </div>
           </div>

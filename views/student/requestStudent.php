@@ -280,7 +280,7 @@
                         </select><br>
                         <p2><?php echo "เสนอสถานที่ฝึกงานใหม่";  ?></p2>
                         <p2><input type="hidden" name="controller" value="student"/></p2>
-                        <a class="btn btn-default" style="background-color: #7000FF; color: #fff; border-radius: 20px; " href=?controller=student&action=addCompany>เสนอ</a><br><br>
+                        <a class="btn btn-default" style="background-color: #7000FF; color: #fff; border-radius: 20px; " href=?controller=student&action=newCompany>เสนอ</a><br><br>
                         <p2>ตำแหน่งที่ไปฝึกงาน </p2><br><input type="text" name="JPosition"/><br><br>
                         <p2>ระบุชื่อของผู้ที่จะให้ภาควิชาฯ ออกหนังสือขอความอนุเคราะห์ฝึกงาน</p2><br> <input type="text" name="JBossname"/><br><br>
                         <p2>ระบุตำแหน่งของผู้ที่จะให้ภาควิชาฯ ออกหนังสือขอความอนุเคราะห์ฝึกงาน </p2><br><input type="text" name="JBossPosition"/><br><br>
