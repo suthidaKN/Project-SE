@@ -337,9 +337,7 @@ if (isset($_POST['doc_name'])) {
       }
 
   }
-  $JID = JobRequirment::sentCountAll();
-  settype($JID,"integer");
-  $JID = $JID+1;
+  $JID = $_POST['doc_name'];
   $Jtype = $_POST['Jtype'];
   date_default_timezone_set('asia/bangkok');
   $date = date('Y-m-d');
