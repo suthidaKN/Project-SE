@@ -238,7 +238,9 @@ class JobRequirment{
         LEFT JOIN amphures on amphures.amphure_id = company.CTumbon
         LEFT JOIN provinces ON provinces.province_id = amphures.province_id
         LEFT JOIN tbl_pdf on tbl_pdf.doc_name = jobrequirment.JID
-        WHERE students.stuFN like '%$key%'
+        WHERE students.stuFN like '%$key%' 
+        or jobtype.JobTypeName like '%$key%'
+        or students.stuID like '%$key%'
         or appproved.aName like '$key'
         or company.CompanyName like '%$key%'
         or students.stuYear like '%$key%'
