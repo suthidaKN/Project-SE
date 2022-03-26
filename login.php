@@ -116,11 +116,7 @@
    
 
       <div style="background-image: linear-gradient(#91FFE5,#CB8DF5);background-repeat: no-repeat; background-size: 100% 80%px;">
-      <div style="background-color: #04FFC4; text-align: center;" class="text-light">
-      <?php
-            echo "file:Login ";
-        ?>
-      </div>
+     
     <div style="height: 800px;">
       
         <div style="text-align: center;">
